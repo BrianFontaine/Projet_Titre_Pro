@@ -1,0 +1,19 @@
+
+{
+    "name": "Brian/projet-web-fin-de-cursus",
+    "type": "project",
+    "require": {
+        "php": "7.3.*",
+        "google/recaptcha": "^1.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Fontaine",
+            "email": "briandeveloppeurweb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "": "src/" }
+    }
+}

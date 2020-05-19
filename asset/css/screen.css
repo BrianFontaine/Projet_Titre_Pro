@@ -1,0 +1,313 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+body
+{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+/* iphone 5 samsugn s5 */
+@media (max-width: 360px) {
+    .bg
+    {
+        grid-column-start: 1;
+        grid-column-end: 13;
+        background-color: black;
+        grid-row: 2/11;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 70px;
+        margin-bottom: 10px;
+    }
+    h1,.hiddenmobil
+    {
+        visibility: hidden;
+        display: none; 
+    }
+    .g-recaptcha
+    {
+    margin-left: -19% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: -19% !important;
+    }
+    
+}
+
+/* ecrant iphone  6/7/8 */
+@media (min-width: 360px) {
+    .bg
+    {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        background-color: black;
+        grid-row: 2/11;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 100px;
+    }
+    .g-recaptcha
+    {
+    margin-left: -19% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: -19% !important;
+    } 
+}
+
+@media (min-width: 414px) {
+    .bg
+    {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        background-color: black;
+        grid-row: 2/11;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 100px;
+    }
+    .g-recaptcha
+    {
+    margin-left: -10% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: -10% !important;
+    } 
+}
+
+@media (min-width: 900px) {
+    .bg
+    {
+        grid-column-start: 3;
+        grid-column-end: 11;
+        background-color: black;
+        grid-row: 2/10;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 150px;
+    }
+    
+  }
+@media (min-width: 768px) {
+    .bg
+    {
+        grid-column-start: 3;
+        grid-column-end: 11;
+        background-color: black;
+        grid-row: 3/8;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 200px;
+    }
+    .g-recaptcha
+    {
+    margin-left: 10% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: 10% !important;
+    }
+  }
+
+@media (min-width: 800px) 
+{
+    .bg
+    {
+        grid-column-start: 3;
+        grid-column-end: 11;
+        background-color: black;
+        grid-row: 2/9;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 150px;
+    }
+    .g-recaptcha
+    {
+    margin-left: 10% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: 10% !important;
+    }
+}
+
+/* ecrant mac */
+@media (min-width: 1400px) 
+ {
+    .bg
+    {
+        grid-column-start: 4;
+        grid-column-end: 10;
+        background-color: black;
+        grid-row: 2/9;
+        border-radius: 30px;  
+    }
+    .g-recaptcha
+    {
+    margin-left: 19% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: 19% !important;
+    }
+}
+
+/* ecrant 1280/ 720p  */
+@media (min-width: 1280px) {
+    .bg
+    {
+        grid-column-start: 4;
+        grid-column-end: 10;
+        background-color: black;
+        grid-row: 2/9;
+        border-radius: 30px;  
+    }
+    .btn-light
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+    img
+    {
+        width: 200px;
+    }
+    .g-recaptcha
+    {
+    margin-left: 19% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: 19% !important;
+    }
+  }
+
+/* ecrant pc clasic */
+@media (min-width: 1900px) 
+{
+    .bg
+    {
+        grid-column-start: 4;
+        grid-column-end: 10;
+        background-color: black;
+        grid-row: 2/9;
+        border-radius: 30px;  
+    }
+    img
+    {
+        width: 150px;
+    }
+    .g-recaptcha
+    {
+    margin-left: 28% !important;
+    }
+    .error
+    {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(128, 87, 87, 0.4);
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: -20px;
+    margin-left: 28% !important;
+    }
+}
