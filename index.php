@@ -1,5 +1,6 @@
 
 <?php
+$bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', '');
 // verify captcha --------------------------------------
 require('vendor/autoload.php');
 if(isset($_POST['submit_post'])) 
@@ -12,7 +13,7 @@ if(isset($_POST['submit_post']))
         if ($resp->isSuccess()) 
         {
             #Redirection ver profil.php
-            header('Location: profil.php'); 
+            header('Location: profil.html');
         }
         else 
         {
@@ -24,7 +25,7 @@ if(isset($_POST['submit_post']))
     else 
     {
         #quand le captcha n'est pas remplie!
-        $errors = 'Captcha non rempli';
+        $errors = 'Captcha non rempli'; 
     }
 }
 // --------------------------------------------------
@@ -39,6 +40,7 @@ if(isset($_POST['submit_post']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceBrico - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="asset/libs/css/animations-extended.min.css">
     <link rel="stylesheet" href="asset/libs/css/bootstrap-grid.css">
     <link rel="stylesheet" href="asset/libs/css/bootstrap.css">
     <link rel="stylesheet" href="asset/libs/css/fontawesome.css">
@@ -49,7 +51,7 @@ if(isset($_POST['submit_post']))
 <body>
     <h1 id="beta">(Bêta)</h1>
     <header class="d-flex justify-content-center">
-        <a href="http://127.0.0.1"><img class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a>
+        <a href="http://127.0.0.1"><img class="ml-50 infinite" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
@@ -79,7 +81,7 @@ if(isset($_POST['submit_post']))
                 <p class="error"><?= !empty($errors) ? $errors : '' ?></p>
 
                 <!-- Sign in button -->
-                <button class="btn btn-info btn-block my-4" type="submit" name="submit_post">Se connecter</button>
+                <button class="btn btn-info btn-block my-4" type="submit" name="submit_post" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
 
                  <!-- Social login -->
                  

@@ -46,7 +46,7 @@ p
 {
     margin: auto;
     border: 2px solid red;
-    width: 80%;
+    width: 50%;
 
 }
 div
@@ -54,6 +54,6 @@ div
     width: 100%;
     background-color: rgb(160, 160, 160);
     margin-top: 90px; 
-    border: 3px solid black;
     height: 500px;
 }
+
