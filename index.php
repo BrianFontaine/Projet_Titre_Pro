@@ -1,6 +1,5 @@
-
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', '');
+// $bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', '');
 // verify captcha --------------------------------------
 require('vendor/autoload.php');
 if(isset($_POST['submit_post'])) 
@@ -13,7 +12,8 @@ if(isset($_POST['submit_post']))
         if ($resp->isSuccess()) 
         {
             #Redirection ver profil.php
-            header('Location: profil.html');
+            header('location: profil.php');
+            exit();
         }
         else 
         {
@@ -55,7 +55,7 @@ if(isset($_POST['submit_post']))
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
-            <form class="text-center text-white " action="" method="POST">
+            <form class="text-center text-white " action="index.php" method="POST">
                 <p class="h4 mb-4 text-dark">Se connecter</p>
                 <!-- Email -->
                 <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
