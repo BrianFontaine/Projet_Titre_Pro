@@ -1,46 +1,112 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil de Fontaine Brian</title>
-    <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Stencil+One&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="asset/libs/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="asset/libs/css/bootstrap.css">
-    <link rel="stylesheet" href="asset/libs/css/fontawesome.css">
-    <link rel="stylesheet" href="asset/css/profil.css">
-
-</head>
+<?php
+    $firstName = 'Fontaine';
+    $lastName = 'Brian';
+    $age = '22 Ans';
+    $city = 'Abbeville';
+    $job = 'Développeur web junior';
+    $situation = 'Fiancé';
+    $school = 'La Manu';
+    $title = 'Profil de'.' '.$firstName.' '.$lastName;
+    include 'header.php';
+?>
 <body>
     <header>
-        <a id="title" href="">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
-        <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
-        <nav>
-            <ul>
-                <li><a href=""><i class="fas fa-search"></i></a></li>
-                <li><a href=""><i class="fas fa-user-friends"></i></a></li>
-                <li><a href=""><i class="fas fa-comments"></i></a></li>
-                <li><a href=""><i class="fas fa-bell"></i></a></li>
-                <li><a href="reglage.html"><i class="fas fa-cogs"></i></a></li>
-            </ul>
-        </nav>
-    </header>
+        <?php 
+            include 'navbar.php';
+        ?>
     <main>
-        <div class="row d-flex justify-content-center">
-        <div id="col-left" class="col-lg-3 bg-grey bg-danger mr-2 ">
-           
+        <div id="contenue" class="row d-flex justify-content-center">
+            <p class="actu">
+                <div class="actu-users">
+                    <div class="header-actu">
+                        <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
+                        <h5 class="title-users-actu" ><?= $firstName.' '.$lastName; ?></h5>
+                        <p class="note" >Note :</p>
+                        <p class="element-requied" >Element restant :</p>
+                    </div>
+                    <div class="article">
+                        <p>articles</p>
+                    </div>
+                    <div class="row social d-flex justify-content-center"> 
+                        <a href="" class="text-primary">J'aime</a>
+                        <a href="" class="text-danger">Je n'aime pas</a>
+                        <a href="" class="text-dark">Commentaire</a>
+                        <a href="" class="text-dark">Parttager</a>
+                    </div>
+                </div>
+            </p>
+            <p class="actu">
+                <div class="actu-users">
+                    <div class="header-actu">
+                        <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
+                        <h5 class="title-users-actu" >Fontaine Brian</h5>
+                        <p class="note" >Note :</p>
+                        <p class="element-requied" >Element restant :</p>
+                    </div>
+                    <div class="article">
+                        <p>articles</p>
+                    </div>
+                    <div class="row social d-flex justify-content-center"> 
+                        <a href="" class="text-primary">J'aime</a>
+                        <a href="" class="text-danger">Je n'aime pas</a>
+                        <a href="" class="text-dark">Commentaire</a>
+                        <a href="" class="text-dark">Parttager</a>
+                    </div>
+                </div>
+            </p>
+            </div>
+            <div id="col-left" class="">
+                <div class="user-profil">
+                    <img class="user_img" src="asset/img/3275434.jpg" alt="">
+                    <a class="user-name text-center h2" href=""><?= $firstName.' '.$lastName; ?></a>
+                    <p class="h4 user-age w-100"><?= $age; ?></p>
+                    <div class="user-infos">
+                        <h3 class="text-center text-uppercase title-infos">Infos</h3>
+                        <p>Ville : <?= $city; ?></p>
+                        <p>Travail : <?= $job; ?></p>
+                        <p>Etude : <?= $school; ?></p>
+                        <p>Situation : <?= $situation; ?></p>
+                    </div>
+                    <div class="friends">
+                        <h3 class=" text-center text-uppercase title-infos">Amis</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="friends">
+                        <h3 class=" text-center text-uppercase title-infos">Photo</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div class="friends">
+                        <h3 class=" text-center text-uppercase title-infos">Centre d'interé</h3>
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="col-right" class="col-lg-3">
+                <h3 class="title-slide">Amis connecté</h3>
+                <div class="center row">
+                    <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+                    <h6 id="users-name-connect">Fontaine brian</h6>
+                    <div class="color-connect"></div>
+                </div>
+                <div class="center row">
+                    <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+                    <h6 id="users-name-connect">Fontaine brian</h6>
+                    <div class="color-disconnect"></div>
+                </div>
+                <div class="center row">
+                    <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+                    <h6 id="users-name-connect">Fontaine brian</h6>
+                    <div class="do_not_disturb"><i class="fas fa-moon"></i></div>
+                </div>
+            </div>
         </div>
-        <div id="col-left" class="col-lg-3 bg-grey bg-danger mr-2">
-           
-        </div>
-        <div id="col-left" class="col-lg-3 bg-grey bg-danger">
-           
-        </div>
-    </div>
     </main>
+    <footer>
 
-    <script src="https://kit.fontawesome.com/b3f34b62ee.js" crossorigin="anonymous"></script>
-    
+    </footer>
+    <?php 
+        include 'footer.php';
+    ?>
 </body>
+
 </html>

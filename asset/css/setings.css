@@ -1,0 +1,57 @@
+/* font de coulaure de la div qui contien le formulaire  */
+#setings
+{
+    margin-top: 120px;
+    margin-left: 90px;
+    width: 80%;
+    padding-right: 3%;
+    padding-bottom: 2%;
+    background: #a9f3f88c;
+    border-radius: 25px;
+}
+/* Titre de la page paramettre  */
+#setings h1
+{
+    padding-right: 5%;
+    /* background: #3B8796; */
+    padding: 20px;
+    color: black;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+/* marge a gauche du formulaire de 35px */
+#setings form
+{
+    margin-left: 35px;
+}
+
+/* titre des section de parametrage  */
+#setings h3
+{
+    margin-left: 7px;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+/* image users-setings */
+/* image d'entete du formulaire de parametre */
+.users-setings-img
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-top: -80px;
+    margin-left: 90%;
+}
+/* div qui contient le formulaire de parametre  */
+#containt
+{
+    text-align: center;
+    left: 3%;
+    width: 90%;
+    margin-top: 0px;
+    height: 90%;
+    position: fixed;
+    overflow-y: scroll;
+}

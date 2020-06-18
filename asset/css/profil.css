@@ -3,14 +3,22 @@ body
     margin: 0;
     padding: 0;
     font-family: 'Niramit', sans-serif;
+    background-image: url(../img/1440X900_25pct.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* overflow-x: hidden; */
+    
 }
+/* --------------------------------- */
+/* Barre de Navigations------------ */
 header
 {
     position: fixed;
     width: 100%;
     z-index: 2;
-    margin-top: -90px;
-    background-color: rgb(70, 70, 70);
+    margin-top: 0px;
+    background-color:#3B8796;
     height: 90px;
     font-size: large;
 
@@ -42,18 +50,294 @@ a,ul
     color: whitesmoke;
 
 }
-p
+.user-nav
 {
-    margin: auto;
-    border: 2px solid red;
-    width: 50%;
-
+    margin-top: -15px;
 }
-div
+.search
+{
+    background-color: white;
+    color: black;
+    padding: 6px;
+    border-radius: 0px 25px 25px 0px;
+    box-shadow: black;
+}
+/* ----------------------------- */
+#contenue
+{
+    text-align: center;
+    left: 27%;
+    width: 50%;
+    margin-top: 90px;
+    height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    padding-bottom: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+/* colonne de droite------------- */
+#col-right
+{
+    width: 20%;
+    right: 0px;
+    margin-top: 90px;
+    position: fixed;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #a9f3f88c;
+}
+
+.center
 {
     width: 100%;
-    background-color: rgb(160, 160, 160);
-    margin-top: 90px; 
-    height: 500px;
+    height: 50px;
+    background-color: wheat;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 50px !important;
+    margin-bottom: -40px;
+}
+.users-conect
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.color-connect
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    margin-top: 19px;
+    margin-left: 62px;
+}
+.color-disconnect
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: 19px;
+    margin-left: 62px;
+}
+.do_not_disturb
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    color: orange;
+    /* background-color: black; */
+    font-size: 10px;
+    margin-top: 18px;
+    margin-left: 62px;
+}
+#users-name-connect
+{
+    margin-top: 12px;
+    margin-left: 10px;
+    font-size: 1em;
+}
+/* colone de Gauche --------------- */
+#col-left
+{
+    margin-top: 90px;
+    overflow-y: scroll;
+    height: 100%;
+    width: 21%;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 50px;
+    left: 0;
+    position: fixed;
+    padding-bottom: 5%;
+}
+.actu
+{
+    margin-top: 0;
+    margin-left: 20%;
+    margin-right: 35%;
+    margin-bottom: 25px;  
 }
 
+.user_img
+{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 10%;
+}
+.user-name
+{
+    margin-top: -10px;
+    width: 347px;
+    margin-left: -50px;
+    box-shadow: 0px 5px 5px black;
+    color: black;
+    background: url(../img/120X80_72dpi.png);
+    background-size: contain;
+    transform: rotate(-12deg);
+    padding: 5px;
+    font-family: 'Fredericka the Great', cursive;
+}
+.user-age
+{
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 5px 5px black;
+    color: black;
+    background: url(../img/120X80_72dpi.png);
+    background-size: contain;
+    padding: 5px;
+    font-family: 'Fredericka the Great', cursive;
+}
+.user-name:hover
+{
+    text-decoration: none;
+    color: grey;
+}
+.user-infos
+{
+    border-radius: 10px 10px 10px 10px;
+    margin: auto;
+    margin-top: 35px;
+    width: 90%;
+    line-height: 1em;
+    height: auto;
+    text-align: start;
+    font-size: 1em;
+    color: black;
+    box-shadow: 0px 5px 5px black;
+    /* background-color: yellowgreen; */
+    /* background: url(../img/65255.jpg); */
+    background-color: #a9f3f88c;
+    padding-left: 1em;
+    background-size: cover;
+    font-family: 'Fredericka the Great', cursive;
+    padding-bottom: 2%;
+}
+.title-infos
+{
+    border-radius: 10px 10px 0px 0px;
+    font-size: 1em;
+    background-color:transparent;
+    padding: 3px;
+}
+
+.friends
+{
+    margin: auto;
+    margin-top: 30px;
+    width: 90%;
+    line-height: 1em;
+    height: 180px;
+    text-align: start;
+    font-size: 1em;
+    color: black;
+    box-shadow: 0px 5px 5px black;
+    /* background-color: yellowgreen; */
+    /* background: url(../img/65255.jpg); */
+    background-color: #a9f3f88c;
+    font-family: 'Fredericka the Great', cursive;
+    background-size: cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.title-slide
+{
+
+    text-align: center;
+    position: fixed;
+    background-color: grey;
+    box-shadow: 0px 5px 5px black;
+    width: 20%;
+    right: 0px;
+    margin-top: 0;
+    position: fixed;
+    height: 40px;
+    overflow-x: hidden;
+
+}
+/* ------------------------------------ */
+/* fils dacrualiter */
+.actu-users
+{
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
+    background-color: honeydew;
+    box-shadow: 0px 5px 5px black;
+}
+.image-user-actus
+{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 528px;
+}
+.title-users-actu
+{
+    width: 200px;
+    margin-bottom: 0;
+}
+
+.note
+{
+    margin-bottom: 23px;
+    margin-top: -20px;
+}
+
+.element-requied
+{
+    width: 90%;
+    HEIGHT: 80px;
+    /* background: bisque; */
+    border: 1px solid rgb(49, 48, 48);
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.article
+{
+    WIDTH: 90%;
+    text-align: start;
+    height: 152px;
+    /* background: blue; */
+    border: 1px solid rgb(49, 48, 48);
+    margin: auto;
+}
+
+.user-profil
+{
+    margin-top: 90px;
+}
+/* ------------------------------------ */
+/* Foooter---------------------------- */
+footer
+{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    height: 50px;
+    background-color: cadetblue;
+    width: 100%;
+    z-index: 2;
+}
+
+footer a
+{
+    margin-bottom: 25px;
+}
+
+a:hover
+{
+    color: rgb(48, 46, 46);
+    text-decoration: none;
+}

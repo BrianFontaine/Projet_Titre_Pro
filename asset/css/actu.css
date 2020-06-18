@@ -1,0 +1,20 @@
+#contenue-actu
+{
+    text-align: center;
+    width: 80%;
+    margin-top: 90px;
+    height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    padding-bottom: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#contenue-actu h5
+{
+    margin-left: 20px;
+}
+#contenue-actu img 
+{
+    margin-right: 900px;
+}
