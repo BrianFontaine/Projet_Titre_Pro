@@ -4,8 +4,8 @@
     <nav>
         <ul>
             <li><a href="profil.php"><img class="user-nav users-conect" src="asset/img/65255.jpg" alt=""></a></li>
-            <li><input class="inputsearch" type="search" name="serach" style="margin-top: 27px;margin-right:0px;border-radius:25px 0px 0px 25px;"></li>
-            <li><a href="" type="button" class="search" id="serach"><i id="i" class="fas fa-search"></i></a></li>
+            <li><input class="inputsearch" type="search" name="serach" id="inputsearch" style="margin-top: 27px;margin-right:0px;border-radius:25px 0px 0px 25px;"></li>
+            <li><a href="#" type="button" class="search" id="search"><i id="i" class="fas fa-search"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-friends"><i class="fas fa-user-friends"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-message"><i class="fas fa-comments"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-notify"><i

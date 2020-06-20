@@ -1,3 +1,7 @@
+#inputsearch[type="search"]:focus
+{
+    outline-offset: 2px solid black !important;
+}
 #contenue-actu
 {
     text-align: center;
