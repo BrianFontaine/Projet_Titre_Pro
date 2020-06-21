@@ -1,4 +1,5 @@
 <?php
+    include 'asset/php/picture.php';
     $title = 'SpaceBrico - Réglage';
     $name = 'Fontaine';
     $lastName = 'Brian';
@@ -15,6 +16,7 @@
     $job = 'Développeur web junior';
     $company = 'La manu';
     $lastPasword ='brian56';
+    $photo = 'user-boy_default.png';
     include 'header.php';
 ?>
     <?php 
@@ -23,8 +25,8 @@
     <main>
         <div id="containt" class="row d-flex justify-content-center">
             <div id="setings">
-            <h1>Réglages</h1><img class="users-setings-img" src="asset/img/65255.jpg" alt="">
-                <form action="reglage.php" method="GET">
+            <h1>Réglages</h1><img class="users-setings-img" src="asset/img/<?= $photo; ?>" alt="">
+                <form action="reglage.php" method="POST">
                     <div class="row">
                         <h3 class="mt-2">Profil :</h3>
                     </div>
@@ -74,7 +76,7 @@
                         <input class="ml-2 form-control users-setings" type="file" id="picture" name="picture">
                     </div>
                     <div class="row mt-3 d-flex justify-content-center justify-content-around mt-5">
-                        <button class="btn btn-success" name="save_change">Sauvegarder mes changements&nbsp;<i class="fas fa-save"></i></button>
+                        <button type ="submit" class="btn btn-success" name="save_change">Sauvegarder mes changements&nbsp;<i class="fas fa-save"></i></button>
                         <button class="btn btn-danger" name="delete_account">Supprimer mon compte&nbsp;<i class="fas fa-trash"></i></button>
                         <button class="btn btn-primary" name="disconect">Déconnection</button>
                     </div>
