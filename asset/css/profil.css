@@ -357,3 +357,8 @@ a:hover
     color: rgb(48, 46, 46);
     text-decoration: none;
 }
+
+.check
+{
+    content:"\f336";
+}

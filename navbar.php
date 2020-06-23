@@ -17,29 +17,28 @@
         </ul>
     </nav>
 </header>
-
 <body>
     <div class="modal fade modal-sm-notify" tabindex="-1" role="dialog" aria-labelledby="mySmallModalNotify"
         aria-hidden="true">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="margin-top: 89px; left: 480px;">
-                <a href="notify.php">Notification</a>
+            <div class="modal-content" id="notify" style="margin-top: 89px; left: 400px;">
+                <a class="h4 p-2 text-center d-flex justify-content-center" href="notify.php" style="margin-top: 0px;margin-right: 0px;margin-bottom: 0px;padding-left: 0px;">Notifications</a>
             </div>
         </div>
     </div>
     <div class="modal fade modal-sm-message" tabindex="-1" role="dialog" aria-labelledby="mySmallModalmessage"
         aria-hidden="true">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="margin-top: 89px; left: 416px;">
-                <a href="message.php">Message</a>
+            <div class="modal-content" id="message" style="margin-top: 89px; left: 360px;">
+                <a class="h4 p-2 text-center d-flex justify-content-center" href="message.php" style="margin-top: 0px;margin-right: 0px;margin-bottom: 0px;padding-left: 0px;">Messages</a>
             </div>
         </div>
     </div>
     <div class="modal fade modal-sm-friends" tabindex="-1" role="dialog" aria-labelledby="mySmallModalFriends"
         aria-hidden="true">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="margin-top: 89px; left: 368px;">
-                <a href="addFriends.php">Demande d'amis</a>
+            <div class="modal-content" id="friends" style="margin-top: 89px; left: 320px;">
+                <a class="h4 p-2 text-center d-flex justify-content-center" href="addFriends.php" style="margin-top: 0px;margin-right: 0px;margin-bottom: 0px;padding-left: 0px;">Demande d'amis</a>
             </div>
         </div>
     </div>

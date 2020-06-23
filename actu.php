@@ -11,7 +11,9 @@
                     <div class="header-actu">
                         <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
                         <h5 class="title-users-actu" ><?= $firstName.' '.$lastName; ?></h5>
-                        <p class="note" >Note :&nbsp;<i class="fas fa-star"></i><i class="fas fa-star-half-alt"><i class="far fa-star"></i><i class="far fa-star"></i></i><i class="far fa-star"></i></p>
+                        <p class="note" >Note : <?php for ($i=0; $i < 5; $i++) { ?>
+                            <i class="far fa-star star"></i>
+                        <?php } ?> </p>
                         <p class="element-requied" >Element restant :</p>
                     </div>
                     <div class="article">
@@ -30,7 +32,9 @@
                     <div class="header-actu">
                         <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
                         <h5 class="title-users-actu" ><?= $firstName.' '.$lastName; ?></h5>
-                        <p class="note" >Note :&nbsp;<i class="fas fa-star"></i><i class="fas fa-star-half-alt"><i class="far fa-star"></i><i class="far fa-star"></i></i><i class="far fa-star"></i></p>
+                        <p class="note" >Note : <?php for ($i=0; $i < 5; $i++) { ?>
+                            <i class="far fa-star"></i>
+                        <?php } ?> </p>
                         <p class="element-requied" >Element restant :</p>
                     </div>
                     <div class="article">
