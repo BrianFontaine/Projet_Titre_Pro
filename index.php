@@ -1,37 +1,6 @@
 <?php
 // $bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', '');
-// verify captcha --------------------------------------
-require('vendor/autoload.php');
-if(isset($_POST['submit_post'])) 
-{
-    $errors = '';
-    if(!empty($_POST['g-recaptcha-response'])) 
-    {
-        $recaptcha = new \ReCaptcha\ReCaptcha('6LcAJPYUAAAAAAW6u3VUi2L52teVA8jiKHdx4vqa');
-        $resp = $recaptcha->verify($_POST['g-recaptcha-response']);
-        if ($resp->isSuccess()) 
-        {
-            #Redirection ver profil.php
-            header('location: profil.php');
-            exit();
-        }
-        else 
-        {
-            #si le captcha est incorect
-            $errors = $resp->getErrorCodes();
-            #$errors ='Captcha Invalide';
-        }
-    } 
-    else 
-    {
-        #quand le captcha n'est pas remplie!
-        $errors = 'Captcha non rempli'; 
-    }
-}
-// --------------------------------------------------
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -75,23 +44,14 @@ if(isset($_POST['submit_post']))
                         <a href="">Mot de passe oubliée?</a>
                     </div>
                 </div>
-
-                <div class="g-recaptcha mt-2" data-sitekey="6LcAJPYUAAAAAFORdDGzHmnRQ8MlIMt9UFEXzYo9"></div>
-
-                <p class="error"><?= !empty($errors) ? $errors : '' ?></p>
-
                 <!-- Sign in button -->
                 <button class="btn btn-info btn-block my-4" type="submit" name="submit_post" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
-
                  <!-- Social login -->
-                 
                 <p class="text-dark">Se connecter avec :</p>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-
                 <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
-
                 <!-- Register -->
                 <p class="text-dark">Vous etes pas encore menbre?
                     <a href="register.php">S'inscrire</a>
@@ -100,7 +60,6 @@ if(isset($_POST['submit_post']))
         </div>
     </div>
     </div>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://kit.fontawesome.com/b3f34b62ee.js" crossorigin="anonymous"></script>
 </body>
 </html>

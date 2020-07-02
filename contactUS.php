@@ -5,7 +5,7 @@
 <div id="containt" class="row d-flex justify-content-center">
     <div id="setings">
         <h1>Contactez nous </h1>
-        <form action="reglage.php" method="GET">
+        <form action="" method="GET">
             <div class="row">
                 <label class="ml-2" for="name">Nom :</label>
                 <input class="ml-2 form-control users-setings" type="text" id="name" name="firstName">
@@ -34,7 +34,7 @@
                 <input class="ml-2 form-control users-setings" type="file" id="picture" name="picture">
             </div>
             <div class="row mt-3 d-flex justify-content-center justify-content-around mt-5">
-                <button class="btn btn-primary" name="disconect">Déconnection</button>
+                <button class="btn btn-primary" name="disconect">Envoyer</button>
             </div>
         </form>
     </div>

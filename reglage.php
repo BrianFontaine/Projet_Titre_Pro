@@ -78,7 +78,6 @@
                     <div class="row mt-3 d-flex justify-content-center justify-content-around mt-5">
                         <button type ="submit" class="btn btn-success" name="save_change">Sauvegarder mes changements&nbsp;<i class="fas fa-save"></i></button>
                         <button class="btn btn-danger" name="delete_account">Supprimer mon compte&nbsp;<i class="fas fa-trash"></i></button>
-                        <button class="btn btn-primary" name="disconect">Déconnection</button>
                     </div>
                 </form>
             </div>
