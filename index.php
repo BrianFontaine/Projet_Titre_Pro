@@ -18,7 +18,6 @@
 </head>
 
 <body>
-    <h1 id="beta">(Bêta)</h1>
     <header class="d-flex justify-content-center">
         <a href="http://127.0.0.1"><img class="ml-50 infinite" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a>
     </header>
@@ -34,8 +33,8 @@
                     <div>
                         <!-- Remember me -->
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember" disabled>
-                            <label class="custom-control-label text-dark" for="defaultLoginFormRemember">Se souvenir de
+                            <input type="checkbox" class="custom-control-input" id="remember" disabled>
+                            <label class="custom-control-label text-dark" for="remember">Se souvenir de
                                 moi (En développement)</label>
                         </div>
                     </div>
