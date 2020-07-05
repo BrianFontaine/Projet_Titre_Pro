@@ -1,4 +1,4 @@
-<footer>
+<footer class="row text-center">
     <a href="mentions.php">Mentions Légales</a>
     <a href="cgu.php">Condition général d'utilisation</a>
     <a href="contactUS.php">Contactez Nous</a>

@@ -16,7 +16,13 @@ else
             <img class="image-user-actus" src="asset/img/user-boy_default.png" alt=""
                 style="wigth:75px; height:75px; border-radius:50%;">
             <h5 class="title-users-actu"><?= $firstName.' '.$lastName; ?></h5>
-            <p class="note">Note :</p>
+            <p class="note">Note :
+            <i class="far fa-star" aria-hidden="true" data-value="1"></i>
+                            <i class="far fa-star" aria-hidden="true" data-value="2"></i>
+                            <i class="far fa-star" aria-hidden="true" data-value="3"></i>
+                            <i class="far fa-star" aria-hidden="true" data-value="4"></i>
+                            <i class="far fa-star" aria-hidden="true" data-value="5"></i>
+            </p>
             <p class="element-requied">Element restant :</p>
         </div>
         <div class="article">
