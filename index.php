@@ -19,7 +19,7 @@
 
 <body>
     <header class="d-flex justify-content-center">
-        <a href="http://127.0.0.1"><img class="ml-50 infinite" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a>
+        <a href="http://127.0.0.1"><img class="ml-50 infinite" src="asset/img/LogoEspace_TEST.svg" alt="" width="100px"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">

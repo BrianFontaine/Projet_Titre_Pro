@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="asset/libs/css/bootstrap-grid.css">
     <link rel="stylesheet" href="asset/libs/css/bootstrap.css">
     <link rel="stylesheet" href="asset/libs/css/all.css">
+    <link rel="stylesheet" href="asset/libs/css/all.min.css">
     <link rel="stylesheet" href="asset/css/profil.css">
     <link rel="stylesheet" href="asset/css/setings.css">
     <link rel="stylesheet" href="asset/css/reset.css">
     <link rel="stylesheet" href="asset/css/actu.css">
-    <link rel="stylesheet" href="asset/libs/css/all.min.css">
 </head>

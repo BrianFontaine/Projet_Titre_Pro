@@ -8,6 +8,7 @@
     $school = 'La Manu';
     $title = 'Profil de'.' '.$firstName.' '.$lastName;
     $photo = $_COOKIE['picture'] ?? 'user-boy_default.png';
+    // $style = '/css/profil.css';
     include 'header.php';
     include 'navbar.php';
 ?>
@@ -58,7 +59,11 @@
                 </div>
             </div>
         </p>
+        <?php 
+            include 'footer.php';
+        ?>
     </div>
+   
     <div id="col-left" class="">
         <div class="user-profil">
             <img class="user_img" src="asset/img/<?= $photo; ?>" alt="">
@@ -105,9 +110,7 @@
     </div>
     </div>
 </main>
-<?php 
-        include 'footer.php';
-    ?>
+
 </body>
 
 </html>

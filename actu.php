@@ -2,18 +2,23 @@
     $firstName = 'Masson';
     $lastName = 'Jean-Charle';
     $title ='SpaceBrico';
+    // $style ='/css/actus.css';
     include 'header.php';
     include 'navbar.php';
 ?>
 <div id="contenue-actu" class="row d-flex justify-content-center">
-            <p class="actu">
+            <p class="actu ">
                 <div class="actu-users">
                     <div class="header-actu">
                         <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
                         <h5 class="title-users-actu" ><?= $firstName.' '.$lastName; ?></h5>
-                        <p class="note" >Note : <?php for ($i=0; $i < 5; $i++) { ?>
-                            <i class="far fa-star star"></i>
-                        <?php } ?> </p>
+                        <p class="note" >Note : 
+                            <i class="fal fa-tools nt" aria-hidden="true" data-value="1"></i>
+                            <i class="fal fa-tools" aria-hidden="true" data-value="2"></i>
+                            <i class="fal fa-tools" aria-hidden="true" data-value="3"></i>
+                            <i class="fal fa-tools" aria-hidden="true" data-value="4"></i>
+                            <i class="fal fa-tools" aria-hidden="true" data-value="5"></i>
+                        </p>
                         <p class="element-requied" >Element restant :</p>
                     </div>
                     <div class="article">
@@ -33,7 +38,7 @@
                         <img class="image-user-actus" src="asset/img/3275434.jpg" alt="" style="wigth:75px; height:75px; border-radius:50%;">
                         <h5 class="title-users-actu" ><?= $firstName.' '.$lastName; ?></h5>
                         <p class="note" >Note : <?php for ($i=0; $i < 5; $i++) { ?>
-                            <i class="far fa-star"></i>
+                            <i class="far fa-star" aria-hidden="true" data-value="<?= $i+1; ?>"></i>
                         <?php } ?> </p>
                         <p class="element-requied" >Element restant :</p>
                     </div>
@@ -47,6 +52,9 @@
                         <a href="" class="text-dark">Parttager</a>
                     </div>
                 </div>
+                <?php
+                    include 'footer.php';
+                ?>
             </p>
             </div>
     <div id="col-right" class="col-lg-3">
@@ -68,6 +76,3 @@
         </div>
     </div>
 </body>
-<?php
-    include 'footer.php';
-?>
