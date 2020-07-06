@@ -1,5 +1,5 @@
 <?php
-// $bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', '');
+// $bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', 'root');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
