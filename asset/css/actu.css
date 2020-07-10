@@ -1,46 +1,126 @@
+/* BARRE DE RECHERGE ++++++++++++++++++++++++++++ */
 #inputsearch[type="search"]:focus
 {
     outline-offset: 2px solid black !important;
 }
-#contenue-actu
+/* ============================================= */
+/* ============================================= */
+/* ++++++++++++fils d'actualiter ++++++++++++++++*/
+/* ============================================= */
+.contenue-actu
 {
     scrollbar-width: none;
-    text-align: center;
-    width: 80%;
+    width: 70%;
     margin-top: 90px;
     height: 91%;
     position: fixed;
     overflow-y: scroll;
-    padding-bottom: 15%;
+    margin-left: 10%;
     padding-left: 2%;
-    padding-right: 2%;
+    padding-right: 8%;
 }
 #contenue-actu h5
 {
-    margin-left: 20px;
+    margin-left: 35px;
 }
-#contenue-actu img 
+.post_actu
 {
-    margin-right: 900px;
+    border: 1px solid rgba(40, 40, 40, 0.64);
+    background-color: rgba(40, 40, 40, 0.64);
+    border-radius: 20px;
 }
-
-
-#contenue-actu-iphone-6
+.post_actu img
 {
-    scrollbar-width: none;
-    text-align: center;
-    width: 100%;
-    margin-top: 90px;
-    height: 91%;
-    position: fixed;
-    overflow-y: scroll;
-    padding-bottom: 15%;
-    padding-left: 2%;
-    padding-right: 2%;
-    left: 4%;
+    width: 80px;
+    border-radius: 50%;
+}
+#file
+{
+    display: none;
+}
+/* ======= Annimation pour ecrire un poste ======== la class .disables_* signifie 
+============ que lelement est desactiver ======================================== */
+.disabled_movie
+{
+    margin-top: -70px;
+    z-index: -1;
+}
+.disabled_element
+{
+    margin-bottom: -85px;
+}
+.post{
+    margin-top: -25px;
+}
+/* ========= Annimation de transitions quand on active le javascripte qui vas donner a l'élément 
+============ la classe active_* =============================================================== */
+.active_movie
+{
+    margin-top: 0px;
+    transition: all 0.75s linear;
+    -o-transition: all 0.75s linear;
+    -moz-transition: all 0.75s linear;
+    -webkit-transition: all 0.75s linear;
+    z-index: 1;
+}
+.active_element
+{
+    margin-bottom: 5px;
+    transition: all 0.75s linear;
+    -o-transition: all 0.75s linear;
+    -moz-transition: all 0.75s linear;
+    -webkit-transition: all 0.75s linear;
 }
 
-/* #col-right-iphone-6
+.border-black{
+    border: 2px solid rgba(22, 22, 22, 0.788) !important;
+    background-color: rgb(211, 224, 211) !important;
+    outline:none;
+}
+.remove{
+    display: none;
+}
+
+.preview
+{
+    max-height: 300px;
+    overflow: hidden;
+    /* width: 100%; */
+    margin: auto;
+    z-index: 1;
+}
+
+.preview img{
+    max-height: 200px;
+    height: 100%;
+    width: auto;
+    /* max-height: 340px;
+    height: 100%;
+    width: auto;
+    margin: auto; */
+}
+
+/* .btn_preview{
+    margin-top: 85px;
+} */
+
+.img_user_actu{
+    width: 60px;
+    height: 60px;
+}
+.img_actu{
+    height: auto;
+    margin: auto;
+}
+.users_post_bg
+{
+    background-color: #5859598a;
+}
+/* =================================================== */
+/* =================================================== */
+/* =================================================== */
+
+#col-right
 {
     scrollbar-color: rgba(40, 40, 40, 0.64) rgba(40, 50, 40, 0.29) !important;
     scrollbar-width: none;
@@ -51,23 +131,96 @@
     height: 80%;
     overflow-y: scroll;
     background-color: rgba(40, 40, 40, 0.64);
-    border-radius: 10px 0px 0px 10px;
-    display: none;
+    border-radius : 10px 0px 0px 10px;
 }
 
-.title-actus-iphone-6
+.title-slide
 {
-    width: 200px;
-    margin-bottom: 5%;
-    margin-left: 26%;
-    margin-top: -15%;
+
+    text-align: center;
+    position: fixed;
+    background-color: grey;
+    box-shadow: 0px 13px 10px rgba(40, 40, 40, 0.64);
+    width: 20%;
+    right: 0px;
+    margin-top: 0;
+    position: fixed;
+    height: 40px;
+    overflow-y: hidden;
+    border-radius : 10px 0px 0px 0px;
+
 }
 
-nav{
-    display: none;
-} */
-
-.note 
+.center
 {
-    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    background-color: wheat;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 50px !important;
+    margin-bottom: -40px;
+}
+.users-conect
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.color-connect
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    margin-top: 19px;
+    /* margin-left: 62px; */
+}
+.color-disconnect
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: 19px;
+    /* margin-left: 62px; */
+}
+.do_not_disturb
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    color: orange;
+    font-size: 10px;
+    margin-top: 18px;
+    /* margin-left: 62px; */
+}
+#users-name-connect
+{
+    margin-top: 12px;
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+/* ------------------------------------ */
+/* Foooter---------------------------- */
+footer
+{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(40, 40, 40);
+    width: 100%;
+    z-index: 2;
+    margin-top: 1em;
+    border-radius: 10px 10px 0px 0px;
+}
+footer a
+{
+    margin-bottom: 25px;
+}
+
+a:hover
+{
+    color: rgb(119, 116, 116);
+    text-decoration: none;
 }

@@ -7,9 +7,8 @@ if (isset($_GET['search'])&& $_GET['search'] != '')
 }
 else
 {
-
-    for ($i=0; $i < 10; $i++) { ?>
-
+    for ($i=0; $i < 10; $i++) 
+{ ?>
 <p class="actu">
     <div class="actu-users">
         <div class="header-actu">
@@ -18,10 +17,10 @@ else
             <h5 class="title-users-actu"><?= $firstName.' '.$lastName; ?></h5>
             <p class="note">Note :
             <i class="far fa-star" aria-hidden="true" data-value="1"></i>
-                            <i class="far fa-star" aria-hidden="true" data-value="2"></i>
-                            <i class="far fa-star" aria-hidden="true" data-value="3"></i>
-                            <i class="far fa-star" aria-hidden="true" data-value="4"></i>
-                            <i class="far fa-star" aria-hidden="true" data-value="5"></i>
+                <i class="far fa-star" aria-hidden="true" data-value="2"></i>
+                <i class="far fa-star" aria-hidden="true" data-value="3"></i>
+                <i class="far fa-star" aria-hidden="true" data-value="4"></i>
+                <i class="far fa-star" aria-hidden="true" data-value="5"></i>
             </p>
             <p class="element-requied">Element restant :</p>
         </div>

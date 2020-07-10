@@ -1,0 +1,54 @@
+/* ---------------------------------
+/* Barre de Navigations------------ */
+header
+{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    margin-top: 0px;
+    /* background-color:#3B8796; */
+    background-image: url('../img/nav_bar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90px;
+    font-size: large;
+}
+#title
+{
+    margin-left: 30px;
+    position: absolute;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: xx-large;
+    font-family: 'Saira Stencil One', cursive;
+    font-weight: 900;
+}
+a,ul
+{
+    margin-right: 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: whitesmoke;
+
+}
+.user-nav
+{
+    margin-top: -15px;
+}
+.search
+{
+    background-color: white;
+    color: black;
+    padding: 6px;
+    border-radius: 0px 25px 25px 0px;
+    box-shadow: black;
+}

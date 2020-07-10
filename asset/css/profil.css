@@ -10,58 +10,6 @@ body
     /* overflow-x: hidden; */
     
 }
-/* --------------------------------- */
-/* Barre de Navigations------------ */
-header
-{
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    margin-top: 0px;
-    background-color:#3B8796;
-    height: 90px;
-    font-size: large;
-
-
-}
-#title
-{
-    margin-left: 30px;
-    position: absolute;
-    text-decoration: none;
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: xx-large;
-    font-family: 'Saira Stencil One', cursive;
-    font-weight: 900;
-}
-a,ul
-{
-    margin-right: 30px;
-    margin-top: 25px;
-    text-decoration: none;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: whitesmoke;
-
-}
-.user-nav
-{
-    margin-top: -15px;
-}
-.search
-{
-    background-color: white;
-    color: black;
-    padding: 6px;
-    border-radius: 0px 25px 25px 0px;
-    box-shadow: black;
-}
 /* ----------------------------- */
 #contenue
 {
@@ -74,7 +22,7 @@ a,ul
     height: 91%;
     position: fixed;
     overflow-y: scroll;
-    padding-bottom: 20%;
+    /* padding-bottom: 20%; */
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -169,7 +117,6 @@ a,ul
     margin-top: 90px;
     overflow-y: scroll;
     height: 100%;
-    width: 20%;
     background-color: transparent;
     margin: 0px;
     padding: 0px;
@@ -233,11 +180,11 @@ a,ul
     height: auto;
     text-align: start;
     font-size: 1em;
-    color: black;
+    color: white;
     box-shadow: 0px 5px 5px black;
     /* background-color: yellowgreen; */
     /* background: url(../img/65255.jpg); */
-    background-color: #a9f3f88c;
+    background-color: rgba(40, 40, 40, 0.64);
     padding-left: 1em;
     background-size: cover;
     font-family: 'Fredericka the Great', cursive;
@@ -260,11 +207,9 @@ a,ul
     height: 180px;
     text-align: start;
     font-size: 1em;
-    color: black;
+    color: white;
     box-shadow: 0px 5px 5px black;
-    /* background-color: yellowgreen; */
-    /* background: url(../img/65255.jpg); */
-    background-color: #a9f3f88c;
+    background-color: rgba(40, 40, 40, 0.64);
     font-family: 'Fredericka the Great', cursive;
     background-size: cover;
     border-radius: 10px 10px 10px 10px;
@@ -325,7 +270,7 @@ a,ul
     WIDTH: 90%;
     text-align: start;
     height: 152px;
-    background-color: #2727273d;
+    background-color: #0704043d;
     margin: auto;
 }
 

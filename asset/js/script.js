@@ -13,7 +13,7 @@ function searchActu(string) {
     }
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            $("#contenue-actu").html(this.responseText);
+            $(".contenue-actu").html(this.responseText);
         }
     };
     xhttp.open("GET", "resultsearch.php?search=" + string, true);

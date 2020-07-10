@@ -1,11 +1,10 @@
-body
-{
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
 }
-body
-{
+
+body {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -13,301 +12,453 @@ body
 
 /* iphone 5 samsugn s5 */
 @media (max-width: 360px) {
-    .bg
-    {
+    .bg {
         grid-column-start: 1;
         grid-column-end: 13;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 70px;
         margin-bottom: 10px;
     }
-    h1,.hiddenmobil
-    {
+
+    h1,
+    .hiddenmobil {
         visibility: hidden;
-        display: none; 
+        display: none;
     }
-    .g-recaptcha
-    {
-    margin-left: -19% !important;
+
+    .g-recaptcha {
+        margin-left: -19% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: -19% !important;
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: -19% !important;
     }
-    
+
 }
 
 /* ecrant iphone  6/7/8 */
 @media (min-width: 360px) {
-    .bg
-    {
+    body {
+        background-color: rgba(214, 212, 212, 0.781);
+    }
+
+    .bg {
         grid-column-start: 2;
         grid-column-end: 12;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 100px;
     }
-    .g-recaptcha
-    {
-    margin-left: -19% !important;
+
+    .g-recaptcha {
+        margin-left: -19% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: -19% !important;
-    } 
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: -19% !important;
+    }
+
+    nav {
+        visibility: hidden;
+    }
+
+    .menu_nav_button {
+        position: relative;
+        left: 80%;
+        top: 17%;
+        color: white;
+        font-size: 1.9em;
+    }
+
+    .menu_nav_button:hover {
+        color: rgba(128, 87, 87, 0.4)
+    }
+
+    #col-right {
+        display: none;
+    }
+
+    .contenue-actu {
+        width: 81% !important;
+        margin-left: 47px !important;
+        font-size: 0.9em;
+    }
+
+    .v-hidden {
+        visibility: hidden;
+    }
+
+    .friends_online {
+        position: fixed;
+        left: 87%;
+        margin-top: 150px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(153, 145, 145, 0.781);
+        font-size: 1.9em;
+        z-index: 1;
+        border-radius: 50% 0% 0% 50%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .top_rated {
+        position: fixed;
+        margin-top: 150px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(153, 145, 145, 0.781);
+        font-size: 1.9em;
+        z-index: 1;
+        border-radius: 0% 50% 50% 0%;
+        text-align: center;
+    }
+
+    .friends_online_active {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        margin-left: 130px;
+        width: 250px;
+        margin-top: 150px;
+        background-color: rgba(153, 145, 145, 0.781);
+        height: 450px;
+        border-radius: 0px 0px 0px 10px;
+        box-shadow: 12px 5px 9px rgb(90, 90, 90);
+    }
+
+    .img_friend_active {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .name_friends_active {
+        margin-left: 50px;
+    }
+
+    .friend_only_show {
+        left: 80px;
+    }
+
+    .color-connect_active {
+        background-color: rgb(4, 51, 3);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    .top_rated_active {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        width: 250px;
+        margin-top: 150px;
+        background-color: rgba(153, 145, 145, 0.781);
+        height: 450px;
+        border-radius: 0px 0px 10px 0px;
+        box-shadow: 12px 5px 9px rgb(90, 90, 90);
+    }
+
+    .top_rated_active_show {
+        margin-left: 250PX;
+        box-shadow: 1px 5px 9px rgb(90, 90, 90);
+    }
+
+    .poeple_close {
+        left: 80px;
+    }
 }
 
 @media (min-width: 414px) {
-    .bg
-    {
+    .bg {
         grid-column-start: 2;
         grid-column-end: 12;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 100px;
     }
-    .g-recaptcha
-    {
-    margin-left: -10% !important;
+
+    .g-recaptcha {
+        margin-left: -10% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: -10% !important;
-    } 
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: -10% !important;
+    }
 }
 
 @media (min-width: 900px) {
-    .bg
-    {
+    .bg {
         grid-column-start: 3;
         grid-column-end: 11;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 150px;
     }
-    
-  }
+
+}
+
 @media (min-width: 768px) {
-    .bg
-    {
+    .bg {
         grid-column-start: 3;
         grid-column-end: 11;
         background-color: black;
         grid-row: 3;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 200px;
     }
-    .g-recaptcha
-    {
-    margin-left: 10% !important;
-    }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: 10% !important;
-    }
-  }
 
-@media (min-width: 800px) 
-{
-    .bg
+    .g-recaptcha {
+        margin-left: 10% !important;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: 10% !important;
+    }
+
+    .contenue-actu {
+        width: 100% !important;
+        margin-left: 20px !important;
+        font-size: 0.9em;
+    }
+    .friends_online
     {
+        left: 94% !important;
+    }
+    .friends_online_active
+    {
+        margin-left: 518px !important;
+    }
+    .poeple_close
+    {
+        left: 468px !important;
+    }
+}
+
+@media (min-width: 800px) {
+    .bg {
         grid-column-start: 3;
         grid-column-end: 11;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 150px;
     }
-    .g-recaptcha
-    {
-    margin-left: 10% !important;
+
+    .g-recaptcha {
+        margin-left: 10% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: 10% !important;
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: 10% !important;
     }
 }
 
 /* ecrant mac */
-@media (min-width: 1400px) 
- {
-    .bg
-    {
+@media (min-width: 1400px) {
+    .bg {
         grid-column-start: 4;
         grid-column-end: 10;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .g-recaptcha
-    {
-    margin-left: 19% !important;
+
+    .g-recaptcha {
+        margin-left: 19% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: 19% !important;
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: 19% !important;
+    }
+    .color-connect,.color-disconnect,.do_not_disturb{
+        margin-left: 62px;
     }
 }
 
 /* ecrant 1280/ 720p  */
 @media (min-width: 1280px) {
-    .bg
-    {
+    .bg {
         grid-column-start: 4;
         grid-column-end: 10;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    .btn-light
-    {
+
+    .btn-light {
         font-size: 12px;
         text-align: center;
     }
-    img
-    {
+
+    img {
         width: 200px;
     }
-    .g-recaptcha
-    {
-    margin-left: 19% !important;
+
+    .g-recaptcha {
+        margin-left: 19% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: 19% !important;
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: 19% !important;
     }
-  }
+    nav {
+        visibility: visible;
+    }
+    .menu_nav_button
+    {
+        visibility: hidden;
+        display: none;
+    }
+    .friends_online
+    {
+        display: none;
+    }
+    .top_rated
+    {
+        display: none;
+    }
+    #col-right{
+        display: block;
+    }
+    .contenue-actu
+    {
+        width: 80% !important;
+    }
+    .color-connect,.color-disconnect,.do_not_disturb{
+        margin-left: 20px;
+    }
+}
 
 /* ecrant pc clasic */
-@media (min-width: 1900px) 
-{
-    .bg
-    {
+@media (min-width: 1900px) {
+    .bg {
         grid-column-start: 4;
         grid-column-end: 10;
         background-color: black;
         grid-row: 2;
-        border-radius: 30px;  
+        border-radius: 30px;
     }
-    img
-    {
+
+    img {
         width: 150px;
     }
-    .g-recaptcha
-    {
-    margin-left: 28% !important;
+
+    .g-recaptcha {
+        margin-left: 28% !important;
     }
-    .error
-    {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: rgba(128, 87, 87, 0.4);
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: -20px;
-    margin-left: 28% !important;
+
+    .error {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: rgba(128, 87, 87, 0.4);
+        border-radius: 5px;
+        width: 300px;
+        margin-bottom: -20px;
+        margin-left: 28% !important;
     }
 }

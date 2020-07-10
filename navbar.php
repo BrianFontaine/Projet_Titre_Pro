@@ -4,6 +4,7 @@
 <header>
     <a id="title" href="actu.php">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
     <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
+    <button class="menu_nav_button btn btn-link" ><i class="fas fa-bars"></i></button>
     <nav>
         <ul>
             <li><a href="profil.php"><img class="user-nav users-conect" src="asset/img/<?= $photo; ?>" alt=""></a></li>
@@ -11,8 +12,7 @@
             <li><a href="#" type="button" class="search" id="search"><i id="i" class="fas fa-search"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-friends"><i class="fas fa-user-friends"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-message"><i class="fas fa-comments"></i></a></li>
-            <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-notify"><i
-                        class="fas fa-bell"></i></a></li>
+            <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-notify"><i class="fas fa-bell"></i></a></li>
             <li><a href="reglage.php"><i class="fas fa-cogs"></i></a></li>
         </ul>
     </nav>
