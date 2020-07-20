@@ -50,7 +50,6 @@ body {
         margin-bottom: -20px;
         margin-left: -19% !important;
     }
-
 }
 
 /* ecrant iphone  6/7/8 */
@@ -115,6 +114,7 @@ body {
         width: 81% !important;
         margin-left: 47px !important;
         font-size: 0.9em;
+        height: 80% !important;
     }
 
     .v-hidden {
@@ -200,6 +200,21 @@ body {
 
     .poeple_close {
         left: 80px;
+    }
+    .nav-bar-footer
+    {
+        position: fixed;
+        height: 50px;
+        font-size: 2em;
+        bottom: 0%;
+    }
+    .ml-white
+    {
+        margin-right: 3px;
+        background: white;
+        border-radius: 25px;
+        width: 3px;
+        height: 40px;
     }
 }
 

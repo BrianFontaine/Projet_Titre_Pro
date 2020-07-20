@@ -81,9 +81,10 @@
         </div>
         <div class="form-group col-md-12 text-right disabled_movie" id="form_btn">
             <button id="vide" class="btn btn-light remove" type="button"><i class="fas fa-times-circle"></i></button>
-            <label class="btn btn-light my-2" for="file">Photo | Video<input type="file" name="picture_movies" id="file"
+            <label class="btn btn-light my-2" for="gallery-photo-add">Photo | Video<input type="file" name="picture_movies" id="gallery-photo-add"
                     data-preview=".preview" multiple="multiple"></label>
             <button class="btn btn-light" type="submit">Publier</button>
+            <div class="gallery row justify-content-around"></div>
         </div>
     </form>
     <?php for ($i=0; $i < 990 ; $i++) { ?>
@@ -114,6 +115,7 @@
                 Corporis eveniet nostrum facilis asperiores iste expedita molestiae, laudantium voluptate assumenda
                 tempora mollitia voluptatum magni, itaque aspernatur totam placeat non impedit accusamus quibusdam error
                 fugiat. Culpa quae nisi tempora enim!
+                La date courante est
                 <details>
                     <summary>la suite...</summary>
                     <p>
@@ -183,20 +185,19 @@
         <div class="border mt-2 mb-n2"></div>
         <div class="row justify-content-around">
             <!-- <input class="btn btn-link" type="button" value="J'aime"> -->
-            <input class="btn btn-link text-white" type="button" value="Partager">
-            <input class="btn btn-link text-white" type="button" value="Commenter">
             <div class="score text-white" style="margin-top: 6px;">
                 Note :
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+                <i class="far fa-star" value="1"></i>
+                <i class="far fa-star" value="2"></i>
+                <i class="far fa-star" value="3"></i>
+                <i class="far fa-star" value="4"></i>
+                <i class="far fa-star" value="5"></i>
             </div>
+            <input class="btn btn-link text-white" type="button" value="Commenter">
+            <input class="btn btn-link text-white" type="button" value="Partager">
         </div>
     </div>
     <?php } ?>
     <?php
     include 'footer.php';
     ?>
-</div>

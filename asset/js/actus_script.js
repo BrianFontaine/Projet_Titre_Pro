@@ -45,18 +45,40 @@ $('#vide').click(function() { // on crée une fonction qui permer au click de vi
     }
 });
 
-$("input[data-preview]").change(function() {
-    var input = $(this);
-    var oFReader = new FileReader();
-    oFReader.readAsDataURL(this.files[0]);
-    oFReader.onload    = function(oFREvent) {
-        // $('.active_movie').addClass('btn_preview');
-        $('.preview').removeClass('d-none');
-        $('.preview').html('<img src="'+oFREvent.target.result+'">')
-        // $(input.data('preview')).css('background-image', 'url("'+oFREvent.target.result+'")');
+// $("input[data-preview]").change(function() {
+//     var input = $(this);
+//     var oFReader = new FileReader();
+//     oFReader.readAsDataURL(this.files[0]);
+//     oFReader.onload    = function(oFREvent) {
+//         // $('.active_movie').addClass('btn_preview');
+//         $('.preview').removeClass('d-none');
+//         $('.preview').html('<img src="'+oFREvent.target.result+'">')
+//         // $(input.data('preview')).css('background-image', 'url("'+oFREvent.target.result+'")');
+//     };
+// });
+// ================== FONCTIONALITER Multi Preview =====================================================================================================
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+        if (input.files) {
+            var filesAmount = input.files.length;
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    $($.parseHTML('<img class="gallery-update">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
     };
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+        $('.gallery').addClass('gallery_preview');
+    });
 });
-
+// ================== FIN FONCTIONALITER Multi Preview =====================================================================================================
+// =========================================================================================================================================================
+// ================== FONCTIONALITER AMIS CONNECTER ========================================================================================================
 $('#people').click(function(){
     $('.contenue-actu').addClass('v-hidden');
     $('#people').addClass('friend_only_show');
@@ -73,7 +95,8 @@ $('#people_close').click(function () {
     $('#close').replaceWith('<i class="fas fa-users"></i>');
     $('#people').removeClass('friend_only_show');
     $('.friends_online_active').addClass('d-none');
-    
 });
-
+// ================== FIN ===== FONCTIONALITER AMIS CONNECTER ===============================================================================================
+// ==========================================================================================================================================================
+// ================== FONCTIONALITER FAVORIS ================================================================================================================
 

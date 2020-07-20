@@ -34,9 +34,21 @@
     width: 80px;
     border-radius: 50%;
 }
-#file
+#gallery-photo-add
 {
     display: none;
+}
+
+.gallery_preview
+{
+    overflow-y: scroll;
+    height: 160px;
+}
+
+.gallery-update
+{
+    width: 250px;
+    margin-bottom: 20px;
 }
 /* ======= Annimation pour ecrire un poste ======== la class .disables_* signifie 
 ============ que lelement est desactiver ======================================== */
