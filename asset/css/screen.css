@@ -250,6 +250,17 @@ body {
         margin-bottom: -20px;
         margin-left: -10% !important;
     }
+    .contenue-actu {
+        height: 85% !important;
+    }
+    .friends_online
+    {
+        left: 88%;
+    }
+    footer
+    {
+        font-size: xx-small;
+    }
 }
 
 @media (min-width: 900px) {
@@ -322,6 +333,10 @@ body {
     {
         left: 468px !important;
     }
+    .nav-bar-footer
+    {
+        display: none;
+    }
 }
 
 @media (min-width: 800px) {
@@ -356,6 +371,7 @@ body {
         margin-bottom: -20px;
         margin-left: 10% !important;
     }
+
 }
 
 /* ecrant mac */

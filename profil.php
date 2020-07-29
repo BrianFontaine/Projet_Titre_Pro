@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    if (empty($_SESSION['user'])) {
+		// redirection si pas connecté
+		header('location: login.php');
+		// stop la lecture du script
+		exit();
+	}
     $firstName = 'Fontaine';
     $lastName = 'Brian';
     $age = '22 Ans';

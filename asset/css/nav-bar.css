@@ -38,7 +38,11 @@ a,ul
     justify-content: flex-end;
     align-items: center;
     color: whitesmoke;
-
+}
+.dropdown-menu  li 
+{
+    margin-top: -10px ;
+    font-size: 0.8rem;
 }
 .user-nav
 {

@@ -1,19 +1,37 @@
-<?php 
+<?php
     $photo = $_COOKIE['picture'] ?? 'user-boy_default.png';
 ?>
 <header>
-    <a id="title" href="actu.php">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
+    <a id="title" href="http://www.spacebrico.fr/Actualité">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
     <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
     <button class="menu_nav_button btn btn-link" ><i class="fas fa-bars"></i></button>
     <nav>
         <ul>
-            <li><a href="profil.php"><img class="user-nav users-conect" src="asset/img/<?= $photo; ?>" alt=""></a></li>
+        <?php if (isset($_SESSION['user'])) { ?>
+            <li class="pn-5"><a href="profil.php"><img class="user-nav users-conect" src="asset/img/<?=$photo;?>" alt=""><?= $lastname='Brian'; ?></a></li>
+        <?php } ?>
             <li><input class="inputsearch" type="search" name="serach" id="inputsearch" style="margin-top: 27px;margin-right:0px;border-radius:25px 0px 0px 25px;"></li>
             <li><a href="#" type="button" class="search" id="search"><i id="i" class="fas fa-search"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-friends"><i class="fas fa-user-friends"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-message"><i class="fas fa-comments"></i></a></li>
             <li><a href="" type="button" class="" data-toggle="modal" data-target=".modal-sm-notify"><i class="fas fa-bell"></i></a></li>
-            <li><a href="reglage.php"><i class="fas fa-cogs"></i></a></li>
+            <div class="dropdown">
+                <a  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-plus"></i>
+                </a>
+                <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">
+                    <li class="text-center"><a href="reglage.php"><i class="fas fa-cogs"></i>&nbsp;Paramétre</a></li>
+                    <div class="dropdown-divider"></div>
+                <?php // affiche le lien de connexion si la session est absente 
+                    if (!isset($_SESSION['user'])) { ?>
+                        <li class="text-center"> <a href="login.php"><i class="fas fa-user-circle"></i>Me connecter</a></li>
+                    <?php } // sinon affiche le bouton de deconnexion 
+                    else { ?>
+                        <li class="text-center"><a href="login.php?logout=true"><i class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
+                    <!-- le $_GET logout sert à déclencher la deconnexion -->
+                <?php } ?>
+                </div>
+            </div>
         </ul>
     </nav>
 </header>
