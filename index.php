@@ -67,7 +67,7 @@
         </div>
         <div>
             <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
-                cols="95" rows="3" placeholder="Elément réstant"></textarea>
+                cols="95" rows="3" placeholder="Elément réstant" x-webkit-speech></textarea>
         </div>
         <div>
             <textarea class="form-group col-md-12 rounded post" name="Aticle" id="post" cols="95" rows="5"
@@ -86,8 +86,7 @@
             <button class="btn btn-light" type="submit" style="font-size: 1.2em;">Publier</button>
             <div class="gallery row justify-content-around"></div>
         </div>
-    </form>
-    <?php for ($i=0; $i < 30 ; $i++) { ?>
+    </form>    <?php for ($i=0; $i < 30 ; $i++) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="asset/img/user-boy_default.png"
@@ -198,6 +197,11 @@
         </div>
     </div>
     <?php } ?>
-    <?php
+    <div class="col-md-12" style="
+    bottom: 0px;
+    position: fixed;
+    font-size: 2em;">
+<?php
     include 'footer.php';
-    ?>
+?>
+</div>

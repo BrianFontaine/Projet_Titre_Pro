@@ -40,7 +40,12 @@
     </div>
 </div>
 </main>
-</body>
+<div style="
+    bottom: 0px;
+    position: fixed;
+    font-size: 2em;">
 <?php
     include 'footer.php';
 ?>
+</div>
+</body>
