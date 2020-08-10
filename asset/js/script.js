@@ -16,7 +16,7 @@ function searchActu(string) {
             $(".contenue-actu").html(this.responseText);
         }
     };
-    xhttp.open("GET", "resultsearch.php?search=" + string, true);
+    xhttp.open("GET", "resultesearch_ctrl.php?search=" + string, true);
     xhttp.send();
 }
 

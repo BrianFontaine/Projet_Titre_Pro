@@ -1,7 +1,3 @@
-<?php
-    include 'header.php';
-    include 'navbar.php';
-?>
 <div id="containt" class="row d-flex justify-content-center">
     <div id="setings">
         <h1>Contactez nous </h1>

@@ -30,8 +30,6 @@ header
 }
 a,ul
 {
-    margin-right: 30px;
-    margin-top: 25px;
     text-decoration: none;
     list-style: none;
     display: flex;
@@ -39,20 +37,36 @@ a,ul
     align-items: center;
     color: whitesmoke;
 }
+
+.nav-menu
+{
+  margin-right: 60px;
+  font-size: 1.5em;
+}
 .dropdown-menu  li 
 {
     margin-top: -10px ;
     font-size: 0.8rem;
 }
-.user-nav
-{
-    margin-top: -15px;
-}
-.search
-{
+.inputSearch {
+    width: 300px;
+    margin: auto;
+  }
+  .inputSearch .fa {
+    color: #0060a9;
+  }
+  .inputSearch .form-control {
+    border-right: 0px;
+    border-radius: 20px 0 0 20px;
+  }
+  .inputSearch .form-control:focus,
+  .inputSearch .form-control:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 red;
+    border-color: #ced4da;
+  }
+  .inputSearch .input-group-text {
     background-color: white;
-    color: black;
-    padding: 6px;
-    border-radius: 0px 25px 25px 0px;
-    box-shadow: black;
-}
+    border-left: 0px;
+    border-radius: 0 20px 20px 0;
+  }

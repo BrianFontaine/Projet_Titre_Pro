@@ -1,11 +1,3 @@
-<?php
-    $firstName = 'Masson';
-    $lastName = 'Jean-Charles';
-    $title ='SpaceBrico';
-    $style ='/css/actu.css';
-    include 'header.php';
-    include 'navbar.php';
-?>
 </div>
 <!-- friend_only_show -->
 <div id="people" class="friends_online">
@@ -18,7 +10,7 @@
     <h6 class="ml-3 mt-2 h4">Amis connéctés</h6>
     <?php for ($i=0; $i < 80; $i++) { ?>
         <div class="row ml-3 mt-2">
-            <img class="img_friend_active" src="asset/img/3275434.jpg" alt="profil-users">
+            <img class="img_friend_active" src="../asset/img/3275434.jpg" alt="profil-users">
             <h6 class="name_friend_active ml-3 mt-3" >Fontaine brian</h6>
             <div class="color-connect_active mt-3 ml-4"></div>
     </div>
@@ -32,7 +24,7 @@
     <h6 class="ml-3 mt-2 h4">Mes Favoris</h6>
     <?php for ($i=0; $i < 80; $i++) { ?>
         <div class="row ml-3 mt-2">
-            <img class="" src="asset/img/3275434.jpg" alt="profil-users">
+            <img class="" src="../asset/img/3275434.jpg" alt="profil-users">
             <h6 class="" >Fontaine brian</h6>
             <div class=""></div>
     </div>
@@ -41,27 +33,27 @@
 <div id="col-right" class="col-lg-3 ">
     <h3 class="title-slide">Amis connectés</h3>
     <div class="center row">
-        <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+        <img class="users-conect" src="../asset/img/3275434.jpg" alt="profil-users">
         <h6 id="users-name-connect">Fontaine brian</h6>
         <div class="color-connect"></div>
     </div>
     <div class="center row">
-        <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+        <img class="users-conect" src="../asset/img/3275434.jpg" alt="profil-users">
         <h6 id="users-name-connect">Fontaine brian</h6>
         <div class="color-disconnect"></div>
     </div>
     <div class="center row">
-        <img class="users-conect" src="asset/img/3275434.jpg" alt="profil-users">
+        <img class="users-conect" src="../asset/img/3275434.jpg" alt="profil-users">
         <h6 id="users-name-connect">Fontaine brian</h6>
         <div class="do_not_disturb"><i class="fas fa-moon"></i></div>
     </div>
 </div>
 </body>
 <div id="" class="row d-flex justify-content-center contenue-actu">
-    <form action="http://www.spacebrico.fr/Actualité" method="POST"
+    <form action="actualité_ctrl.php" method="POST"
         class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="asset/img/user-boy_default.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
         </div>
@@ -86,10 +78,11 @@
             <button class="btn btn-light" type="submit" style="font-size: 1.2em;">Publier</button>
             <div class="gallery row justify-content-around"></div>
         </div>
-    </form>    <?php for ($i=0; $i < 30 ; $i++) { ?>
+    </form>    
+    <?php for ($i=0; $i < 30 ; $i++) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="asset/img/user-boy_default.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
         </div>
@@ -155,15 +148,15 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100 img_actu" src="asset/img/user_id_1/banc-final-val.jpg"
+                                <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
                                     alt="First slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100 img_actu"
-                                    src="asset/img/user_id_1/buffet-en-bois-de-palette.jpg" alt="Second slide">
+                                    src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100 img_actu" src="asset/img/user_id_1/hqdefault.jpg"
+                                <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
                                     alt="Third slide">
                             </div>
                         </div>

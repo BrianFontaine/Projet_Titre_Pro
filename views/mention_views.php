@@ -1,7 +1,3 @@
-<?php
-    $title ='SpaceBrico - Mentions Légales';
-    // include 'header.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -377,6 +373,6 @@
     </div>
     </body>
     <?php
-    //include 'footer.php';
+        include 'footer.php';
     ?>
 </html>

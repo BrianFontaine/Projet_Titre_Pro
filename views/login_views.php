@@ -1,19 +1,3 @@
-<?php
-    session_start();
-    if (isset($_GET['logout'])) {
-		// vide le tableau session
-		$_SESSION['user'] = [];
-		// vide la variable session
-		unset($_SESSION['user']);
-		// détruit la session
-		session_destroy();
-	}
-    if (!empty($_POST['login']) && !empty($_POST['password'])) {
-        $_SESSION['user'] = ['auth' => true, 'login' => $_POST['login']];
-        header("Location: index.php");
-	}
-// $bdd = new PDO('mysql:host=localhost;dbname=spacebrico;charset=utf8', 'root', 'root');
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceBrico - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="asset/libs/css/animations-extended.min.css">
-    <link rel="stylesheet" href="asset/libs/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="asset/libs/css/bootstrap.css">
-    <link rel="stylesheet" href="asset/libs/css/fontawesome.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-    <link rel="stylesheet" href="asset/css/screen.css">
+    <link rel="stylesheet" href="../asset/libs/css/animations-extended.min.css">
+    <link rel="stylesheet" href="../asset/libs/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../asset/libs/css/bootstrap.css">
+    <link rel="stylesheet" href="../asset/libs/css/fontawesome.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/screen.css">
 </head>
 
 <body>
     <header class="d-flex justify-content-center">
-        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-3" src="asset/img/logoSpaceBrico_V2.01.png" alt="" width="100px"></a>
+        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="100px"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
-            <form class="text-center text-white" action="login.php" method="POST">
+            <form class="text-center text-white" action="login_ctrl.php" method="POST">
                 <p class="h4 mb-4 text-dark">Se connecter</p>
                 <!-- Email -->
                 <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="login">
@@ -66,7 +50,7 @@
                 <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
                 <!-- Register -->
                 <p class="text-dark">Vous etes pas encore menbre?
-                    <a href="register.php">S'inscrire</a>
+                    <a href="register_ctrl.php">S'inscrire</a>
                 </p>
             </form>
         </div>

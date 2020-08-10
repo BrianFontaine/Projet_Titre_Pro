@@ -1,31 +1,7 @@
-<?php
-    include 'asset/php/picture.php';
-    $title = 'SpaceBrico - Réglage';
-    $name = 'Fontaine';
-    $lastName = 'Brian';
-    $civility = 'Monsieur';
-    $birthDays = '19/02/1998';
-    $postalAddress = '1 impasse Louis Quentin';
-    $postalCode = 80390;
-    $city = 'Fressenville';
-    $password = 'Saisisez votre nouveau mot de passe !';
-    $confirPassword = 'Veuillez confirmer votre mot de passe !';
-    $email = 'briandeveloppeurweb@gmail.com';
-    $confirmEmail = 'briandeveloppeurweb@gmail.com';
-    $phone = '06.23.56.56.56';
-    $job = 'Développeur web junior';
-    $company = 'La manu';
-    $lastPasword ='brian56';
-    $photo = 'user-boy_default.png';
-    include 'header.php';
-?>
-    <?php 
-        include 'navbar.php';
-    ?>
-    <main>
+<main>
         <div id="containt" class="row d-flex justify-content-center">
             <div id="setings">
-            <h1>Réglages</h1><img class="users-setings-img" src="asset/img/<?= $photo; ?>" alt="">
+            <h1>Réglages</h1><img class="users-setings-img" src="../asset/img/<?= $photo; ?>" alt="">
                 <form action="reglage.php" method="POST">
                     <div class="row">
                         <h3 class="mt-2">Profil :</h3>

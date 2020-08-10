@@ -1,33 +1,3 @@
-<?php
-    // include 'asset/PHP/regexRegister.php';
-    // include '../asset/PHP/picture.php';
-$error ='';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-// image téléchargé sans erreu
-    if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
-        echo 'ok';
-        $allowedextension = ['jpg', 'jpeg', 'png', 'gif'];
-        $maxsize = 1024 * 1024 * 2;
-        $filename = $_FILES['picture']['name'];
-        $filesize = $_FILES['picture']['size'];
-        $tmp = $_FILES['picture']['tmp_name'];
-        $fileextension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
-        // Vérification de l'extension
-        if (!in_array($fileextension, $allowedextension)) {
-            $error = 'Le format du fichier téléchargé n\'est pas autorisé !';
-        } elseif ($maxsize < $filesize) {
-            $error = 'Le fichier téléchargé depasse la taille max autorisée !';
-        }
-        if (empty($error)) {
-            if (move_uploaded_file($tmp, '../asset/img/' . $filename)) {
-                setcookie('picture', $filename, time() + 3600);
-                header('Location: profil.php?picture=' . $filename);
-                exit();
-            }
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,19 +5,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceBrico - Register</title>
     <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="asset/libs/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="asset/libs/css/bootstrap.css">
-    <link rel="stylesheet" href="asset/libs/css/fontawesome.css">
-    <link rel="stylesheet" href="asset/css/style.css">
-    <link rel="stylesheet" href="asset/css/screen.css">
+    <link rel="stylesheet" href="../asset/libs/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../asset/libs/css/bootstrap.css">
+    <link rel="stylesheet" href="../asset/libs/css/fontawesome.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/screen.css">
 </head>
 <body>
     <header class="d-flex justify-content-center">
-        <a href="login.php"><img class="ml-50 mt-3 mb-3" src="asset/img/logoSpaceBrico_V2.01.png" alt="" width="200px"></a>
+        <a href="login.php"><img class="ml-50 mt-3 mb-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="200px"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center text-white">
-            <form action="register.php" method="POST">
+            <form action="register_ctrl.php" method="POST">
                 <p class="h2 text-dark text-uppercase d-flex justify-content-center mt-5 mb-4">Inscription</p>
                 <div class="form-row">
                     <label class="text-dark" for="firstname">Votre Nom : </label>
@@ -110,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-md-12 form-control mt-2">
                             <input type="checkbox" name="cgu" id="cgu">
                             <label for="cgu">&nbsp;J'ai lu et j'accepte les conditions génerales d'utilisations </label>
-                            <embed src="asset/docs/CGU.pdf" class="col-12" type="application/pdf">
+                            <embed src="../asset/docs/CGU.pdf" class="col-12" type="application/pdf">
                         </div>
                         <div class="col-md-12 ">
                             <div id="reg" class="g-recaptcha d-flex justify-content-center"
@@ -124,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 name="submit_post">S'inscrire</button>
                         </div>
                         <p class="text-dark text-center col-12">Vous etes déja menbre?
-                            <a href="login.php">Se connecter</a>
+                            <a href="login_ctrl.php">Se connecter</a>
                         </p>
                     </div>
                 </div>

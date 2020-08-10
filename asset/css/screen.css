@@ -492,4 +492,16 @@ body {
         margin-bottom: -20px;
         margin-left: 28% !important;
     }
+    #contenue
+    {
+        width: 70% !important;
+    }
+    .title-slide
+    {
+        width: 17% !important;
+    }
+    #col-right
+    {
+        width: 17% !important;
+    }
 }
