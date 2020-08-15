@@ -20,54 +20,55 @@
             <form action="register_ctrl.php" method="POST">
                 <p class="h2 text-dark text-uppercase d-flex justify-content-center mt-5 mb-4">Inscription</p>
                 <div class="form-row">
+                <label class="text-dark" for="lastname">Votre prénom : </label>
+                    <div class="col-md-12 mt-2">
+                        <input type="text" class="form-control" placeholder="Dupont" id="lastname" name="lastname">
+                        <? var_dump($_POST);?>
+                    </div>
                     <label class="text-dark" for="firstname">Votre Nom : </label>
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Jean">
+                        <input type="text" class="form-control" placeholder="Jean" id="firstname" name="firstname">
                     </div>
-                    <label class="text-dark" for="lastname">Votre prénom : </label>
+                    <label class="text-dark" for="mail">Votre email : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Dupont">
+                        <input type="text" class="form-control" placeholder="Email" id="mail" name="mail">
                     </div>
-                    <label class="text-dark" for="lastname">Votre email : </label>
+                    <label class="text-dark" for="password">Votre mot de passe : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Email">
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="pass">
                     </div>
-                    <label class="text-dark" for="lastname">Votre mot de passe : </label>
+                    <label class="text-dark" for="c_password">confirmer votre mot de passe : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="c_password">
                     </div>
-                    <label class="text-dark" for="lastname">confirmer votre mot de passe : </label>
+                    <label class="text-dark" for="addresse">Votre adresse postal : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="password" class="form-control" placeholder="Confirm Password">
+                        <input type="text" class="form-control" placeholder="Adresse Postal" id="addresse" name="addresse">
                     </div>
-                    <label class="text-dark" for="lastname">Votre adresse postal : </label>
+                    <label class="text-dark" for="country">Votre ville : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Adresse Postal">
+                        <input type="text" class="form-control" placeholder="Ville" id="country" name="country">
                     </div>
-                    <label class="text-dark" for="lastname">Votre ville : </label>
+                    <label class="text-dark" for="zip_code">Votre code postal : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Ville">
+                        <input type="text" class="form-control" placeholder="Code postal" id="zip_code" name="zip_code">
                     </div>
-                    <label class="text-dark" for="lastname">Votre code postal : </label>
-                    <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Code postal">
-                    </div>
-                    <label class="text-dark" for="lastname">Votre date de naissance : </label>
+                    <label class="text-dark" for="birthdate">Votre date de naissance : </label>
                     <div class="col-md-12 mt-2 mr-n5 pr-2">
-                        <input type="date" class="form-control" placeholder="Jour">
+                        <input type="date" class="form-control" placeholder="Jour" id="birthdate" name="birthdate">
                     </div>
-                    <label class="text-dark" for="lastname">Votre numéro de téléphone : </label>
+                    <label class="text-dark" for="phone ">Votre numéro de téléphone : </label>
                     <div class="col-md-12 mt-2 ">
-                        <input type="text" class="form-control" placeholder="Télephone">
+                        <input type="text" class="form-control" placeholder="Télephone" id="phone" name="phone">
                     </div>
-                    <label class="text-dark" for="lastname">Votre genre: </label>
+                    <label class="text-dark" for="gender">Votre genre: </label>
                     <div class="col-md-12 text-dark  mt-2">
                         <div class="col form-control">
-                            <input type="radio" name="genre" id="homme">
+                            <input type="radio" name="gender" id="homme" value="1">
                             <label for="homme">Homme</label>
                         </div>
                         <div class="col-md-12 form-control mt-2">
-                            <input type="radio" name="genre" id="femme">
+                            <input type="radio" name="gender" id="femme" value="2">
                             <label for="femme">Femme</label>
                         </div>
                         <!-- <label class="text-dark" for="picture">Votre photo de profil : </label>
@@ -78,16 +79,13 @@
                             <p class="text-danger"><?=$error?></p>
                         </div> -->
                         <div class="col-md-12 form-control mt-2">
-                            <input type="checkbox" name="cgu" id="cgu">
+                            <input type="checkbox" name="cgu" id="cgu" value="1">
                             <label for="cgu">&nbsp;J'ai lu et j'accepte les conditions génerales d'utilisations </label>
                             <embed src="../asset/docs/CGU.pdf" class="col-12" type="application/pdf">
                         </div>
                         <div class="col-md-12 ">
                             <div id="reg" class="g-recaptcha d-flex justify-content-center"
                                 data-sitekey="6LcQtfYUAAAAAHuiPdMtV2MJEacUOpoIDZW2t9P1"></div>
-                        </div>
-                        <div class="col-md-12 mt-2">
-                            <p class="error text-center"><?= !empty($errors) ? $errors : '' ?></p>
                         </div>
                         <div class="col-md-12 mt-n5">
                             <button class="btn btn-info btn-block my-4" type="submit"

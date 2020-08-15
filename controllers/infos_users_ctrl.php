@@ -17,7 +17,7 @@ session_start();
     $phone = '06.23.56.56.56';
     $job = 'Développeur web junior';
     $company = 'La manu';
-    $lastPasword ='brian56';
+    $lastPasword =$_SESSION['password'];
     $photo = 'user-boy_default.png';
 
     require_once dirname(__FILE__).'/../views/header.php';
