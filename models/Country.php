@@ -32,7 +32,16 @@
          * Permet de créer un utilisateur dans la table users
          * @return boolean
          */
-
+        public function readAll()
+        {
+            $listPatients_sql = 'SELECT `users_id` FROM `users`';
+            $patientsStatement = $this->db->query($listPatients_sql);
+            $listPatients = [];
+            if ($patientsStatement instanceof PDOstatement ) {
+                $listPatients = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $listPatients;
+        }
         public function create()
         {
             $sql = 'INSERT INTO `country` (`country_name`) VALUES (:country)';

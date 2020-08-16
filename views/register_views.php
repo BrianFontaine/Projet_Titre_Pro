@@ -23,7 +23,6 @@
                 <label class="text-dark" for="lastname">Votre prénom : </label>
                     <div class="col-md-12 mt-2">
                         <input type="text" class="form-control" placeholder="Dupont" id="lastname" name="lastname">
-                        <? var_dump($_POST);?>
                     </div>
                     <label class="text-dark" for="firstname">Votre Nom : </label>
                     <div class="col-md-12">
@@ -94,6 +93,11 @@
                         <p class="text-dark text-center col-12">Vous etes déja menbre?
                             <a href="login_ctrl.php">Se connecter</a>
                         </p>
+                        <?php 
+                        var_dump($patient); 
+                        foreach ($listPatients as $patient) { ?>
+                            <?= $patient->users_id;?>
+                        <?php }?>
                     </div>
                 </div>
             </form>

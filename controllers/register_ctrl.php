@@ -109,5 +109,8 @@ if($isSubmitted && count($errors) == 0){
     //     $createSuccess = true;
     // }
 }
+$patient = new Country();
+
+$listPatients = $patient->readAll();
 require_once dirname(__FILE__).'/../views/register_views.php';
 ?>
