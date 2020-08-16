@@ -93,16 +93,12 @@
                         <p class="text-dark text-center col-12">Vous etes déja menbre?
                             <a href="login_ctrl.php">Se connecter</a>
                         </p>
-                        <?php 
-                        var_dump($patient); 
-                        foreach ($listPatients as $patient) { ?>
-                            <?= $patient->users_id;?>
-                        <?php }?>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b3f34b62ee.js" crossorigin="anonymous"></script>

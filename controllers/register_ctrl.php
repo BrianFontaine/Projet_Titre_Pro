@@ -1,6 +1,6 @@
 <?php
     require_once dirname(__FILE__).'/../models/Users.php';
-    // require_once dirname(__FILE__).'/../models/Country.php';
+    require_once dirname(__FILE__).'/../models/Country.php';
     require_once dirname(__FILE__).'/../models/Zipcode.php';
     // include 'asset/PHP/regexRegister.php';
     // include '../asset/PHP/picture.php';
@@ -45,25 +45,28 @@ $phone= '';
 $mail = '';
 $cgu = '';
 $zip_code ='';
+$country ='';
+$zipcode_id ='';
+$users_id='';
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $isSubmitted = true;
          //verif champ nom
-    // $lastname = trim(filter_input(INPUT_POST,'lastname',FILTER_SANITIZE_STRING));
-    // if (empty($lastname)) {
-    //     $errors['lastname'] = 'Veuillez renseigner le nom';
-    // } 
-    // elseif (!preg_match($regexName, $lastname)) {
-    //     $errors['lastname'] = 'Votre nom contient des caractères non autorisés !';
-    // }
-    $lastname = $_POST['lastname'];
+    $firstname = trim(filter_input(INPUT_POST,'firstname',FILTER_SANITIZE_STRING));
+    if (empty($firstname)) {
+        $errors['firstname'] = 'Veuillez renseigner le nom';
+    } 
+    elseif (!preg_match($regexName, $firstname)) {
+        $errors['firstname'] = 'Votre nom contient des caractères non autorisés !';
+    }
+    // $lastname = $_POST['lastname'];
      //verif champ prénom
-    $firstname = trim(filter_input(INPUT_POST,'firstname',FILTER_SANITIZE_STRING));//enlève les espaces vides avant et après + nettoyage en fonction du type 
-    if (empty($firstname)) {//verifie si le champ est vide
-        $errors['firstname'] = 'Veuillez renseigner le prénom';
-    } elseif (!preg_match($regexName, $firstname)) {//comparatif avec la regex correspondante
-        $errors['firstname'] = 'Votre prénom contient des caractères non autorisés !';
+    $lastname = trim(filter_input(INPUT_POST,'lastname',FILTER_SANITIZE_STRING));//enlève les espaces vides avant et après + nettoyage en fonction du type 
+    if (empty($lastname)) {//verifie si le champ est vide
+        $errors['lastname'] = 'Veuillez renseigner le prénom';
+    } elseif (!preg_match($regexName, $lastname)) {//comparatif avec la regex correspondante
+        $errors['lastname'] = 'Votre prénom contient des caractères non autorisés !';
     }
      //verif champ date d'anniversaire
     $birthdate = trim(htmlspecialchars($_POST['birthdate']));
@@ -86,6 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($regexTel, $phone)) {
         $errors['phone'] = 'Le format du téléphone n\'est pas valide!';
     }
+    // $firstname = $_POST['firstname'];
+    // $lastname = $_POST['name'];
+    // $mail = $_POST['mail'];
+    // $phone = $_POST['phone'];
+    // $birthdate = $_POST['birthdate'];
     $password = $_POST['pass'];
     $zip_code = $_POST['zip_code'];
 }
@@ -102,12 +110,12 @@ if($isSubmitted && count($errors) == 0){
     {
         $createSuccess = true;
     }
-    // $country = new Country(0, $country);
+    $country = new Country(0, $country,$zipcode_id,$users_id);
 
-    // if($country->create())
-    // {
-    //     $createSuccess = true;
-    // }
+    if($country->create())
+    {
+        $createSuccess = true;
+    }
 }
 $patient = new Country();
 

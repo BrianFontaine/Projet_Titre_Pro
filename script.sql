@@ -15,7 +15,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema sans_merise
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `sans_merise` DEFAULT CHARACTER SET utf8 ;
-USE `sans_merise` ;
+USE `sans_merise`;
 
 -- -----------------------------------------------------
 -- Table `sans_merise`.`users`
@@ -77,24 +77,15 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`messages` (
   PRIMARY KEY (`messages_id`),
   CONSTRAINT `fk_messages_dirtywords1`
     FOREIGN KEY (`dirtywords_dirtywords_id`)
-    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`),
   CONSTRAINT `fk_messages_movies_messages`
     FOREIGN KEY (`movies_messages_id`)
-    REFERENCES `sans_merise`.`movies_messages` (`movies_messages_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`movies_messages` (`movies_messages_id`),
   CONSTRAINT `fk_messages_pictures_messages1`
     FOREIGN KEY (`pictures_messages_id`)
-    REFERENCES `sans_merise`.`pictures_messages` (`pictures_messages_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`pictures_messages` (`pictures_messages_id`),
   CONSTRAINT `fk_messages_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    FOREIGN KEY (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -117,16 +108,8 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`country` (
   `zipcode_id` INT NOT NULL,
   `users_id` INT NOT NULL,
   PRIMARY KEY (`country_id`),
-  CONSTRAINT `fk_country_zipcode1`
-    FOREIGN KEY (`zipcode_id`)
-    REFERENCES `sans_merise`.`zipcode` (`zipcode_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_country_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  CONSTRAINT `fk_country_zipcode1` FOREIGN KEY (`zipcode_id`) REFERENCES `sans_merise`.`zipcode` (`zipcode_id`),
+  CONSTRAINT `fk_country_users1`FOREIGN KEY (`users_id`) REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -143,9 +126,7 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`events` (
   PRIMARY KEY (`events_id`),
   CONSTRAINT `fk_events_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -169,9 +150,7 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`comments` (
   PRIMARY KEY (`comments_id`),
   CONSTRAINT `fk_comments_dirtywords1`
     FOREIGN KEY (`dirtywords_id`)
-    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -196,14 +175,10 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`movies_posts` (
   PRIMARY KEY (`movies_posts_id`),
   CONSTRAINT `fk_movies_posts_albums1`
     FOREIGN KEY (`albums_id`)
-    REFERENCES `sans_merise`.`albums` (`albums_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`albums` (`albums_id`),
   CONSTRAINT `fk_movies_posts_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -219,14 +194,10 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`pictures_posts` (
   PRIMARY KEY (`pictures_posts_id`),
   CONSTRAINT `fk_pictures_posts_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`users` (`users_id`),
   CONSTRAINT `fk_pictures_posts_albums1`
     FOREIGN KEY (`albums_id`)
-    REFERENCES `sans_merise`.`albums` (`albums_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`albums` (`albums_id`))
 ENGINE = InnoDB;
 
 
@@ -256,39 +227,25 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`posts` (
   PRIMARY KEY (`posts_id`),
   CONSTRAINT `fk_posts_elements1`
     FOREIGN KEY (`elements_id`)
-    REFERENCES `sans_merise`.`elements` (`elements_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`elements` (`elements_id`),
   CONSTRAINT `fk_posts_movies_posts1`
     FOREIGN KEY (`movies_posts_id`)
-    REFERENCES `sans_merise`.`movies_posts` (`movies_posts_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`movies_posts` (`movies_posts_id`),
   CONSTRAINT `fk_posts_pictures_posts1`
     FOREIGN KEY (`pictures_posts_id`)
-    REFERENCES `sans_merise`.`pictures_posts` (`pictures_posts_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`pictures_posts` (`pictures_posts_id`),
   CONSTRAINT `fk_posts_dirtywords1`
     FOREIGN KEY (`dirtywords_id`)
-    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`dirtywords` (`dirtywords_id`),
   CONSTRAINT `fk_posts_comments1`
     FOREIGN KEY (`comments_id`)
-    REFERENCES `sans_merise`.`comments` (`comments_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`comments` (`comments_id`),
   CONSTRAINT `fk_posts_notes1`
     FOREIGN KEY (`notes_id`)
-    REFERENCES `sans_merise`.`notes` (`notes_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`notes` (`notes_id`),
   CONSTRAINT `fk_posts_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -302,9 +259,7 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`genreds` (
   PRIMARY KEY (`genders_id`),
   CONSTRAINT `fk_genreds_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -328,9 +283,7 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`profil_pictures` (
   PRIMARY KEY (`profil_pictures_id`),
   CONSTRAINT `fk_profil_pictures_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
@@ -346,14 +299,10 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`notifys` (
   PRIMARY KEY (`notifys_id`),
   CONSTRAINT `fk_notifys_posts1`
     FOREIGN KEY (`posts_id`)
-    REFERENCES `sans_merise`.`posts` (`posts_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`posts` (`posts_id`),
   CONSTRAINT `fk_notifys_comments1`
     FOREIGN KEY (`comments_id`)
-    REFERENCES `sans_merise`.`comments` (`comments_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`comments` (`comments_id`))
 ENGINE = InnoDB;
 
 
@@ -366,14 +315,10 @@ CREATE TABLE IF NOT EXISTS `sans_merise`.`add_friends_has_users` (
   PRIMARY KEY (`add_friends_add_friends_id`, `users_users_id`),
   CONSTRAINT `fk_add_friends_has_users_add_friends1`
     FOREIGN KEY (`add_friends_id`)
-    REFERENCES `sans_merise`.`add_friends` (`add_friends_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `sans_merise`.`add_friends` (`add_friends_id`),
   CONSTRAINT `fk_add_friends_has_users_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `sans_merise`.`users` (`users_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `sans_merise`.`users` (`users_id`))
 ENGINE = InnoDB;
 
 
