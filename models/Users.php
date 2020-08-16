@@ -15,7 +15,7 @@
         public function __construct($users_id = 0, $users_lastname='', $users_firstname='', $users_birthdate='', $users_mail='', $users_password='',$users_phone='',$users_cgu= 0 )
         {
             $this->users_id = $users_id;
-            $this->users_users_lastname = $users_lastname;
+            $this->users_lastname = $users_lastname;
             $this->users_firstname = $users_firstname;
             $this->users_birthdate = $users_birthdate;
             $this->users_mail = $users_mail;

@@ -23,7 +23,6 @@
                 <label class="text-dark" for="lastname">Votre prénom : </label>
                     <div class="col-md-12 mt-2">
                         <input type="text" class="form-control" placeholder="Dupont" id="lastname" name="lastname">
-                        <? var_dump($_POST);?>
                     </div>
                     <label class="text-dark" for="firstname">Votre Nom : </label>
                     <div class="col-md-12">
@@ -99,6 +98,7 @@
             </form>
         </div>
     </div>
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b3f34b62ee.js" crossorigin="anonymous"></script>

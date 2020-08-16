@@ -4,12 +4,16 @@
 
         private $country_id;
         private $country_name;
+        private $zipcode_id;
+        private $users_id;
         private $db;
 
-        public function __construct($country_id = 0, $country_name = '')
+        public function __construct($country_id = 0, $country_name = '',$zipcode_id=0,$users_id=0)
         {
             $this->country_id = $country_id;
-            $this->users_country_name = $country_name;
+            $this->country_name = $country_name;
+            $this->zipcode_id = $zipcode_id;
+            $this->users_id = $users_id;
             $this->db = Database::getInstance();
         }
 
@@ -32,10 +36,9 @@
          * Permet de créer un utilisateur dans la table users
          * @return boolean
          */
-
         public function create()
         {
-            $sql = 'INSERT INTO `country` (`country_name`) VALUES (:country)';
+            $sql = "INSERT INTO `country` (`country_name`,`zipcode_id`,`users_id`) VALUES (0,:country)";
             $country_stmt = $this->db->prepare($sql);
     
             $country_stmt->bindValue(':country', $this->country_name, PDO::PARAM_STR);

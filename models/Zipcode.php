@@ -9,7 +9,7 @@
         public function __construct($zipcode_id=0, $zipcode_number='')
         {
             $this->zipcode_id = $zipcode_id;
-            $this->users_zipcode_number = $zipcode_number;
+            $this->zipcode_number = $zipcode_number;
             $this->db = Database::getInstance();
         }
 
