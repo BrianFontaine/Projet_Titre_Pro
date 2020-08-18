@@ -20,7 +20,7 @@
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
-            <form class="text-center text-white" action="login_ctrl.php" method="POST">
+            <form class="text-center text-white" action="../connection/" method="POST">
                 <p class="h4 mb-4 text-dark">Se connecter</p>
                 <!-- Email -->
                 <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="login">

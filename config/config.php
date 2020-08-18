@@ -8,17 +8,17 @@ define('HOST', 'localhost');
  * Nom de la base de donnée
  * name of databases 
  */
-define('DB_NAME', 'sans_merise');
+define('DB_NAME', 'spacebrico');
 /**
  * Nom d'utilisateur
  * User name
  */
-define('USER', 'root');
+define('USER', 'admin');
 /**
  * Mot de Passe 
  * Password
  */
-define('PASSWORD', '');
+define('PASSWORD', 'Brian020916@');
 
 
 

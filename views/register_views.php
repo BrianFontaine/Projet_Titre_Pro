@@ -17,7 +17,7 @@
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center text-white">
-            <form action="register_ctrl.php" method="POST">
+            <form action="../controllers/register_ctrl.php" method="POST">
                 <p class="h2 text-dark text-uppercase d-flex justify-content-center mt-5 mb-4">Inscription</p>
                 <div class="form-row">
                 <label class="text-dark" for="lastname">Votre prénom : </label>
@@ -97,6 +97,7 @@
                 </div>
             </form>
         </div>
+        <?php $id->id;?>
     </div>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

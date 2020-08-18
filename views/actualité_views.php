@@ -187,6 +187,19 @@
             </div>
             <input class="btn btn-link text-white" type="button" value="Commenter">
             <input class="btn btn-link text-white" type="button" value="Partager">
+            <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12"></textarea>
+            <?php for ($i=0; $i < 10; $i++) { ?>
+            <div class="container p-3">
+                <div class="bg-light p-1 rounded">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Dolores commodi omnis aperiam aliquam, iusto non eius fuga rerum 
+                            ullam quia beatae cupiditate reiciendis officiis error necessitatibus iure. 
+                            Doloremque, tenetur quaerat?
+                        </p>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <?php } ?>

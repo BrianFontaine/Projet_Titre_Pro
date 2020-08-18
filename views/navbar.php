@@ -2,7 +2,7 @@
     $photo = $_COOKIE['picture'] ?? 'user-boy_default.png';
 ?>
 <header>
-    <a id="title" class="mt-4" href="../controllers/actualité_ctrl.php">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
+    <a id="title" class="mt-4" href="../accueil/">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
     <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
     <button class="menu_nav_button btn btn-link"><i class="fas fa-bars"></i></button>
     <nav>
@@ -27,8 +27,7 @@
                         class="fas fa-bell"></i></a></li>
             <li>
                 <?php if (!isset($_SESSION['user'])) { ?>
-            <li class="text-center"> <a class="d-block"
-                    href="http://localhost/projet_pro/controllers/login_ctrl.php?logout=true"><i
+            <li class="text-center"> <a class="d-block",href="../connection/"><i
                         class="fas fa-user-circle"></i>Me connecter</a></li>
             <?php } // sinon affiche le bouton de deconnexion ?>
             </li>
@@ -39,12 +38,12 @@
                 <i class="fas fa-chevron-down mr-3 text-dark"></i>
             </a>
                 <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">
-                <li class="text-center m-auto"><a class="d-block" href="profil_ctrl.php"><i class="far fa-id-card"></i>&nbsp;Voir mon profil</a></li>
+                <li class="text-center m-auto"><a class="d-block" href="../profile/"><i class="far fa-id-card"></i>&nbsp;Voir mon profil</a></li>
                 <div class="dropdown-divider"></div>
-                <li class="text-center m-auto"><a class="d-block" href="infos_users_ctrl.php"><i class="fas fa-cogs"></i>&nbsp;modifier mes infos</a></li>
+                <li class="text-center m-auto"><a class="d-block" href="../modifier_mes_informations/"><i class="fas fa-cogs"></i>&nbsp;modifier mes infos</a></li>
                 <div class="dropdown-divider"></div>
                 <?php // affiche le lien de connexion si la session est absente?>
-                <li class="text-center m-auto"><a class="d-block" href="http://localhost/projet_pro/controllers/login_ctrl.php?logout=true"><i class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
+                <li class="text-center m-auto"><a class="d-block" href="../connection/?logout=true"><i class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
                 <!-- le $_GET logout sert à déclencher la deconnexion -->
                 <?php } ?>
             </div>

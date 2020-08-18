@@ -1,8 +1,8 @@
 <footer class="row text-center" style="font-size: medium;">
-    <a class="m-auto p-2" href="mention_ctrl.php">Mentions Légales</a>
-    <a class="m-auto p-2" href="../asset/docs/CGU.pdf">Conditions générales d'utilisation</a>
-    <a class="m-auto p-2" href="contact_ctrl.php">Contactez-nous</a>
-    <a class="m-auto p-2" href="infos_users_ctrl.php">Mon Compte</a>
+    <a class="m-auto p-2" href="../mentions_légales/">Mentions Légales</a>
+    <a class="m-auto p-2" href="../Condition_générales_d'utilisateurs/">Conditions générales d'utilisation</a>
+    <a class="m-auto p-2" href="../contact/">Contactez-nous</a>
+    <a class="m-auto p-2" href="../modifier_mes_informations/">Modifier mes information</a>
     <a class="m-auto p-2" href="https://brianfontaine.github.io/CV-Brian-D-veloppeurjunior/">&copy; SpaceBrico - 2020</a>
 </footer>
 </div>

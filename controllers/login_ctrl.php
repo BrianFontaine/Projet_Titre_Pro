@@ -11,7 +11,7 @@
 	}
     if (!empty($_POST['login']) && !empty($_POST['password'])) {
         $_SESSION['user'] = ['auth' => true, 'login' => $_POST['login']];
-        header("Location: profil_ctrl.php");
+        header("Location: ../profile/");
     }
     require_once dirname(__FILE__).'/../views/login_views.php';
 ?>

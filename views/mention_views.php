@@ -6,7 +6,7 @@
     <title>Mentions légales</title>
 </head>
 <body class="m-auto container">
-    <a href="index.php">ACCEUIL</a>
+    <a href="../accueil/">ACCEUIL</a>
     <div>
         <h2 class="col-12">Définitions</h2>
         <p class="col-12"><b>Client&nbsp;:</b>&nbsp;tout professionnel ou personne physique capable au sens des articles 1123 et

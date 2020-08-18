@@ -8,7 +8,7 @@
         private $users_id;
         private $db;
 
-        public function __construct($country_id = 0, $country_name = '',$zipcode_id=0,$users_id=0)
+        public function __construct($country_id = 0, $country_name = '',$zipcode_id= 0,$users_id= 0)
         {
             $this->country_id = $country_id;
             $this->country_name = $country_name;
@@ -36,22 +36,14 @@
          * Permet de créer un utilisateur dans la table users
          * @return boolean
          */
-        public function readAll()
-        {
-            $listPatients_sql = 'SELECT `users_id` FROM `users`';
-            $patientsStatement = $this->db->query($listPatients_sql);
-            $listPatients = [];
-            if ($patientsStatement instanceof PDOstatement ) {
-                $listPatients = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
-            }
-            return $listPatients;
-        }
+
         public function create()
         {
-            $sql = "INSERT INTO `country` (`country_name`,`zipcode_id`,`users_id`) VALUES (0,:country)";
+            $sql = "INSERT INTO `country` (`country_name`,`zipcode_id`,`users_id`) VALUES (:country,0,0)";
             $country_stmt = $this->db->prepare($sql);
-    
             $country_stmt->bindValue(':country', $this->country_name, PDO::PARAM_STR);
             return $country_stmt->execute();
+            
         }
+        
     }

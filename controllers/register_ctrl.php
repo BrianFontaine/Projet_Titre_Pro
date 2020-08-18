@@ -1,6 +1,6 @@
 <?php
     require_once dirname(__FILE__).'/../models/Users.php';
-    require_once dirname(__FILE__).'/../models/Country.php';
+    // require_once dirname(__FILE__).'/../models/Country.php';
     require_once dirname(__FILE__).'/../models/Zipcode.php';
     // include 'asset/PHP/regexRegister.php';
     // include '../asset/PHP/picture.php';
@@ -46,8 +46,8 @@ $mail = '';
 $cgu = '';
 $zip_code ='';
 $country ='';
-$zipcode_id ='';
-$users_id='';
+$zipcode_id =0;
+$users_id=0;
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
@@ -96,29 +96,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // $birthdate = $_POST['birthdate'];
     $password = $_POST['pass'];
     $zip_code = $_POST['zip_code'];
+    $country = $_POST['country'];
 }
 if($isSubmitted && count($errors) == 0){
-    $users = new Users(0, $lastname, $firstname, $birthdate, $mail, $password, $phone, $cgu);
+    $users = new Users( $lastname, $firstname, $birthdate, $mail, $password, $phone, $cgu);
 
     if($users->create())
     {
         $createSuccess = true;
     }
-    $zip_code = new Zipcode(0, $zip_code);
+    $zip_code = new Zipcode( $zip_code);
 
     if($zip_code->create())
     {
         $createSuccess = true;
     }
-    $country = new Country(0, $country,$zipcode_id,$users_id);
+    // $country = new Country(0, $country,$zipcode_id,$users_id);
 
-    if($country->create())
-    {
-        $createSuccess = true;
-    }
+    // if($country->create())
+    // {
+    //     $createSuccess = true;
+    // }
 }
-$patient = new Country();
+var_dump($users_stmt);
+// var_dump($db);
+// $id = new Users();
+// $id_stmt = $id->readSingle();
+// var_dump($id_stmt);
+// $id = "";
+// $id = new Users($id);
 
-$listPatients = $patient->readAll();
+// $ide= $id->lasid();
+// $last_id = $db->lastInsertId();
+// echo "New record created successfully. Last inserted ID is: " . $last_id;
+// var_dump($last_id);
+// var_dump($users->create());
+
+
 require_once dirname(__FILE__).'/../views/register_views.php';
 ?>
