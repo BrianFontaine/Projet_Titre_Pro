@@ -136,7 +136,33 @@
                 <i class="far fa-star" value="5"></i>
             </div>
             <input class="btn btn-link text-white" type="button" value="Commenter">
-            <input class="btn btn-link text-white" type="button" value="Partager">
+            <!-- <input class="btn btn-link text-white" type="button" value="Partager"> -->
+            <div class="container p-3">
+            <form action="../accueil/" method="POST">
+                <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
+            <div class="form-group col-md-12 text-right ">
+            <button class="btn btn-light" type="submit" style="font-size: 1em;">Publier</button>
+            </div>
+            </form>
+
+
+            <div class="border mt-2 mb-2"></div>
+
+            <!-- commentaire -->
+            <div class="bg-light p-1 rounded">
+                <div class="row align-items-center">
+                    <img class="ml-3" src="../asset/img/user-boy_default.png" alt="" style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
+                    <h6 class=" ml-2 text-dark"><?= $firstName.' '.$lastName; ?></h6>
+                    <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; ">12 juillet 2020</p>
+                </div>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Dolores commodi omnis aperiam aliquam, iusto non eius fuga rerum 
+                        ullam quia beatae cupiditate reiciendis officiis error necessitatibus iure. 
+                        Doloremque, tenetur quaerat?
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <?php } ?>
@@ -147,7 +173,7 @@
    
     <div id="col-left" class="">
         <div class="user-profil">
-            <div class="bg-dark">
+            <div class="">
                 <img class="user_img" src="../asset/img/<?= $photo; ?>" alt="">
                 <a class="user-name text-center h2" href=""><?= $firstName.' '.$lastName; ?></a>
                 <p class="h4 user-age w-100"><?= $age; ?></p>

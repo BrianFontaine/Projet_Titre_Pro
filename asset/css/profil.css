@@ -16,7 +16,7 @@ body
 {
     scrollbar-color: rgba(40, 40, 40, 0.64) rgba(40, 50, 40, 0.29) !important;
     scrollbar-width: thin;
-    text-align: center;
+    /* text-align: center; */
     left: 17%;
     width: 63%;
     margin-top: 90px;
