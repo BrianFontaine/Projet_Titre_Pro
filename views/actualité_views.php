@@ -1,5 +1,6 @@
 </div>
 <!-- friend_only_show -->
+<?php if (isset($_SESSION['user'])) { ?>
 <div id="people" class="friends_online">
     <i id="open" class="fas fa-users"></i>
 </div>
@@ -48,8 +49,10 @@
         <div class="do_not_disturb"><i class="fas fa-moon"></i></div>
     </div>
 </div>
+    <?php } ?>
 </body>
 <div id="" class="row d-flex justify-content-center contenue-actu">
+<?php if (isset($_SESSION['user'])) { ?>
     <form action="../accueil/" method="POST"
         class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
         <div class="row">
@@ -78,7 +81,8 @@
             <button class="btn btn-light" type="submit" style="font-size: 1.2em;">Publier</button>
             <div class="gallery row justify-content-around"></div>
         </div>
-    </form>    
+    </form>
+    <?php } ?>
     <?php for ($i=0; $i < 30 ; $i++) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
@@ -94,7 +98,7 @@
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
             </h6>
-            <p class="bg-light rounded">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
+            <p class="bg-light rounded p-2">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
                 1,5cm d'épaisseur. Je recherche des plaques
                 de plexiglas.
             </p>
@@ -174,46 +178,45 @@
                 </details>
             </p>
         </div>
+        <div class="row justify-content-between pr-3 pl-3">
+        <?= date('d m Y').' il y a '.date('i').' minutes'?>
+        <div class="">1234 Vues</div>
+        </div>
         <div class="border mt-2 mb-n2"></div>
         <div class="row justify-content-around">
             <!-- <input class="btn btn-link" type="button" value="J'aime"> -->
-       
             <!-- <input class="btn btn-link text-white" type="button" value="Commenter"> -->
             <!-- <input class="btn btn-link text-white" type="button" value="Partager"> -->
             <div class="container p-3">
-            <form action="../accueil/" method="POST">
-                <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
+            <form action="../accueil/" method="get">
+                <textarea name="comment" id="comment<?=$i?>" cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
             <div class="form-group col-md-12 text-right ">
-            <div class="score text-white text-left col-md-6" style="margin-top: 1em;">
+            <div class="score text-white text-left col-md-6" style="margin-top: 1em;" id="note" name="note">
                 Note :
-                <i class="far fa-star" value="1"></i>
-                <i class="far fa-star" value="2"></i>
-                <i class="far fa-star" value="3"></i>
-                <i class="far fa-star" value="4"></i>
-                <i class="far fa-star" value="5"></i>
+                <label for="1"><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" id="1" value="1" class="d-none">
+                <label for="2"><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" id="2" value="2" class="d-none">
+                <label for="3"><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" id="3" value="3" class="d-none">
+                <label for="4"><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" id="4" value="4" class="d-none">
+                <label for="5"><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" id="5" value="5" class="d-none">
             </div>
-            <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1em;
-    position: ABSOLUTE;
-    top: -1em;
-    right: 12%;
-"><i class="fas fa-camera-retro"></i>&nbsp;|&nbsp;<i class="far fa-camera-movie"></i><input type="file" name="picture_movies" id="gallery-photo-add"
-                    data-preview=".preview" multiple="multiple"></label>
-            <button class="btn btn-light" type="submit" style="    font-size: 1em;
-    position: absolute;
-    top: -6px;
-    right: 2%;">Publier</button>
+            <!-- <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1em; position: ABSOLUTE; top: -1em; right: 12%;"><i class="fas fa-camera-retro"></i> -->
+            <button class="btn btn-light" type="submit" style="font-size: 1em; position: absolute; top: -6px; right: 2%;">Publier</button>
             </div>
             </form>
 
 
             <div class="border mt-2 mb-2"></div>
-
             <!-- commentaire -->
-            <div class="bg-light p-1 rounded d-none">
+            <div id="" class="bg-light p-1 rounded d-none comment-list">
                 <div class="row align-items-center">
                     <img class="ml-3" src="../asset/img/user-boy_default.png" alt="" style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
                     <h6 class=" ml-2 text-dark"><?= $firstName.' '.$lastName; ?></h6>
-                    <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; ">12 juillet 2020</p>
+                    <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; "><?= date('d m Y').' il y a '.date('i').' minutes'?></p>
                 </div>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
@@ -223,14 +226,22 @@
                     </p>
                 </div>
             </div>
+            <!-- fin commentaire  -->
         </div>
     </div>
     <?php } ?>
-    <div class="col-md-12" style="
-    bottom: 0px;
-    position: fixed;
-    font-size: 2em;">
+    <!-- <div class="col-md-12" style="bottom: 0px; position: fixed;font-size: 2em;"> -->
+</div>
 <?php
     include 'footer.php';
 ?>
-</div>
+<!-- <script>
+    let note = document.getElementById('note');
+
+    $('#comment0').click(function () { 
+        $('.comment-list').removeClass('d-none');
+    });
+    $('#comment1').click(function () { 
+        $('.comment-list').addClass('d-none');
+    });
+</script> -->

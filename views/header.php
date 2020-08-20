@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
+    <link rel="icon" type="image/png" href="../asset/img/logoSpaceBrico_V2.01.png" />
     <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Stencil+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Srisakdi&display=swap" rel="stylesheet">

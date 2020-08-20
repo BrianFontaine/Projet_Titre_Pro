@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (empty($_SESSION['user'])) {
+    // redirection si pas connecté
+    header('location: http://localhost/projet_pro/controllers/login_ctrl.php');
+    // stop la lecture du script
+    exit();
+}
     // require_once dirname(__FILE__).'/../models/';
     include '../asset/php/picture.php';
     $title = 'SpaceBrico - Informations personelles';

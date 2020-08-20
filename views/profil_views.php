@@ -44,12 +44,12 @@
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
             </h6>
-            <p class="bg-light rounded">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
+            <p class="bg-light rounded p-2">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
                 1,5cm d'épaisseur. Je recherche des plaques
                 de plexiglas.
             </p>
         </div>
-        <div class="mt-2 bg-light rounded">
+        <div class="mt-2 bg-light rounded p-2">
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui quaerat fugit soluta, fugiat maxime
                 repudiandae modi saepe ex voluptatibus eaque dolor impedit, necessitatibus recusandae, laudantium
@@ -127,7 +127,7 @@
         <div class="border mt-2 mb-n2"></div>
         <div class="row justify-content-around">
             <!-- <input class="btn btn-link" type="button" value="J'aime"> -->
-            <div class="score text-white" style="margin-top: 6px;">
+            <!-- <div class="score text-white" style="margin-top: 6px;">
                 Note :
                 <i class="far fa-star" value="1"></i>
                 <i class="far fa-star" value="2"></i>
@@ -135,13 +135,23 @@
                 <i class="far fa-star" value="4"></i>
                 <i class="far fa-star" value="5"></i>
             </div>
-            <input class="btn btn-link text-white" type="button" value="Commenter">
+            <input class="btn btn-link text-white" type="button" value="Commenter"> -->
             <!-- <input class="btn btn-link text-white" type="button" value="Partager"> -->
             <div class="container p-3">
             <form action="../accueil/" method="POST">
                 <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
             <div class="form-group col-md-12 text-right ">
-            <button class="btn btn-light" type="submit" style="font-size: 1em;">Publier</button>
+            <div class="score text-white text-left col-md-6" style="margin-top: 1em;">
+                Note :
+                <i class="far fa-star" value="1"></i>
+                <i class="far fa-star" value="2"></i>
+                <i class="far fa-star" value="3"></i>
+                <i class="far fa-star" value="4"></i>
+                <i class="far fa-star" value="5"></i>
+            </div>
+            <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1em; position: ABSOLUTE; top: -1em; right: 12%;"><i class="fas fa-camera-retro"></i>
+            <input type="file" name="picture_movies" id="gallery-photo-add" data-preview=".preview" multiple="multiple"></label>
+            <button class="btn btn-light" type="submit" style="font-size: 1em; position: absolute; top: -8px;right: 1%;">Publier</button>
             </div>
             </form>
 
@@ -149,7 +159,7 @@
             <div class="border mt-2 mb-2"></div>
 
             <!-- commentaire -->
-            <div class="bg-light p-1 rounded">
+            <div class="bg-light p-1 rounded d-none">
                 <div class="row align-items-center">
                     <img class="ml-3" src="../asset/img/user-boy_default.png" alt="" style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
                     <h6 class=" ml-2 text-dark"><?= $firstName.' '.$lastName; ?></h6>

@@ -27,8 +27,7 @@
                         class="fas fa-bell"></i></a></li>
             <li>
                 <?php if (!isset($_SESSION['user'])) { ?>
-            <li class="text-center"> <a class="d-block",href="../connection/"><i
-                        class="fas fa-user-circle"></i>Me connecter</a></li>
+            <li class="text-center"> <a class="d-block" href="../connection/"><i class="fas fa-user-circle"></i>Me connecter</a></li>
             <?php } // sinon affiche le bouton de deconnexion ?>
             </li>
 
