@@ -84,7 +84,7 @@
     </form>
     <?php } ?>
     <?php for ($i=0; $i < 30 ; $i++) { ?>
-    <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
+    <div class="col-md-10 mt-4 mb-4 rounded users_post_bg <?php if (empty($_SESSION['user'])) {echo 'col-md-12';}?>">
         <div class="row">
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
                 alt="">
@@ -194,15 +194,15 @@
             <div class="score text-white text-left col-md-6" style="margin-top: 1em;" id="note" name="note">
                 Note :
                 <label for="1"><i class="far fa-star" for="1"></i></label>
-                <input type="radio" name="note" id="1" value="1" class="d-none">
+                <input type="radio" name="note" value="1" class="d-none">
                 <label for="2"><i class="far fa-star" for="1"></i></label>
-                <input type="radio" name="note" id="2" value="2" class="d-none">
+                <input type="radio" name="note" value="2" class="d-none">
                 <label for="3"><i class="far fa-star" for="1"></i></label>
-                <input type="radio" name="note" id="3" value="3" class="d-none">
+                <input type="radio" name="note" value="3" class="d-none">
                 <label for="4"><i class="far fa-star" for="1"></i></label>
-                <input type="radio" name="note" id="4" value="4" class="d-none">
-                <label for="5"><i class="far fa-star" for="1"></i></label>
-                <input type="radio" name="note" id="5" value="5" class="d-none">
+                <input type="radio" name="note" value="4" class="d-none">
+                <label for="."><i class="far fa-star" for="1"></i></label>
+                <input type="radio" name="note" value="5" class="d-none">
             </div>
             <!-- <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1em; position: ABSOLUTE; top: -1em; right: 12%;"><i class="fas fa-camera-retro"></i> -->
             <button class="btn btn-light" type="submit" style="font-size: 1em; position: absolute; top: -6px; right: 2%;">Publier</button>

@@ -1,4 +1,4 @@
-<footer class="row text-center" style="font-size: medium;">
+<footer class="row text-center" style="font-size: 0.5em;">
     <a class="m-auto p-2" href="../mentions_légales/">Mentions Légales</a>
     <a class="m-auto p-2" href="../Condition_générales_d'utilisateurs/">Conditions générales d'utilisation</a>
     <a class="m-auto p-2" href="../contact/">Contactez-nous</a>
@@ -23,7 +23,6 @@
 </div>
 </body>
 <script src="../asset/libs/js/jquery.js"></script>
-<script src="../asset/libs/js/all.min.js"></script>
 <script src="../asset/libs/js/all.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     ntegrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
