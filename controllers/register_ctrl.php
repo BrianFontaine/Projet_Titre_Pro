@@ -1,38 +1,6 @@
 <?php
-    require_once dirname(__FILE__).'/../models/Users.php';
-    // require_once dirname(__FILE__).'/../models/Country.php';
-    require_once dirname(__FILE__).'/../models/Zipcode.php';
-    // include 'asset/PHP/regexRegister.php';
-    // include '../asset/PHP/picture.php';
-// $error ='';
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-// // image téléchargé sans erreu
-//     if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
-//         echo 'ok';
-//         $allowedextension = ['jpg', 'jpeg', 'png', 'gif'];
-//         $maxsize = 1024 * 1024 * 2;
-//         $filename = $_FILES['picture']['name'];
-//         $filesize = $_FILES['picture']['size'];
-//         $tmp = $_FILES['picture']['tmp_name'];
-//         $fileextension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
-//         // Vérification de l'extension
-//         if (!in_array($fileextension, $allowedextension)) {
-//             $error = 'Le format du fichier téléchargé n\'est pas autorisé !';
-//         } elseif ($maxsize < $filesize) {
-//             $error = 'Le fichier téléchargé depasse la taille max autorisée !';
-//         }
-//         if (empty($error)) {
-//             if (move_uploaded_file($tmp, '../asset/img/' . $filename)) {
-//                 setcookie('picture', $filename, time() + 3600);
-//                 header('Location: profil.php?picture=' . $filename);
-//                 exit();
-//             }
-//         }
-//     }
-// }
-
-// validation des données utilisateur
-
+require_once dirname(__FILE__).'/../models/Users.php';
+require_once dirname(__FILE__).'/../models/City.php';
 $isSubmitted = false;
 $regexName = "/^[A-Za-zéÉ][A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+((-| )[A-Za-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+)?$/";
 $regexDate = "/^((?:19|20)[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/";
@@ -46,8 +14,6 @@ $mail = '';
 $cgu = '';
 $zip_code ='';
 $country ='';
-$zipcode_id =0;
-$users_id=0;
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
@@ -89,49 +55,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (!preg_match($regexTel, $phone)) {
         $errors['phone'] = 'Le format du téléphone n\'est pas valide!';
     }
-    // $firstname = $_POST['firstname'];
-    // $lastname = $_POST['name'];
-    // $mail = $_POST['mail'];
-    // $phone = $_POST['phone'];
-    // $birthdate = $_POST['birthdate'];
-    $password = $_POST['pass'];
-    $zip_code = $_POST['zip_code'];
-    $country = $_POST['country'];
+    $password = password_hash($_POST['pass'],PASSWORD_DEFAULT);
+    $zip_code =  trim(htmlspecialchars($_POST['zipcode']));
+    $city =  trim(htmlspecialchars($_POST['city']));
+    $gender = $_POST['genre'];
+    $profil_picture = '';
+    $grads = '';
+    $id= 0;
+    $cgu = 1;
 }
-if($isSubmitted && count($errors) == 0){
-    $users = new Users( $lastname, $firstname, $birthdate, $mail, $password, $phone, $cgu);
 
+if($isSubmitted && count($errors) == 0)
+{
+    $query = "INSERT INTO `city` (`city_name`, `city_zipcode`) VALUES ('$city','$zip_code')";
+    $pdo = Database::getInstance();
+    $query_success = $pdo->query($query);
+    $id = (int) $pdo->lastInsertId();
+    $users = new Users( $lastname, $firstname, $birthdate, $mail, $password, $phone, $cgu, $profil_picture, $gender, $grads, $id);
     if($users->create())
     {
         $createSuccess = true;
     }
-    $zip_code = new Zipcode( $zip_code);
-
-    if($zip_code->create())
-    {
-        $createSuccess = true;
-    }
-    // $country = new Country(0, $country,$zipcode_id,$users_id);
-
-    // if($country->create())
-    // {
-    //     $createSuccess = true;
-    // }
 }
-var_dump($users_stmt);
-// var_dump($db);
-// $id = new Users();
-// $id_stmt = $id->readSingle();
-// var_dump($id_stmt);
-// $id = "";
-// $id = new Users($id);
-
-// $ide= $id->lasid();
-// $last_id = $db->lastInsertId();
-// echo "New record created successfully. Last inserted ID is: " . $last_id;
-// var_dump($last_id);
-// var_dump($users->create());
-
-
 require_once dirname(__FILE__).'/../views/register_views.php';
 ?>

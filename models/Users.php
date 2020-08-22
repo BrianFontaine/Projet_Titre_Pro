@@ -10,9 +10,13 @@
         private $users_password;
         private $users_phone;
         private $users_cgu;
+        private $profil_pictures;
+        private $gender;
+        private $grads;
+        private $fk_city_id;
         private $db;
 
-        public function __construct($users_lastname='', $users_firstname='', $users_birthdate='', $users_mail='', $users_password='',$users_phone='',$users_cgu= 0 )
+        public function __construct($users_lastname='', $users_firstname='', $users_birthdate='', $users_mail='', $users_password='',$users_phone='',$users_cgu= 0,$gender = 0,$profil_pictures = '',$grads ='',$fk_city_id =0  )
         {
             // $this->users_id = $users_id;
             $this->users_lastname = $users_lastname;
@@ -22,6 +26,10 @@
             $this->users_password = $users_password;
             $this->users_phone = $users_phone;
             $this->users_cgu = $users_cgu;
+            $this->profil_pictures = $profil_pictures;
+            $this->gender = $gender;
+            $this->grads = $grads;
+            $this->fk_city_id = $fk_city_id;
             $this->db = Database::getInstance();
         }
 
@@ -47,44 +55,20 @@
 
         public function create()
         {
-            $sql = 'INSERT INTO `users` (`users_lastname`, `users_firstname`, `users_birthdate`,`users_mail`,`users_password`, `users_phone`,`users_cgu`) VALUES (:lastname,:firstname,:birthdate,:mail,:pass,:phone,1)';
+            $sql = 'INSERT INTO `users` (`users_lastname`,`users_firstname`,`users_birthdate`,`users_mail`,`users_password`,`users_phone`,`users_cgu`,`profil_pictures`,`gender`,`grads`,`fk_city_id`) 
+            VALUES (:lastname,:firstname,:birthdate,:mail,:pass,:phone,:cgu,:profil_pictures,:gender,:grads,:fk_city_id)';
             $users_stmt = $this->db->prepare($sql);
-    
-            $users_stmt->bindParam(':lastname', $this->users_lastname, PDO::PARAM_STR);
-            $users_stmt->bindParam(':firstname', $this->users_firstname, PDO::PARAM_STR);
-            $users_stmt->bindParam(':birthdate', $this->users_birthdate, PDO::PARAM_STR);
-            $users_stmt->bindParam(':mail', $this->users_mail, PDO::PARAM_STR);
-            $users_stmt->bindParam(':pass', $this->users_password, PDO::PARAM_STR);
-            $users_stmt->bindParam(':phone', $this->users_phone, PDO::PARAM_STR);
-            // $users_stmt->bindValue(':cgu', $this->users_cgu, PDO::PARAM_STR);
-            $this->$db->lastInsertId();
+            $users_stmt->bindValue(':lastname', $this->users_lastname, PDO::PARAM_STR);
+            $users_stmt->bindValue(':firstname', $this->users_firstname, PDO::PARAM_STR);
+            $users_stmt->bindValue(':birthdate', $this->users_birthdate, PDO::PARAM_STR);
+            $users_stmt->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
+            $users_stmt->bindValue(':pass', $this->users_password, PDO::PARAM_STR);
+            $users_stmt->bindValue(':phone', $this->users_phone, PDO::PARAM_STR);
+            $users_stmt->bindValue(':cgu', $this->users_cgu, PDO::PARAM_STR);
+            $users_stmt->bindValue(':profil_pictures', $this->profil_pictures, PDO::PARAM_STR);
+            $users_stmt->bindValue(':gender', $this->gender, PDO::PARAM_INT);
+            $users_stmt->bindValue(':grads', $this->grads, PDO::PARAM_STR);
+            $users_stmt->bindValue(':fk_city_id', $this->fk_city_id, PDO::PARAM_INT);
             return $users_stmt->execute();
         }
-        // public static function lastInsertID () {
-        //     global $db;
-        //     return $db->handler->lastInsertId();
-        // }
-            
-		// public function readSingle()
-		// {
-		// 	// :nomDeVariable pour les données en attentes
-		// 	$stmt = $db->query("SELECT LAST_INSERT_ID(`users_id`) FROM users ORDER BY `users_id` DESC LIMIT 1 ");
-        //     $lastId = $stmt->fetch(PDO::FETCH_OBJ);
-		// 	$id_stmt = null;
-		// 	if ($lastId->execute()){
-		// 		$id_stmt = $lastId->fetch(PDO::FETCH_OBJ);
-		// 	}
-		// 	return $id_stmt;
-		// }
-        // public function lasid(){
-        //     $db = "SELECT LAST_INSERT_ID(`users_id`) FROM users ORDER BY `users_id` DESC LIMIT 1";
-        //     $id = $this->db->prepare($db);
-        //     $id->bindValue(':id', $this->users_id,PDO::PARAM_INT);
-		// 	$ide = null;
-        //     if ($id->execute()){
-		// 		$ide = $id->fetch(PDO::FETCH_OBJ);
-		// 	}
-        //     return $ide;
-        // }
     }
-    var_dump($db);

@@ -8,7 +8,8 @@
             $option = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
     
             try {
-                return new PDO($dsn, USER, PASSWORD, $option);
+                $pdo = new PDO($dsn, USER, PASSWORD, $option);
+                return $pdo;
             } catch (PDOException $e) {
                 die('pb de connexion à la bdd' . $e->getMessage());
             }

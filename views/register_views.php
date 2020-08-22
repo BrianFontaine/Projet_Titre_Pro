@@ -16,6 +16,7 @@
         <a href="login.php"><img class="ml-50 mt-3 mb-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="200px"></a>
     </header>
     <div class="bg">
+        <!-- <P class="h1 text-center mt-5 mb-n5 "><?= $id;?></P> -->
         <div class="d-flex justify-content-center text-white">
             <form action="../controllers/register_ctrl.php" method="POST">
                 <p class="h2 text-dark text-uppercase d-flex justify-content-center mt-5 mb-4">Inscription</p>
@@ -23,14 +24,17 @@
                 <label class="text-dark" for="lastname">Votre prénom : </label>
                     <div class="col-md-12 mt-2">
                         <input type="text" class="form-control" placeholder="Dupont" id="lastname" name="lastname">
+                        <?php if(!empty($errors)) { ?> <div class="alert alert-danger"><?= $errors['lastname'];?></div><?php } ?>
                     </div>
                     <label class="text-dark" for="firstname">Votre Nom : </label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" placeholder="Jean" id="firstname" name="firstname">
+                        <?php if(!empty($errors)) { ?> <div class="alert alert-danger"><?= $errors['firstname'];?></div><?php } ?>
                     </div>
                     <label class="text-dark" for="mail">Votre email : </label>
                     <div class="col-md-12 mt-2">
                         <input type="text" class="form-control" placeholder="Email" id="mail" name="mail">
+                        <?php if(!empty($errors)) { ?> <div class="alert alert-danger"><?= $errors['mail'];?></div><?php } ?>
                     </div>
                     <label class="text-dark" for="password">Votre mot de passe : </label>
                     <div class="col-md-12 mt-2">
@@ -40,43 +44,34 @@
                     <div class="col-md-12 mt-2">
                         <input type="password" class="form-control" placeholder="Confirm Password" id="c_password">
                     </div>
-                    <label class="text-dark" for="addresse">Votre adresse postal : </label>
-                    <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Adresse Postal" id="addresse" name="addresse">
-                    </div>
                     <label class="text-dark" for="country">Votre ville : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Ville" id="country" name="country">
+                        <input type="text" class="form-control" placeholder="Ville" id="country" name="city">
                     </div>
                     <label class="text-dark" for="zip_code">Votre code postal : </label>
                     <div class="col-md-12 mt-2">
-                        <input type="text" class="form-control" placeholder="Code postal" id="zip_code" name="zip_code">
+                        <input type="text" class="form-control" placeholder="Code postal" id="zip_code" name="zipcode">
                     </div>
                     <label class="text-dark" for="birthdate">Votre date de naissance : </label>
                     <div class="col-md-12 mt-2 mr-n5 pr-2">
                         <input type="date" class="form-control" placeholder="Jour" id="birthdate" name="birthdate">
+                        <?php if(!empty($errors)) { ?> <div class="alert alert-danger"><?= $errors['birthdate'];?></div><?php } ?>
                     </div>
                     <label class="text-dark" for="phone ">Votre numéro de téléphone : </label>
                     <div class="col-md-12 mt-2 ">
                         <input type="text" class="form-control" placeholder="Télephone" id="phone" name="phone">
+                        <?php if(!empty($errors)) { ?> <div class="alert alert-danger"><?= $errors['phone'];?></div><?php } ?>
                     </div>
                     <label class="text-dark" for="gender">Votre genre: </label>
                     <div class="col-md-12 text-dark  mt-2">
                         <div class="col form-control">
-                            <input type="radio" name="gender" id="homme" value="1">
+                            <input type="radio" name="genre" id="homme" value="1">
                             <label for="homme">Homme</label>
                         </div>
                         <div class="col-md-12 form-control mt-2">
-                            <input type="radio" name="gender" id="femme" value="2">
+                            <input type="radio" name="genre" id="femme" value="2">
                             <label for="femme">Femme</label>
                         </div>
-                        <!-- <label class="text-dark" for="picture">Votre photo de profil : </label>
-                        <div class="col-md-12 form-control mt-2">
-                        <label for="picture">Téléchager une image de profile</label>
-                            <input type="file" name="picture" id="picture">
-                            <p>formats acceptés (jpg, jpeg, png, gif), taille max 2M</p>
-                            <p class="text-danger"><?=$error?></p>
-                        </div> -->
                         <div class="col-md-12 form-control mt-2">
                             <input type="checkbox" name="cgu" id="cgu" value="1">
                             <label for="cgu">&nbsp;J'ai lu et j'accepte les conditions génerales d'utilisations </label>
@@ -91,13 +86,12 @@
                                 name="submit_post">S'inscrire</button>
                         </div>
                         <p class="text-dark text-center col-12">Vous etes déja menbre?
-                            <a href="login_ctrl.php">Se connecter</a>
+                            <a href="../connection/">Se connecter</a>
                         </p>
                     </div>
                 </div>
             </form>
         </div>
-        <?php $id->id;?>
     </div>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
