@@ -50,7 +50,7 @@
                 <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
                 <!-- Register -->
                 <p class="text-dark">Vous etes pas encore menbre?
-                    <a href="register_ctrl.php">S'inscrire</a>
+                    <a href="../s'inscrire/">S'inscrire</a>
                 </p>
             </form>
         </div>
