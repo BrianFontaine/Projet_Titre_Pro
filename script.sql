@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `spacebrico`.`users` (
   `users_password` VARCHAR(60) NULL,
   `users_phone` VARCHAR(20) NULL,
   `users_cgu` INT NULL,
-  `city_id` INT NOT NULL,
   `profil_pictures` VARCHAR(45) NULL,
   `gender` INT NULL,
   `grads` VARCHAR(45) NULL,
