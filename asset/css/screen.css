@@ -10,7 +10,8 @@ body {
     grid-template-rows: repeat(10, 1fr);
 }
 
-/* iphone 5 samsugn s5 */
+/* iphone 5*/
+/* ============================================================================================================================================== */
 @media (max-width: 360px) {
     .bg {
         grid-column-start: 1;
@@ -50,14 +51,28 @@ body {
         margin-bottom: -20px;
         margin-left: -19% !important;
     }
+    .nav-bar-footer
+    {
+        position: fixed;
+        height: 50px;
+        font-size: 2em;
+        bottom: 0%;
+    }
+    footer{
+        display: none !important;
+    }
 }
+/* ================================================================================================================================================ */
 
+/* ================================================================================================================================================ */
 /* ecrant iphone  6/7/8 */
-@media (min-width: 360px) {
+@media (max-width: 375px) {
     body {
         background-color: rgba(214, 212, 212, 0.781);
     }
-
+    header{
+        display: none;
+    }
     .bg {
         grid-column-start: 2;
         grid-column-end: 12;
@@ -65,20 +80,16 @@ body {
         grid-row: 2;
         border-radius: 30px;
     }
-
     .btn-light {
         font-size: 12px;
         text-align: center;
     }
-
     img {
         width: 100px;
     }
-
     .g-recaptcha {
         margin-left: -19% !important;
     }
-
     .error {
         color: red;
         font-weight: bold;
@@ -89,11 +100,9 @@ body {
         margin-bottom: -20px;
         margin-left: -19% !important;
     }
-
     nav {
         visibility: hidden;
     }
-
     .menu_nav_button {
         position: relative;
         left: 80%;
@@ -101,26 +110,22 @@ body {
         color: white;
         font-size: 1.9em;
     }
-
     .menu_nav_button:hover {
         color: rgba(128, 87, 87, 0.4)
     }
-
     #col-right {
         display: none;
     }
-
     .contenue-actu {
-        width: 81% !important;
-        margin-left: 47px !important;
+        margin-top: 0% !important;
+        width: 100% !important;
+        margin-left: 10px !important;
         font-size: 0.9em;
-        height: 80% !important;
+        height: 85% !important;
     }
-
     .v-hidden {
         visibility: hidden;
     }
-
     .friends_online {
         position: fixed;
         left: 87%;
@@ -134,7 +139,6 @@ body {
         text-align: center;
         cursor: pointer;
     }
-
     .top_rated {
         position: fixed;
         margin-top: 150px;
@@ -146,7 +150,6 @@ body {
         border-radius: 0% 50% 50% 0%;
         text-align: center;
     }
-
     .friends_online_active {
         overflow-x: hidden;
         overflow-y: scroll;
@@ -159,28 +162,23 @@ body {
         border-radius: 0px 0px 0px 10px;
         box-shadow: 12px 5px 9px rgb(90, 90, 90);
     }
-
     .img_friend_active {
         width: 50px;
         height: 50px;
         border-radius: 50%;
     }
-
     .name_friends_active {
         margin-left: 50px;
     }
-
     .friend_only_show {
         left: 80px;
     }
-
     .color-connect_active {
         background-color: rgb(4, 51, 3);
         width: 20px;
         height: 20px;
         border-radius: 50%;
     }
-
     .top_rated_active {
         overflow-x: hidden;
         overflow-y: scroll;
@@ -192,12 +190,10 @@ body {
         border-radius: 0px 0px 10px 0px;
         box-shadow: 12px 5px 9px rgb(90, 90, 90);
     }
-
     .top_rated_active_show {
         margin-left: 250PX;
         box-shadow: 1px 5px 9px rgb(90, 90, 90);
     }
-
     .poeple_close {
         left: 80px;
     }
@@ -216,9 +212,27 @@ body {
         width: 3px;
         height: 40px;
     }
-}
+    footer{
+        display: none !important;
+    }
 
-@media (min-width: 414px) {
+    /* profile ================================================================================== */
+    #col-left
+    {
+        display: none;
+    }
+    #contenue
+    {
+        margin-top: 0% !important;
+        width: 100% !important;
+        left: 4% !important;
+    }
+}
+/* ================================================================================================= */
+
+/* //============================================================================================ */
+/* iphone xr / xs max */
+@media (max-width: 414px) {
     .bg {
         grid-column-start: 2;
         grid-column-end: 12;
@@ -226,7 +240,20 @@ body {
         grid-row: 2;
         border-radius: 30px;
     }
+    header{
+        display: none;
+    }
+    .v-hidden {
+        visibility: hidden;
+    }
 
+    .contenue-actu {
+        margin-top: 0% !important;
+        width: 100% !important;
+        margin-left: 10px !important;
+        font-size: 0.9em;
+        height: 92% !important;
+    }
     .btn-light {
         font-size: 12px;
         text-align: center;
@@ -251,17 +278,114 @@ body {
         margin-left: -10% !important;
     }
     .contenue-actu {
-        height: 85% !important;
+        height: 85% ;
+    }
+    .menu_nav_button
+    {
+        position: absolute;
+        left: 80%;
+        font-size: 2em;
+        top: 16%;
+        color: white;
+    }
+    .menu_nav_button:hover
+    {
+        color: darkslategrey;
+    }
+    nav {
+        display: none;
+    }
+    #col-right {
+        display: none;
+    }
+    .friends_online {
+        position: fixed;
+        left: 87%;
+        margin-top: 150px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(153, 145, 145, 0.781);
+        font-size: 1.9em;
+        z-index: 1;
+        border-radius: 50% 0% 0% 50%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .friend_only_show {
+        left: 80px;
     }
     .friends_online
     {
         left: 88%;
     }
+    .poeple_close
+    {
+        left: 28%;
+    }
+    .friends_online_active 
+    {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        margin-left: 164px;
+        width: 250px;
+        margin-top: 150px;
+        background-color: rgba(153, 145, 145, 0.781);
+        height: 450px;
+        border-radius: 0px 0px 0px 10px;
+        box-shadow: 12px 5px 9px rgb(90, 90, 90);
+    }
+    
+    .top_rated {
+        position: fixed;
+        margin-top: 150px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(153, 145, 145, 0.781);
+        font-size: 1.9em;
+        z-index: 1;
+        border-radius: 0% 50% 50% 0%;
+        text-align: center;
+    }
+    .top_rated_active {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        position: fixed;
+        width: 250px;
+        margin-top: 150px;
+        background-color: rgba(153, 145, 145, 0.781);
+        height: 450px;
+        border-radius: 0px 0px 10px 0px;
+        box-shadow: 12px 5px 9px rgb(90, 90, 90);
+    }
     footer
     {
-        font-size: xx-small;
+        display: none !important;
     }
+    .nav-bar-footer
+    {
+        position: fixed;
+        height: 50px;
+        font-size: 2em;
+        bottom: 0%;
+    }
+        /* profile ================================================================================== */
+        #col-left
+        {
+            display: none;
+        }
+        #contenue
+        {
+            margin-top: 0% !important;
+            width: 100% !important;
+            left: 4% !important;
+            height: 93% !important;
+        }
 }
+
+
+
+/* ==================================================================================================== */
 
 @media (min-width: 900px) {
     .bg {
@@ -282,6 +406,8 @@ body {
     }
 
 }
+
+/* ============================================================================================================ */
 
 @media (min-width: 768px) {
     .bg {
@@ -339,6 +465,8 @@ body {
     }
 }
 
+
+/* ========================================================================================================================================= */
 @media (min-width: 800px) {
     .bg {
         grid-column-start: 3;
@@ -374,6 +502,8 @@ body {
 
 }
 
+
+/* ==================================================================================================================== */
 /* ecrant mac */
 @media (min-width: 1400px) {
     .bg {
@@ -402,6 +532,10 @@ body {
         margin-left: 62px;
     }
 }
+
+
+
+/* =========================================================================================================================================================== */
 
 /* ecrant 1280/ 720p  */
 @media (min-width: 1280px) {
@@ -463,6 +597,9 @@ body {
         margin-left: 20px;
     }
 }
+/* ============================================================================================================================================================================
+========================================================================================================================= */
+
 
 /* ecrant pc clasic */
 @media (min-width: 1900px) {
