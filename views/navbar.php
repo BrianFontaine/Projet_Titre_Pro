@@ -1,10 +1,6 @@
-<?php
-    $photo = $_COOKIE['picture'] ?? 'user-boy_default.png';
-?>
 <header>
     <a id="title" class="mt-4" href="../accueil/">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
     <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
-    <button class="menu_nav_button btn btn-link"><i class="fas fa-bars"></i></button>
     <nav>
         <ul class="mt-4 mr-4">
             <li class="nav-menu">
@@ -15,6 +11,7 @@
                     <div class="input-group-append">
                         <span class="input-group-text" id="search">
                             <a href="#/" class="text-dark"><i id="i" class="fa fa-search"></i></a></span>
+                            <!-- <?= var_dump($_SESSION);?> -->
                     </div>
                 </div>
             </li>
@@ -27,22 +24,27 @@
                         class="fas fa-bell"></i></a></li>
             <li>
                 <?php if (!isset($_SESSION['user'])) { ?>
-            <li class="text-center"> <a class="d-block" href="../connection/"><i class="fas fa-user-circle"></i>Me connecter</a></li>
+            <li class="text-center"> <a class="d-block" href="../connection/"><i class="fas fa-user-circle"></i>Me
+                    connecter</a></li>
             <?php } // sinon affiche le bouton de deconnexion ?>
             </li>
 
             <?php if (isset($_SESSION['user'])) { ?>
-            <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white;width: 81px;border-radius: 50px;">
+            <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="background-color: white;width: 81px;border-radius: 50px;">
                 <img class="user-nav users-conect m-auto" src="../asset/img/<?=$photo;?>" alt="">
                 <i class="fas fa-chevron-down mr-3 text-dark"></i>
             </a>
-                <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">
-                <li class="text-center m-auto"><a class="d-block" href="../profile/"><i class="far fa-id-card"></i>&nbsp;Voir mon profil</a></li>
+            <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">
+                <li class="text-center m-auto"><a class="d-block" href="../profile/?id=<?= $_SESSION['user']['users_id'] ?>"><i
+                            class="far fa-id-card"></i>&nbsp;Voir mon profil</a></li>
                 <div class="dropdown-divider"></div>
-                <li class="text-center m-auto"><a class="d-block" href="../modifier_mes_informations/"><i class="fas fa-cogs"></i>&nbsp;modifier mes infos</a></li>
+                <li class="text-center m-auto"><a class="d-block" href="../modifier_mes_informations/"><i
+                            class="fas fa-cogs"></i>&nbsp;modifier mes infos</a></li>
                 <div class="dropdown-divider"></div>
                 <?php // affiche le lien de connexion si la session est absente?>
-                <li class="text-center m-auto"><a class="d-block" href="../connection/?logout=true"><i class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
+                <li class="text-center m-auto"><a class="d-block" href="../connection/?logout=true"><i
+                            class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
                 <!-- le $_GET logout sert à déclencher la deconnexion -->
                 <?php } ?>
             </div>

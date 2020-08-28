@@ -31,18 +31,28 @@
          * Permet de créer un utilisateur dans la table users
          * @return boolean
          */
-        public function create()
-        {
-            $sql = "INSERT INTO `city` (`city_name`,`city_zipcode`) VALUES (:city,:zipcode)";
-            $country_stmt = $this->db->query($sql);
-            $country_stmt->bindValue(':country', $this->city_name, PDO::PARAM_STR);
-            $country_stmt->bindValue(':zipcode', $this->city_zipcode, PDO::PARAM_INT);
-            if($country_stmt->execute()){
-                $id = $this->db->lastInsertId();
-                return true;
-            }else {
-                return false;
+        // public function create()
+        // {
+        //     $sql = "INSERT INTO `city` (`city_name`,`city_zipcode`) VALUES (:city,:zipcode)";
+        //     $country_stmt = $this->db->prepare($sql);
+        //     $country_stmt->bindValue(':city', $this->cityName, PDO::PARAM_STR);
+        //     $country_stmt->bindValue(':zipcode', $this->cityZipcode, PDO::PARAM_STR);
+        //     $city = null;
+        //     if($country_stmt->execute()){
+        //         $id = $this->db->lastInsertId();
+        //         $this->id = $id;
+        //         $city = $this;
+        //     } 
+        //         return $city;
+        // }
+        public function readAll()
+		{
+            $sql = "SELECT `city_id`, `city_name` FROM `cities` WHERE 1 ORDER BY `cities`.`city_name` ASC";
+            $postStatement = $this->db->query($sql);
+            $listCity = [];
+            if ($postStatement instanceof PDOstatement ) {
+                $listCity = $postStatement->fetchAll(PDO::FETCH_OBJ);
             }
-        }
-        
+            return $listCity;
+		}
     }

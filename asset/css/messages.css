@@ -1,0 +1,81 @@
+.mobile 
+{
+    overflow-y: scroll;
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 77.8%;
+    margin-top: 50px;
+}
+.SB-messages_users_name
+{
+    position: fixed;
+    height: 50px;
+    background-color: rgb(40, 40, 40);
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    font-size: large;
+    margin-left: 0%;
+}
+.SB-messages_post_bottom
+{
+    position: fixed;
+    height: 50px;
+    background-color: rgb(40, 40, 40);
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    font-size: large;
+    bottom: 7%;
+    right: 0%;
+}
+.SB-message_phone
+{
+    margin-top: 20px;
+    border-radius: 12px;
+    background: darkslategray;
+    color: white;
+    width: 70%;
+}
+.SB-messages_users
+{
+    margin-top: 20px;
+    border-radius: 12px;
+    color: white;
+    width: 70%;
+    margin-left: 30%;
+    background: gray;
+}
+.SB-post_messages
+{
+    border-radius: 25px;
+    width: 70%;
+    position: absolute;
+    top:7%;
+    left: 13%;
+}
+.send_messages_mobile{
+    margin-left: 83%;
+    top: -10%;
+    position: absolute;
+    background: transparent;
+    border: transparent;
+    font-size: 2em;
+}
+.SB-picture_message_mobile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 5%;
+}
+.SB-friends_name
+{
+    margin-left: 3%;
+}
+.SB-back_messages_mobile
+{
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 2em;
+}

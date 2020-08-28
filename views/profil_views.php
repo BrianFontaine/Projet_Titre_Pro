@@ -1,6 +1,7 @@
 <main>
     <div id="contenue" class="row d-flex justify-content-center">
-    <form action="actualité_ctrl.php" method="POST"
+    <?php if (!empty($_GET['id'] )&& $_GET['id'] == $_SESSION['user']['users_id']) {?>
+    <form action="../profile/" method="POST"
         class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
         <div class="row">
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
@@ -29,10 +30,11 @@
             <div class="gallery row justify-content-around"></div>
         </div>
     </form> 
+    <?php } ?>
     <?php for ($i=0; $i < 30 ; $i++) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?= $photo; ?>"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
         </div>
@@ -185,7 +187,7 @@
         <div class="user-profil">
             <div class="">
                 <img class="user_img" src="../asset/img/<?= $photo; ?>" alt="">
-                <a class="user-name text-center h2" href=""><?= $firstName.' '.$lastName; ?></a>
+                <a class="user-name text-center h2" href="../profile/?id=<?= $usersViews->users_id; ?>"><?= $firstName.' '.$lastName; ?></a>
                 <p class="h4 user-age w-100"><?= $age; ?></p>
             </div>
             <div class="user-infos">

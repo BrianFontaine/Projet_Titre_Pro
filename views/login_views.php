@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,26 +12,24 @@
     <link rel="stylesheet" href="../asset/css/style.css">
     <link rel="stylesheet" href="../asset/css/screen.css">
 </head>
-
 <body>
     <header class="d-flex justify-content-center">
-        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="100px"></a>
+        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="100"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
             <form class="text-center text-white" action="../connection/" method="POST">
                 <p class="h4 mb-4 text-dark">Se connecter</p>
                 <!-- Email -->
-                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="login">
+                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="mail">
                 <!-- Password -->
-                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password">
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="pass">
                 <div class="d-flex justify-content-around">
                     <div>
                         <!-- Remember me -->
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="remember" disabled>
-                            <label class="custom-control-label text-dark" for="remember">Se souvenir de
-                                moi (En développement)</label>
+                            <label class="custom-control-label text-dark" for="remember">Se souvenir demoi (En développement)</label>
                         </div>
                     </div>
                     <div>
@@ -41,7 +38,8 @@
                     </div>
                 </div>
                 <!-- Sign in button -->
-                <button class="btn btn-info btn-block my-4" type="submit" name="submit_post" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
+                <button class="btn btn-info btn-block my-4" type="submit" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
+                <p class="alert alert-danger"><?= $errors['login']; ?></p>
                 <!-- Social login -->
                 <p class="text-dark">Se connecter avec :</p>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
@@ -54,7 +52,6 @@
                 </p>
             </form>
         </div>
-    </div>
     </div>
     <script src="https://kit.fontawesome.com/b3f34b62ee.js" crossorigin="anonymous"></script>
 </body>

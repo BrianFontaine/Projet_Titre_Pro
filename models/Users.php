@@ -2,7 +2,7 @@
     require_once dirname(__FILE__) . '/../utils/Databases.php';
     class Users {
 
-        // private $users_id;
+        private $users_id;
         private $users_lastname;
         private $users_firstname;
         private $users_birthdate;
@@ -16,9 +16,9 @@
         private $fk_city_id;
         private $db;
 
-        public function __construct($users_lastname='', $users_firstname='', $users_birthdate='', $users_mail='', $users_password='',$users_phone='',$users_cgu= 0,$gender = 0,$profil_pictures = '',$grads ='',$fk_city_id =0  )
+        public function __construct($users_id = 0,$users_lastname='', $users_firstname='', $users_birthdate='', $users_mail='', $users_password='',$users_phone='',$users_cgu= 0,$gender = 0,$profil_pictures = '',$grads ='',$fk_city_id =0  )
         {
-            // $this->users_id = $users_id;
+            $this->users_id = $users_id;
             $this->users_lastname = $users_lastname;
             $this->users_firstname = $users_firstname;
             $this->users_birthdate = $users_birthdate;
@@ -71,4 +71,39 @@
             $users_stmt->bindValue(':fk_city_id', $this->fk_city_id, PDO::PARAM_INT);
             return $users_stmt->execute();
         }
+        
+		public function readSingle()
+		{
+			// :nomDeVariable pour les données en attentes
+			$sql = 'SELECT `users_id`,`users_lastname`,`users_firstname`,`users_birthdate`,`users_mail`,`users_password`,`users_phone`,`profil_pictures`,`gender`,`grads` FROM `users` WHERE `users_mail`= :mail OR `users_id`= :id';
+            $userStatment = $this->db->prepare($sql);
+			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
+			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
+			$userInfo = null;
+			if ($userStatment->execute()){
+				$userInfo = $userStatment->fetch(PDO::FETCH_OBJ);
+            }
+			return $userInfo;
+        }
+        public function readAll()
+		{
+            $users_sql = 'SELECT `users_id`,`users_lastname`,`users_firstname`,`users_birthdate`,`users_mail`,`users_password`,`users_phone`,`profil_pictures`,`gender`,`grads` FROM `users`';
+            $patientsStatement = $this->db->query($users_sql);
+            $users = [];
+            if ($patientsStatement instanceof PDOstatement ) {
+                $users = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $users;
+        }
+        public function readPregMatchMail()
+		{
+            $users_sql = 'SELECT `users_mail` FROM `users` WHERE `users_mail`=:mail';
+            $userStatment = $this->db->prepare($users_sql);
+            $userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
+            $users = null;
+            if ($userStatment->execute()) {
+                $users = $userStatment->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $users;
+		}
     }

@@ -150,18 +150,6 @@ body {
         border-radius: 0% 50% 50% 0%;
         text-align: center;
     }
-    .friends_online_active {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        position: fixed;
-        margin-left: 130px;
-        width: 250px;
-        margin-top: 150px;
-        background-color: rgba(153, 145, 145, 0.781);
-        height: 450px;
-        border-radius: 0px 0px 0px 10px;
-        box-shadow: 12px 5px 9px rgb(90, 90, 90);
-    }
     .img_friend_active {
         width: 50px;
         height: 50px;
@@ -170,14 +158,12 @@ body {
     .name_friends_active {
         margin-left: 50px;
     }
-    .friend_only_show {
-        left: 80px;
-    }
     .color-connect_active {
-        background-color: rgb(4, 51, 3);
-        width: 20px;
-        height: 20px;
+        background-color: rgb(4 105 2);
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
+        margin-left: 35%;
     }
     .top_rated_active {
         overflow-x: hidden;
@@ -298,42 +284,16 @@ body {
     #col-right {
         display: none;
     }
-    .friends_online {
-        position: fixed;
-        left: 87%;
-        margin-top: 150px;
-        width: 50px;
-        height: 50px;
-        background-color: rgba(153, 145, 145, 0.781);
-        font-size: 1.9em;
-        z-index: 1;
-        border-radius: 50% 0% 0% 50%;
-        text-align: center;
-        cursor: pointer;
-    }
-    .friend_only_show {
-        left: 80px;
-    }
-    .friends_online
-    {
-        left: 88%;
-    }
-    .poeple_close
-    {
-        left: 28%;
-    }
     .friends_online_active 
     {
         overflow-x: hidden;
         overflow-y: scroll;
         position: fixed;
-        margin-left: 164px;
-        width: 250px;
-        margin-top: 150px;
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0;
         background-color: rgba(153, 145, 145, 0.781);
-        height: 450px;
-        border-radius: 0px 0px 0px 10px;
-        box-shadow: 12px 5px 9px rgb(90, 90, 90);
+        height: 94%;
     }
     
     .top_rated {
@@ -380,6 +340,14 @@ body {
             width: 100% !important;
             left: 4% !important;
             height: 93% !important;
+        }
+        .img_user_mobile
+        {
+            width: 40px;
+            height: 40px;
+            position: ABSOLUTE;
+            left: -21px;
+            top: -20%;
         }
 }
 
