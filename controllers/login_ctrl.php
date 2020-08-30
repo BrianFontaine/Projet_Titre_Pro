@@ -9,16 +9,17 @@
 		// détruit la session
 		session_destroy();
     }
-    $mail = $_POST['mail'];
-    $password = $_POST['pass'];
+    $success = false;
+    $mail = $_POST['mail'] ?? '';
+    $password = $_POST['pass'] ?? '';
 	if (isset($mail) && isset($password)) {
 		// regex avant envoi	
-		$user = new Users('','','','',$mail,$password);
+		$user = new Users('','','',$mail,'',$password);
         // vérifie que la requête est execute et qu'elle renvoie une valeur
 		if($user->readSingle()){
             // récupère les infos fetch
             $userInfo = $user->readSingle();
-            // var_dump($userInfo);
+            var_dump($userInfo);
             // password_verify compare un password en clair avec son hashage
             if (password_verify($password, $userInfo->users_password))
             {

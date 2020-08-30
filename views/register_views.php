@@ -47,7 +47,7 @@
                         <input type="password" class="form-control" placeholder="Password" id="password" name="pass">
                         <div id="forcePassword" class="mt-1">
                             <div class="force-progress w-100 rounded-pill bg-light">
-                                <div id="progress" class="p-bar" role="progressbar" aria-valuemin="0" aria-valuemax="4">
+                                <div id="progress" class="p-bar" role="progressbar" aria-valuemin="0" aria-valuemax="4" style="border-radius:25px;">
                                     <div id="force" class="small text-light pl-2">Faible</div>
                                 </div>
                             </div>
@@ -62,6 +62,8 @@
                     </div>
                     <label class="text-dark">Votre ville : </label>
                     <div class="col-md-12 mt-2">
+                            <!-- <input class="form-control" type="search" name="search_cities" id="search" placeholder="Rechercher votre ville...">
+                            <div id="result" style="position:absolute;left:0;right:0;"></div> -->
                         <!-- <input type="text" class="form-control" placeholder="Ville" id="country" name="city"> -->
                         <select class="form-control" name="city">
                                 <option value="">Choisissez votre ville ?</option>
@@ -191,23 +193,57 @@
             })
         });
     </script>
-    <script>
-        // $(document).ready(function () {
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "../controllers/register_ctrl.php",
-        //         // data: {
-        //         //     id: 1,
-        //         //     time: 24,
-        //         // },
-        //         // dataType: "dataType",
-        //         success: function (monpremierajax) {
-        //             datas = jQuery.parseJSON(monpremierajax);
-        //             console.log(datas);
-        //         }
-        //     });
-        // })
+    <!-- <script>
+        let sp = document.getElementById('search');
+        let list = document.getElementById('result');
+
+        sp.addEventListener('keyup', function () {
+            let search = this.value;
+            if (search.length >= 2) {
+                //on vide le champ 
+                list.innerHTML = '';
+                let data = new FormData();
+                data.append('search',search);
+                //on recherche a partir de deux caractere  et on renvoie la 
+                //page controllers/create_appointment_ctrl.php ============
+                var searchCity = fetch('../controllers/result_cities_ctrl.php', {
+                    headers: {
+                        'Accept': 'application/json',
+                        // 'Content-Type': 'application/json'
+                    },
+                    method:'POST',
+                    body: data,
+                });
+                // si le traitement s'est bien passé 
+                searchCity.then(function (response) {
+                    // console.log(response.Json());
+                    // let city = JSON.parse(response);
+                    // console.log(city);
+                    return response.json();
+                })
+                //traitement du php qui est retourner 
+                .then(function (data) {
+                    console.log(data);
+                    //ceci est une fonction flecher => === function()
+                    let ul = '<ul class="list-group">';
+                    data.forEach(city => 
+                    {
+                        ul += `<li class="list-group-item text-dark choice" data-id="${city.city_id}" >${city.city_name}</li>`;
+                    })
+                    list.innerHTML = ul;
+                })
+            }
+        })
+        document.body.addEventListener('click',function(e){
+            let target = e.target;
+            if (target.classList.contains('choice')) {
+                // alert(target.textContent);
+                sp.value = target.textContent;
+                document.getElementById('idPatient').value = target.dataset.id;
+                list.innerHTML = '';
+            }
+        })
     </script>
-</body>
+</body> -->
 
 </html>

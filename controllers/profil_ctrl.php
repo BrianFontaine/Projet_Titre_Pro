@@ -3,7 +3,7 @@
     session_start();
     if (empty($_SESSION['user'])) {
         // redirection si pas connecté
-        header('location: http://localhost/projet-pro/connection/');
+        header('location: ../projet-pro/connection/');
         // stop la lecture du script
         exit();
     }
@@ -15,7 +15,6 @@
     }
     $id = (int) $_GET['id'];
     $usersInfos = new Users($id);
-    
     $usersViews = $usersInfos->readSingle();
     function age($date) { 
         $age = date('Y') - $date; 
@@ -25,16 +24,15 @@
         return $age; 
     }
     // var_dump($usersViews);
-
     $firstName = $usersViews->users_firstname;
     $lastName = $usersViews->users_lastname;
     $age = age($usersViews->users_birthdate).' Ans';
-    $city = 'Abbeville';
-    $job = 'Développeur web junior';
-    $situation = 'Fiancé';
-    $school = 'La Manu';
+    $city = $usersViews->city_name;
+    $job = $usersViews->users_job;
+    $situation = $usersViews->users_situations;
+    $school = $usersViews->users_school;
     $title = 'Profil de'.' '.$firstName.' '.$lastName;
-    $photo = $usersViews->profil_pictures.'.png';
+    $photo = $usersViews->users_pictures.'.png';
     // var_dump($usersViews);
 
     include dirname(__FILE__).'/../views/header.php';

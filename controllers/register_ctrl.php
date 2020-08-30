@@ -12,9 +12,8 @@ $password = '';
 $phone= '';
 $mail = '';
 $cgu = '';
-$zip_code ='';
+$gender = 0;
 $errors = [];
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $isSubmitted = true;
@@ -51,49 +50,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['mail'] = 'L\' email  n\'est pas valide!';
     }
     //verif champ mobile
-    $phone = trim(htmlspecialchars($_POST['phone']));
-    if (empty($phone)) {
-        $errors['phone'] = 'Veuillez renseigner votre téléphone';
-    } elseif (!preg_match($regexTel, $phone)) {
-        $errors['phone'] = 'Le format du téléphone n\'est pas valide!';
-    }
+    // $phone = trim(htmlspecialchars($_POST['phone']));
+    // if (empty($phone)) {
+    //     $errors['phone'] = 'Veuillez renseigner votre téléphone';
+    // } elseif (!preg_match($regexTel, $phone)) {
+    //     $errors['phone'] = 'Le format du téléphone n\'est pas valide!';
+    // }
     if ($_POST['pass'] != $_POST['confPass']){
         $errors['pass'] = 'Vos mots de passe ne correspondes pas !';
     }else{
         $password = password_hash($_POST['pass'],PASSWORD_DEFAULT);
     }
-    $zip_code =  trim(htmlspecialchars($_POST['zipcode']));
-    $city =  trim(htmlspecialchars($_POST['city']));
+    $city =  (int) trim(htmlspecialchars($_POST['city']));
     $gender = (int) trim(htmlspecialchars($_POST['genre']));
     $profil_picture = trim(htmlspecialchars($_POST['picture']));
-    $grads = '';
-    $id= 0;
+    $rank =34560 ;
     $cgu = (int) $_POST['cgu'];
-    $user = new Users('','','','',$mail);
-    $usersMail = $user->readPregMatchMail();
-    // var_dump($usersMail);
-
-    foreach ($usersMail as $mail2) {
-        $mailExist = $mail2->users_mail;
-    }
-    if ($mail == $mailExist) {
-        $errors['mailExist'] = 'Votre email existe déja';
-    }
+    $city_id = (int) $_POST['city'];
 }
 $city = new City();
 $listCity = $city->readAll();
-// var_dump($listCity);
-// echo $listCity.json_encode($listCity);
 
 if($isSubmitted && count($errors) == 0)
 {
-    // $city = new City($city,$zip_code);
-    // if ($city->create()) 
-    // {
-    //     $success = true;
-    //     $id = $city->create()->id;
-    // }
-    $users = new Users( 0,$lastname, $firstname, $birthdate, $mail, $password, $phone, $cgu, $gender, $profil_picture, $grads, $id);
+    $users = new Users( 0,$firstname,$lastname,$mail,$birthdate,$password,$gender,$profil_picture,'','','','',0,$city_id,$rank);
     if($users->create())
     {
         header('location:succes_ctrl.php');
