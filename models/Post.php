@@ -2,17 +2,21 @@
     require_once dirname(__FILE__) . '/../utils/Databases.php';
     class Post{
 
-        private $posts_id ;
-        private $posts_content;
-        private $date;
+        private $post_id ;
+        private $post_title;
+        private $post_content;
+        private $post_date;
+        private $post_signal;
         private $users_id;
         private $db;
 
-        public function __construct($post_id = 0,$posts_content='',$date='', $users_id=0)
+        public function __construct($id = 0,$title='',$content='',$date='',$signal =0, $users_id=0)
         {
-            $this->posts_id = $posts_id;
-            $this->posts_content = $posts_content;
+            $this->post_id = $id;
+            $this->post_title = $title;
+            $this->post_content = $content;
             $this->date = $date;
+            $this->post_signal = $signal;
             $this->users_id = $users_id;
 
             $this->db = Database::getInstance();
@@ -40,11 +44,13 @@
 
         public function create()
         {
-            $sql = 'INSERT INTO `posts` (`posts_content`,`date`,`users_id`) 
-            VALUES (:post,:post_date,:users_id)';
+            $sql = 'INSERT INTO `posts`(`post_title`, `post_content`, `post_date`, `post_signal`, `users_id`) 
+            VALUES (:title,:content,:post_date,:signal,:users_id)';
             $users_stmt = $this->db->prepare($sql);
-            $users_stmt->bindValue(':post', $this->posts_content, PDO::PARAM_STR);
+            $users_stmt->bindValue(':title', $this->post_title, PDO::PARAM_STR);
+            $users_stmt->bindValue(':content', $this->post_content, PDO::PARAM_STR);
             $users_stmt->bindValue(':post_date', $this->date, PDO::PARAM_STR);
+            $users_stmt->bindValue(':signal', $this->post_signal, PDO::PARAM_STR);
             $users_stmt->bindValue(':users_id', $this->users_id, PDO::PARAM_INT);
             return $users_stmt->execute();
         }
@@ -66,7 +72,7 @@
         public function readAll()
 		{
             // $listPost_sql = 'SELECT `posts_id`,`posts_content`,`users_id` FROM `posts` ORDER BY `posts_id` DESC';
-            $sql = "SELECT * FROM `posts` INNER JOIN `users` ON users.users_id = posts.`users_id` ORDER BY `posts_id` DESC";
+            $sql = "SELECT * FROM `posts` INNER JOIN `users` ON users.users_id = posts.`users_id` ORDER BY `post_id` DESC";
             $postStatement = $this->db->query($sql);
             $listPost = [];
             if ($postStatement instanceof PDOstatement ) {

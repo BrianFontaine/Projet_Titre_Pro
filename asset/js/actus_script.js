@@ -65,7 +65,7 @@ $(function() {
             for (i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
                 reader.onload = function(event) {
-                    $($.parseHTML('<video class="gallery-update">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    $($.parseHTML('<img class="gallery-update">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
                 }
                 reader.readAsDataURL(input.files[i]);
             }

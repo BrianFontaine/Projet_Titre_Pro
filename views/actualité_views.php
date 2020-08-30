@@ -40,7 +40,7 @@
     <?php if (isset($_SESSION['user'])) {?>
     <form action="../accueil/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/user-boy_default.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?= $photo;?>.png"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?=$firstName . ' ' . $lastName;?></h6>
         </div>
@@ -48,9 +48,10 @@
             <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
                 cols="95" rows="3" placeholder="Elément réstant" x-webkit-speech></textarea>
         </div>
+            <input type="text" class="form-control mb-2" name="post_title" id="" placeholder="Ajouter un titre...">
         <div>
             <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
-                placeholder="Exprimez-vous <?=$lastName;?> !"></textarea>
+                placeholder="Exprimez-vous <?=$firstName;?> !"></textarea>
         </div>
         <div class="row">
             <div class="preview mt-2 ml-2 d-none"></div>

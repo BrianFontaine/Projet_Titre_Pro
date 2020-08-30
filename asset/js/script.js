@@ -136,10 +136,10 @@ $("#search").click(function () {
 //     userNotify.src="asset/img/user-boy_default.png";
 //     childNotify.appendChild(userNotify);
 
-//     // let nameNotify = document.createElement('p');
-//     // nameNotify.className = "text-white btn btn-link";
-//     // nameNotify.textContent = "Fontaine Brian";
-//     // childNotify.appendChild(nameNotify);
+//     let nameNotify = document.createElement('p');
+//     nameNotify.className = "text-white btn btn-link";
+//     nameNotify.textContent = "Fontaine Brian";
+//     childNotify.appendChild(nameNotify);
 
 //     let contentNotify = document.createElement('p');
 //     contentNotify.className = "text-white btn btn-link";
