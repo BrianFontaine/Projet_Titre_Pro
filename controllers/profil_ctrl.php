@@ -1,5 +1,6 @@
 <?php
     require_once dirname(__FILE__).'/../models/Users.php';
+    require_once dirname(__FILE__).'/../models/Post.php';
     session_start();
     if (empty($_SESSION['user'])) {
         // redirection si pas connecté
@@ -7,7 +8,6 @@
         // stop la lecture du script
         exit();
     }
-    
     if (!isset($_GET['id']))
     {
         $profil = false;
@@ -16,6 +16,12 @@
     $id = (int) $_GET['id'];
     $usersInfos = new Users($id);
     $usersViews = $usersInfos->readSingle();
+
+    // var_dump($id);
+    // $postInfos = new Users();
+    $postViews = $usersInfos->readAll();
+    // var_dump($postViews);
+    
     function age($date) { 
         $age = date('Y') - $date; 
         if (date('md') < date('md', strtotime($date))) { 
@@ -24,6 +30,8 @@
         return $age; 
     }
     // var_dump($usersViews);
+    // var_dump($postInfos = new Users($id));
+    
     $firstName = $usersViews->users_firstname;
     $lastName = $usersViews->users_lastname;
     $age = age($usersViews->users_birthdate).' Ans';

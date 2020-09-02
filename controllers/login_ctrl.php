@@ -19,7 +19,7 @@
 		if($user->readSingle()){
             // récupère les infos fetch
             $userInfo = $user->readSingle();
-            var_dump($userInfo);
+            // var_dump($userInfo);
             // password_verify compare un password en clair avec son hashage
             if (password_verify($password, $userInfo->users_password))
             {

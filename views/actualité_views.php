@@ -1,8 +1,7 @@
 </div>
 <!-- friend_only_show -->
-
 <div class="friends_online_active d-none">
-<?php if (isset($_SESSION['user'])) {?>
+    <?php if (isset($_SESSION['user'])) {?>
     <h6 class="ml-3 mt-2 h4">Amis connéctés</h6>
     <?php for ($i = 0; $i < 80; $i++) {?>
     <div class="row ml-3 mt-2">
@@ -29,18 +28,19 @@
         <h6 id="users-name-connect">Fontaine brian</h6>
         <div class="do_not_disturb"><i class="fas fa-moon"></i></div>
     </div>
-    <?php }else { ?>
+    <?php } else {?>
     <h1 class="text-center">Veuillez vous connecter pour voir vos amis en lignes</h1>
-    <?php } ?>
+    <?php }?>
 </div>
+<!-- version mobile -->
 
-
-</body>
+<!-- version PC -->
+<!-- </body> -->
 <div id="" class="row d-flex justify-content-center contenue-actu">
     <?php if (isset($_SESSION['user'])) {?>
     <form action="../accueil/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?= $photo;?>.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?=$photo;?>.png"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?=$firstName . ' ' . $lastName;?></h6>
         </div>
@@ -48,7 +48,7 @@
             <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
                 cols="95" rows="3" placeholder="Elément réstant" x-webkit-speech></textarea>
         </div>
-            <input type="text" class="form-control mb-2" name="post_title" id="" placeholder="Ajouter un titre...">
+        <input type="text" class="form-control mb-2" name="post_title" id="" placeholder="Ajouter un titre...">
         <div>
             <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
                 placeholder="Exprimez-vous <?=$firstName;?> !"></textarea>
@@ -65,18 +65,21 @@
             <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1.2em;"><i
                     class="fas fa-camera-retro"></i>&nbsp;|&nbsp;<i class="far fa-camera-movie"></i><input type="file"
                     name="picture_movies" id="gallery-photo-add" data-preview=".preview" multiple="multiple"></label>
-            <button class="btn btn-light" type="submit" style="font-size: 1.2em;">Publier</button>
+            <button class="btn btn-light" type="submit" style="font-size: 1.2em;" name="add_post"
+                value="valider">Publier</button>
             <div class="gallery row justify-content-around"></div>
         </div>
     </form>
     <?php }?>
-    <?php if (count($listPost) > 0) { 
-        foreach ($listPost as $number => $post) { ?>
+    <!-- ================== fin bloc publication ============================== -->
+    <!-- liste des posts -->
+    <?php if (count($listPost) > 0):
+    foreach ($listPost as $post) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?= $post->profil_pictures; ?>.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?=$post->users_pictures;?>.png"
                 alt="">
-            <h6 class="mt-5 ml-2 text-white"><?=$post->users_lastname. ' ' . $post->users_firstname;?></h6>
+            <h6 class="mt-5 ml-2 text-white"><?=$post->users_firstname . ' ' . $post->users_lastname;?></h6>
         </div>
         <div>
             <h6 class="text-white ml-3">Note général :
@@ -89,37 +92,35 @@
             <p class="bg-light rounded p-2"></p>
         </div>
         <div class="mt-2 bg-light rounded p-2">
-            <p><?= $post->posts_content; ?></p>
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- <div class="carousel-item active">
-                                <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
-                                    alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100 img_actu"
-                                    src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
-                                    alt="Third slide">
-                            </div> -->
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+            <h5><?=$post->post_title;?></h5>
+            <p><?=$post->post_content;?></p>
+            <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
+                            alt="First slide">
                     </div>
-                </details>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg"
+                            alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
+                            alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div> -->
             </p>
         </div>
-        <div class="row justify-content-between pr-3 pl-3" data-ago="<?= $post->date ?>">
+        <div class="row justify-content-between pr-3 pl-3" data-ago="<?=$post->post_date?>">
             <!-- <div class="">1234 Vues</div> -->
         </div>
         <div class="border mt-2 mb-n2"></div>
@@ -128,10 +129,10 @@
             <!-- <input class="btn btn-link text-white" type="button" value="Commenter"> -->
             <!-- <input class="btn btn-link text-white" type="button" value="Partager"> -->
             <div class="container p-3">
-                <form action="../accueil/" method="get">
-                <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {?>
-                    <textarea cols="30" rows="1" class="form-control col-md-12 mb-1"
-                        placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
+                <form action="../accueil/" method="POST">
+                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {?>
+                    <textarea cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..."
+                        style="border-radius: 30px;" name="comment"></textarea>
                     <div class="form-group col-md-12 text-right ">
                         <div class="score text-white text-left col-md-6" style="margin-top: 1em;" id="note" name="note">
                             Note :
@@ -148,30 +149,39 @@
                         </div>
                         <!-- <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1em; position: ABSOLUTE; top: -1em; right: 12%;"><i class="fas fa-camera-retro"></i> -->
                         <button class="btn btn-light" type="submit"
-                            style="font-size: 1em; position: absolute; top: -6px; right: 2%;">Publier</button>
+                            style="font-size: 1em; position: absolute; top: -6px; right: 2%;" name="add_comment"
+                            value="valider">Publier</button>
+                        <input type="hidden" name="post_id" value="<?=$post->post_id?>">
                     </div>
                 </form>
                 <div class="border mt-2 mb-2"></div>
                 <!-- commentaire -->
-                <div id="" class="bg-light p-1 rounded  comment-list">
-                    <div class="row align-items-center">
-                        <img class="ml-3" src="../asset/img/user-boy_default.png" alt=""
-                            style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
-                        <h6 class=" ml-2 text-dark"><?=$firstName . ' ' . $lastName;?></h6>
-                        <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; ">
-                            <?=date('d m Y') . ' il y a ' . date('i') . ' minutes'?></p>
-                    </div>
-                    <p>
-                    </p>
-                </div>
-                <?php }else {?>
+                <?php foreach ($listComment as $comment): ?>
+                    <?php if ($comment->post_id == $post->post_id): ?>
+                        <div id="" class="bg-light p-1 rounded  comment-list mb-2">
+                            <div class="row align-items-center">
+                                <img class="ml-3" src="../asset/img/<?=$comment->users_pictures;?>.png" alt=""
+                                    style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
+                                <h6 class=" ml-2 text-dark"><?=$comment->users_firstname . ' ' . $comment->users_lastname;?>
+                                </h6>
+                                <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; "
+                                    data-ago="<?=$comment->comment_date?>">
+                                    <?=date('d m Y') . ' il y a ' . date('i') . ' minutes'?></p>
+                            </div>
+                            <p class="ml-3">
+                                <?=$comment->comment_content?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php } else {?>
                 <a class="text-center h5" href="../connection/">Veuillez Vous Connecter pour commenter ce poste</a>
                 <?php }?>
             </div>
             <!-- fin commentaire  -->
         </div>
     </div>
-    <?php } } ?>
+    <?php } endif;?>
 </div>
 <?php
 include 'footer.php';

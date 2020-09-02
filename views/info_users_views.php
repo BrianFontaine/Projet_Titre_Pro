@@ -16,18 +16,17 @@
                         <label class="ml-2" for="lbirthDays">Date de Naissance :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="birthDays" name="birthDays" value="<?= $birthDays;?>" disabled>
                     </div>
+                    <div class="row">
+                        <h3 class="mt-2">Information Personnel :</h3>
+                    </div>
                     <div class="row mt-3">
-                        <label class="ml-2" for="postalAddress">Adresse postal :</label>
-                        <input class="ml-2 form-control users-setings" type="text" id="postalAddress" name="postalAddress" value="<?= $postalAddress;?>">
-                        <label class="ml-2" for="postalCode">Code postal :</label>
-                        <input class="ml-2 form-control users-setings" type="text" id="postalCode" name="postalCode" value="<?= $postalCode;?>">
                         <label class="ml-2" for="city">Ville :</label>
-                        <input class="ml-2 form-control users-setings" type="text" id="city name="city" value="<?= $city;?>">
+                        <input class="ml-2 form-control users-setings" type="text" id="city" name="city" value="<?= $city;?>">
                         <label class="ml-2" for="phone">Numéro de téléphone :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="phone" name="phone" value="<?= $phone;?>">
                         <label class="ml-2" for="job">Métier :</label>
                         <input class="ml-2 form-control users-setings" type="tex" id="job" name="job" value="<?= $job;?>">
-                        <label class="ml-2" for="company">Entreprise :</label>
+                        <label class="ml-2" for="company">Entreprise Ou école :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="company" name="company" value="<?= $company;?>">
                     </div>
                     <div class="row">

@@ -11,7 +11,6 @@
                     <div class="input-group-append">
                         <span class="input-group-text" id="search">
                             <a href="#/" class="text-dark"><i id="i" class="fa fa-search"></i></a></span>
-                            <!-- <?= var_dump($_SESSION);?> -->
                     </div>
                 </div>
             </li>
@@ -32,14 +31,14 @@
             <?php if (isset($_SESSION['user'])) { ?>
             <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 style="background-color: white;width: 81px;border-radius: 50px;">
-                <img class="user-nav users-conect m-auto" src="../asset/img/<?=$photo;?>" alt="">
+                <img class="user-nav users-conect m-auto" src="../asset/img/<?=$photoNav;?>" alt="">
                 <i class="fas fa-chevron-down mr-3 text-dark"></i>
             </a>
             <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">
                 <li class="text-center m-auto"><a class="d-block" href="../profile/?id=<?= $_SESSION['user']['users_id'] ?>"><i
                             class="far fa-id-card"></i>&nbsp;Voir mon profil</a></li>
                 <div class="dropdown-divider"></div>
-                <li class="text-center m-auto"><a class="d-block" href="../modifier_mes_informations/"><i
+                <li class="text-center m-auto"><a class="d-block" href="../modifier_mes_informations/?id=<?= $_SESSION['user']['users_id'] ?>"><i
                             class="fas fa-cogs"></i>&nbsp;modifier mes infos</a></li>
                 <div class="dropdown-divider"></div>
                 <?php // affiche le lien de connexion si la session est absente?>

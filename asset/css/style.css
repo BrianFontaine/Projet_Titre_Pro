@@ -51,3 +51,11 @@ header
 {
     background-color:    #f2f4f4   !important;
 }
+
+.SB-bg_success{
+    grid-column-start: 3;
+    grid-column-end: 11;
+    background-color:#f2f4f4   !important;
+    grid-row: 5;
+    border-radius: 30px;
+}

@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['pass'] != $_POST['confPass']){
         $errors['pass'] = 'Vos mots de passe ne correspondes pas !';
     }else{
-        $password = password_hash($_POST['pass'],PASSWORD_DEFAULT);
+        $password = password_hash($_POST['pass'],PASSWORD_BCRYPT);
     }
     $city =  (int) trim(htmlspecialchars($_POST['city']));
     $gender = (int) trim(htmlspecialchars($_POST['genre']));

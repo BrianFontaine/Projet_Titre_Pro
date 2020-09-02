@@ -84,7 +84,7 @@
 		public function readSingle()
 		{
 			// :nomDeVariable pour les données en attentes
-			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, `users_birthdate`, `users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`city_name` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
+			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`city_name` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
             $userStatment = $this->db->prepare($sql);
 			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
 			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
@@ -96,10 +96,11 @@
         }
         public function readAll()
 		{
-            $users_sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, `users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`, `city_id`, `ranks_id` FROM `users`';
-            $patientsStatement = $this->db->query($users_sql);
+            $users_sql = 'SELECT * FROM users INNER JOIN posts ON  posts.`users_id` = users.`users_id` WHERE users.`users_id`= :id';
+            $patientsStatement = $this->db->prepare($users_sql);
+            $patientsStatement->bindValue(':id', $this->users_id, PDO::PARAM_INT);
             $users = [];
-            if ($patientsStatement instanceof PDOstatement ) {
+            if ($patientsStatement->execute() ) {
                 $users = $patientsStatement->fetchAll(PDO::FETCH_OBJ);
             }
             return $users;
