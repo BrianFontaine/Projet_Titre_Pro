@@ -71,9 +71,15 @@
         
         public function readAll()
 		{
-            $sql='SELECT users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
+            // $sql='SELECT users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
+            // FROM users
+            // INNER JOIN posts ON users.users_id = posts.users_id ORDER BY `posts`.`post_id` DESC';
+            $sql ='SELECT AVG(notes.note_value) AS note_generale ,users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
             FROM users
-            INNER JOIN posts ON users.users_id = posts.users_id ORDER BY `posts`.`post_id` DESC';
+            INNER JOIN posts ON users.users_id = posts.users_id
+            LEFT JOIN notes ON posts.post_id = notes.post_id
+            GROUP BY posts.post_id
+            ORDER BY `posts`.`post_id` DESC';
 
             $postStatement = $this->db->query($sql);
             $listPost = [];

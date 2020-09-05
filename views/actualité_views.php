@@ -77,12 +77,13 @@
                 class="mt-5 ml-2 text-white h6"><?=$post->users_firstname . ' ' . $post->users_lastname;?></a>
         </div>
         <div>
-            <h6 class="text-white ml-3">Note général :
-                <i class="fas fa-star"></i>
+            <h6 class="text-white ml-3" data-note="<?= empty($post->note_generale) ? 0 : $post->note_generale; ?>">Note général :
+                <!-- <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+                <i class="far fa-star"></i> -->
+                
             </h6>
             <p class="bg-light rounded p-2"></p>
         </div>
@@ -120,6 +121,9 @@
         <div class="row justify-content-around">
             <div class="container p-3">
                 <form action="../accueil/" method="POST">
+                    <?php if(isset($createCommentSuccess)) { ?>
+                        <div class="alert alert-success">Votre Commentaire è bien été enrigistrer </div>
+                    <?php } ?>
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {?>
                     <textarea cols="30" rows="1" class="form-control col-md-12 mb-1" placeholder="Commentaire..." style="border-radius: 30px;" name="comment"></textarea>
                     <div class="form-group col-md-12 text-right ">

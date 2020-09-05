@@ -29,6 +29,7 @@
     <script src="../asset/js/script.js"></script>
     <script src="../asset/js/actus_script.js"></script>
     <script src="../asset/js/timer_ago.js"></script>
+    <script src="../asset/js/rate.js"></script>
 
 </body>
 

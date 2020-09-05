@@ -2,8 +2,8 @@
 require_once dirname(__FILE__).'/../models/Users.php';
 require_once dirname(__FILE__).'/../models/Post.php';
 require_once dirname(__FILE__).'/../models/Comment.php';
+require_once dirname(__FILE__).'/../models/Note.php';
     session_start();
-
     $post = new Post();
     $listPost = $post->readAll();
     // var_dump($listPost);
@@ -24,7 +24,10 @@ require_once dirname(__FILE__).'/../models/Comment.php';
         // insert comment
         $content = trim(strip_tags($_POST['comment']));
         $signal = 0;
-        $post_id = $_POST['post_id'];
+        $post_id = (int) $_POST['post_id'];
+        // insert Note
+        $note = (int) $_POST['note'];
+
     }
 
 if ($isSubmitted && $_POST['add_post'] == "valider")
@@ -39,29 +42,23 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
     $comment = new Comment( 0,$content,$date,$signal,$userId,$post_id);
     if($comment->create())
     {
-        // $createSuccess = true;
+        $add_note = new Note(0,$note,$post_id);
+        if ($add_note->create()){
+            $createCommentSuccess = true;
+        }
     }
 }
 
-
 $usersInfos = new Users($id);
 $usersViews = $usersInfos->readSingle();
-// var_dump($usersViews);
 
+$comment = new Comment();
+$listComment = $comment->readAll();
 
-    // $post_id = 57;
-    // $post_id = $_POST['post_id'];
-    $comment = new Comment();
-    $listComment = $comment->readAll();
-    // var_dump($listComment);
-    // var_dump($post_id);
-
-
-// echo ($_SERVER['REQUEST_TIME']);
 $firstName = $usersViews->users_firstname;
 $lastName = $usersViews->users_lastname;
 $photo = $usersViews->users_pictures;
-// var_dump($listPost);
+
     require_once dirname(__FILE__).'/../views/header.php';
     require_once dirname(__FILE__).'/../views/navbar.php';
     require_once dirname(__FILE__).'/../views/actualité_views.php';

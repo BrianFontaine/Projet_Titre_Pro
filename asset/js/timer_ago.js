@@ -12,7 +12,7 @@ let terms = [{
 }, {
     time: 45 * 60,
     divide: 60,
-    text: "%d Minute"
+    text: "%d Minutes"
 }, {
     time: 90 * 60,
     divide: 60 * 60,
@@ -20,7 +20,7 @@ let terms = [{
 }, {
     time: 24 * 60 * 60,
     divide: 60 * 60,
-    text: "%d heure"
+    text: "%d heures"
 }, {
     time: 42 * 60 * 60,
     divide: 24 * 60 * 60,
@@ -40,7 +40,7 @@ let terms = [{
 }, {
     time: Infinity,
     divide: 24 * 60 * 60 * 365,
-    text: "%d an"
+    text: "%d ans"
 }];
 // je selection tous les element qui on le data-ago 
 document.querySelectorAll('[data-ago]').forEach(function (node) {
@@ -77,8 +77,8 @@ document.querySelectorAll('[data-ago]').forEach(function (node) {
             if (node.parentNode){
                 window.requestAnimationFrame(setText);
             }
-            
         }, nextTick * 1000)
     }
+    
     setText();
 })
