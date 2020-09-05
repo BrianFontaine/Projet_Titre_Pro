@@ -28,7 +28,7 @@ header
     font-family: 'Saira Stencil One', cursive;
     font-weight: 900;
 }
-a,ul
+a,ul,.nav
 {
     text-decoration: none;
     list-style: none;

@@ -58,7 +58,7 @@
         
         public function findCity($text)
         {
-            $sql = 'SELECT `city_id`, `city_name` FROM `cities` WHERE `city_name` LIKE :city ORDER BY `cities`.`city_name` ASC' ;
+            $sql = 'SELECT `city_id`, `city_name` FROM `cities` WHERE `city_name` LIKE :city ORDER BY `cities`.`city_name` ASC LIMIT 0,5' ;
             $searchPatients = $this->db->prepare($sql);
             $searchPatients->bindValue(':city',$text.'%',PDO::PARAM_STR);
             $patientsView = [];

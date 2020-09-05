@@ -6,11 +6,11 @@
     }
     else
     {
-        header('refresh:34;Accueil/');
+        header('refresh:3;Accueil/');
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -31,13 +31,6 @@
                 n'ésité pas a signaler du contenue incorect grace a la rubrique nous contacter qui est presente 
                 et surtout bricolé bien 
             </p> -->
-
-
-
-
-
-
-
         <p class=text-center h5>Vous allez etre redigiger dans : <span class="timer text-center"></span> Secondes</p>
         
     </div>

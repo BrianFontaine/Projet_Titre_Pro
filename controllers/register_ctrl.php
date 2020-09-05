@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $profil_picture = trim(htmlspecialchars($_POST['picture']));
     $rank =34560 ;
     $cgu = (int) $_POST['cgu'];
-    $city_id = (int) $_POST['city'];
+    $city_id = (int) $_POST['cities'];
 }
 $city = new City();
 $listCity = $city->readAll();
@@ -76,8 +76,8 @@ if($isSubmitted && count($errors) == 0)
     $users = new Users( 0,$firstname,$lastname,$mail,$birthdate,$password,$gender,$profil_picture,'','','','',0,$city_id,$rank);
     if($users->create())
     {
-        header('location:succes_ctrl.php');
-        // $createSuccess = true;
+        // header('location:succes_ctrl.php');
+        $createSuccess = true;
     }
 }
 require_once dirname(__FILE__).'/../views/register_views.php';

@@ -71,7 +71,7 @@
         
         public function readAll()
 		{
-            $sql='SELECT users.`users_firstname`, users.`users_lastname`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
+            $sql='SELECT users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
             FROM users
             INNER JOIN posts ON users.users_id = posts.users_id ORDER BY `posts`.`post_id` DESC';
 

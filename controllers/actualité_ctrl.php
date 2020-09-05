@@ -6,7 +6,7 @@ require_once dirname(__FILE__).'/../models/Comment.php';
 
     $post = new Post();
     $listPost = $post->readAll();
-    // var_dump($listPost[0]);
+    // var_dump($listPost);
     date_default_timezone_set("Europe/Paris");
     $id = (int) $_SESSION['user']['users_id'];
     $title ='SpaceBrico';

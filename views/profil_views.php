@@ -11,7 +11,7 @@
                 <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
                     cols="95" rows="3" placeholder="Elément réstant" x-webkit-speech></textarea>
             </div>
-                <input class="form-control mb-2" type="text" name="title_post" id="" placeholder="Ajouter un titre...">
+            <input class="form-control mb-2" type="text" name="title_post" id="" placeholder="Ajouter un titre...">
             <div>
                 <textarea class="form-group col-md-12 rounded post" name="Aticle" id="post" cols="95" rows="5"
                     placeholder="Exprimez-vous <?= $lastName; ?> !"></textarea>
@@ -56,50 +56,35 @@
             </div>
             <div class="mt-2 bg-light rounded p-2">
                 <p>
-                <?= $post->post_content; ?>
-                        </p>
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
-                                        alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 img_actu"
-                                        src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
-                                        alt="Third slide">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </details>
+                    <?= $post->post_content; ?>
                 </p>
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
+                                alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 img_actu"
+                                src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
+                                alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div> -->
             </div>
             <div class="border mt-2 mb-n2"></div>
             <div class="row justify-content-around">
-                <!-- <input class="btn btn-link" type="button" value="J'aime"> -->
-                <!-- <div class="score text-white" style="margin-top: 6px;">
-                Note :
-                <i class="far fa-star" value="1"></i>
-                <i class="far fa-star" value="2"></i>
-                <i class="far fa-star" value="3"></i>
-                <i class="far fa-star" value="4"></i>
-                <i class="far fa-star" value="5"></i>
-            </div>
-            <input class="btn btn-link text-white" type="button" value="Commenter"> -->
-                <!-- <input class="btn btn-link text-white" type="button" value="Partager"> -->
                 <div class="container p-3">
                     <form action="../accueil/" method="POST">
                         <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12 mb-1"
@@ -122,10 +107,7 @@
                                 style="font-size: 1em; position: absolute; top: -8px;right: 1%;">Publier</button>
                         </div>
                     </form>
-
-
                     <div class="border mt-2 mb-2"></div>
-
                     <!-- commentaire -->
                     <div class="bg-light p-1 rounded d-none">
                         <div class="row align-items-center">
@@ -146,11 +128,8 @@
             </div>
         </div>
         <?php } ?>
-        <?php 
-            include 'footer.php';
-        ?>
     </div>
-
+    <!-- COLONE DE GAUCHE  -->
     <div id="col-left" class="">
         <div class="user-profil">
             <div class="">
@@ -202,6 +181,8 @@
     <!-- fin de la section -->
     </div>
 </main>
+<?php 
+    include 'footer.php';
+?>
 </body>
-
 </html>

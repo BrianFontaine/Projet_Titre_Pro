@@ -207,9 +207,9 @@
     margin-top: 18px;
     /* margin-left: 62px; */
 }
-#users-name-connect
+.users-name-connect
 {
-    margin-top: 12px;
+    margin-top: 12px !important;
     margin-left: 10px;
     font-size: 1em;
 }

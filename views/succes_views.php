@@ -18,8 +18,10 @@
     </header>
     <div class="SB-bg_success">
         <div class="d-flex justify-content-center text-center mt-3">
-            <p><b class="text-success">Votre compte a été créé avec succes<b><br>
-                        Un emailde confirmation a été envoyer a <span>brian02440@live.fr</span></p>
+            <p class="text-success alert alert-success">
+                <b>Votre compte a été créé avec succes<b><br>
+                Un emailde confirmation a été envoyer a <span><?= $_POST['mail']; ?></span>
+            </p>
         </div>
         <div class="row justify-content-center mb-3">
             <a class="btn btn-info text-center" href="../Connection/">Se connecter</a>

@@ -84,7 +84,7 @@
             // JOIN `comments` ON comments.`post_id` = posts.`post_id`
             // JOIN `users` ON users.users_id = posts.`users_id`
             // ORDER BY posts.`post_id` DESC';
-            $sql ='SELECT comments.*, users.users_firstname,users.users_lastname,users.users_pictures FROM `comments` JOIN `users` ON comments.users_id = users.users_id';
+            $sql ='SELECT comments.*, users.`users_id`,users.users_firstname,users.users_lastname,users.users_pictures FROM `comments` JOIN `users` ON comments.users_id = users.users_id';
             $postStatement = $this->db->query($sql);
             // $postStatement->bindValue(':id',$this->post_id,PDO::PARAM_INT);
             $listComment = [];
