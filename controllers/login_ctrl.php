@@ -14,7 +14,7 @@
     $password = $_POST['pass'] ?? '';
 	if (isset($mail) && isset($password)) {
 		// regex avant envoi	
-		$user = new Users('','','',$mail,'',$password);
+        $user = new Users('','','',$mail,'',$password);
         // vérifie que la requête est execute et qu'elle renvoie une valeur
 		if($user->readSingle()){
             // récupère les infos fetch
@@ -27,7 +27,9 @@
                 $_SESSION['user']['auth'] = true;
                 $_SESSION['user']['users_id'] = $userInfo->users_id;
                 $_SESSION['user']['mail'] = $userInfo->users_mail;
-                $_SESSION['user']['token'] = $bytes = random_bytes(8);
+                $_SESSION['user']['ranks'] = $userInfo->ranks_id;
+                $_SESSION['user']['token'] = bin2hex(random_bytes(16));
+                $_SESSION['user']['actif'] = $user->users_actif;
                 $success =true;
             }
             else{
@@ -35,10 +37,15 @@
             }
         }
     }
-    if ($success) {
-        header('location:../profile/?id='.$_SESSION['user']['users_id']);
+    if (isset($success)) {
+        $token = $_SESSION['user']['token'];
+        $user = new Users();
+        $user->token = $token;
+        if($user->insertToken())
+        {
+            // var_dump($user->token);
+            header('location:../profile/?id='.$_SESSION['user']['users_id']);
+        }
     }
-    // var_dump($_POST);
-    // var_dump($userInfo);
     require_once dirname(__FILE__).'/../views/login_views.php';
 ?>

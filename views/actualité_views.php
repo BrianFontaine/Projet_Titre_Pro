@@ -97,8 +97,8 @@
             <div class="bg-light rounded p-2">
                 <?php foreach ($listElements as $element) {?>
                     <div class="row col-md-11">
-                        <p>Elements a troqués : <?=$element->element_name?> </p>
-                        <p>Quantités : <?=$element->element_quantity?></p>
+                        <p class="col-md-8"><?=$element->element_name?> </p>
+                        <p class="col-md-3"><?=$element->element_quantity?></p>
                     </div>
                 <?php }?>
                 </div>

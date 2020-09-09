@@ -15,11 +15,12 @@
         private $users_school;
         private $users_situations;
         private $users_actif;
+        private $token;
         private $city_id;
         private $ranks_id;
         private $db;
 
-        public function __construct($id = 0,$firstname='',$lastname='',$mail='',$birthdate='',$password='',$gender=0,$pictures='',$phone='',$job='',$school='',$situation='',$actif=0,$cityId=0,$ranksId=0)
+        public function __construct($id = 0,$firstname='',$lastname='',$mail='',$birthdate='',$password='',$gender=0,$pictures='',$phone='',$job='',$school='',$situation='',$actif=0,$token='',$cityId=0,$ranksId=0)
         {
             $this->users_id = $id;
             $this->users_firstname = $firstname;
@@ -34,6 +35,7 @@
             $this->users_school = $school;
             $this->users_situations = $situation;
             $this->users_actif = $actif;
+            $this->token = $token;
             $this->city_id = $cityId;
             $this->ranks_id = $ranksId;
             $this->db = Database::getInstance();
@@ -61,8 +63,8 @@
 
         public function create()
         {
-            $sql ='INSERT INTO `users`(`users_firstname`,`users_lastname`,`users_mail`,`users_birthdate`,`users_password`,`users_gender`,`users_pictures`,`users_phone`,`users_job`,`users_school`,`users_situations`,`users_actif`,`city_id`,`ranks_id`) 
-            VALUES (:firstname,:lastname,:mail,:birthdate,:pass,:gender,:profil_pictures,:phone,:job,:school,:situation,:actif,:fk_city_id,:ranks)';
+            $sql ='INSERT INTO `users`(`users_firstname`,`users_lastname`,`users_mail`,`users_birthdate`,`users_password`,`users_gender`,`users_pictures`,`users_phone`,`users_job`,`users_school`,`users_situations`,`users_actif`,`token`,`city_id`,`ranks_id`) 
+            VALUES (:firstname,:lastname,:mail,:birthdate,:pass,:gender,:profil_pictures,:phone,:job,:school,:situation,:actif,:token,:fk_city_id,:ranks)';
             $users_stmt = $this->db->prepare($sql);
             $users_stmt->bindValue(':firstname', $this->users_firstname, PDO::PARAM_STR);
             $users_stmt->bindValue(':lastname', $this->users_lastname, PDO::PARAM_STR);
@@ -76,6 +78,7 @@
             $users_stmt->bindValue(':school', $this->users_school, PDO::PARAM_STR);
             $users_stmt->bindValue(':situation', $this->users_situations, PDO::PARAM_STR);
             $users_stmt->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
+            $users_stmt->bindValue(':token', $this->token, PDO::PARAM_STR);
             $users_stmt->bindValue(':fk_city_id', $this->city_id, PDO::PARAM_STR);
             $users_stmt->bindValue(':ranks', $this->ranks_id, PDO::PARAM_STR);
             return $users_stmt->execute();
@@ -84,7 +87,7 @@
 		public function readSingle()
 		{
 			// :nomDeVariable pour les données en attentes
-			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`city_name` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
+			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
             $userStatment = $this->db->prepare($sql);
 			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
 			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
@@ -115,5 +118,14 @@
                 $users = $userStatment->fetchAll(PDO::FETCH_OBJ);
             }
             return $users;
-		}
+        }
+        public function insertToken()
+        {
+            $sql = 'UPDATE `users` SET `token` = :token WHERE `users`.`users_id` = :id' ;
+            $tokenStament = $this->db->prepare($sql);
+            $tokenStament->bindValue(':token', $this->token, PDO::PARAM_STR);
+            $tokenStament->bindValue(':id', $this->users_id, PDO::PARAM_STR);
+            
+            return $tokenStament->execute();
+        }
     }
