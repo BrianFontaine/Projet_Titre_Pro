@@ -5,7 +5,7 @@
     <?php if (isset($_SESSION['user'])) { ?>
     <a class="m-auto p-2" href="../modifier_mes_informations/">Modifier mes information</a>
     <?php } ?>
-    <a class="m-auto p-2" href="https://brianfontaine.github.io/CV-Brian-D-veloppeurjunior/">&copy; SpaceBrico -
+    <a class="m-auto p-2" href="https://brianfontaine.github.io/CV-Brian-D-veloppeurjunior/" target="_blank">&copy; SpaceBrico -
         2020</a>
 </footer>
 <div class="col-md-12 row bg-dark nav-bar-footer m-auto justify-content-around align-items-center">
@@ -30,6 +30,7 @@
     <script src="../asset/js/actus_script.js"></script>
     <script src="../asset/js/timer_ago.js"></script>
     <script src="../asset/js/rate.js"></script>
+    <script src="../asset/js/elements.js"></script>
 
 </body>
 

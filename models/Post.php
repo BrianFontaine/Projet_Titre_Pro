@@ -52,7 +52,15 @@
             $users_stmt->bindValue(':post_date', $this->date, PDO::PARAM_STR);
             $users_stmt->bindValue(':signal', $this->post_signal, PDO::PARAM_STR);
             $users_stmt->bindValue(':users_id', $this->users_id, PDO::PARAM_INT);
-            return $users_stmt->execute();
+            // return $users_stmt->execute();
+            $post = null;
+            if($users_stmt->execute())
+            {
+                $post = $this->db->lastInsertId();
+                // $this->id = $post;
+                // $post = $this;
+            }
+            return $post;
         }
         
 		// public function readSingle()

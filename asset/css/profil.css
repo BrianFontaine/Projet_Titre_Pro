@@ -17,10 +17,10 @@ body
     scrollbar-color: rgba(40, 40, 40, 0.64) rgba(40, 50, 40, 0.29) !important;
     scrollbar-width: thin;
     /* text-align: center; */
-    left: 17.3%;
-    width: 70%;
+    left: 19.3%;
+    width: 65%;
     margin-top: 90px;
-    height: 91%;
+    height: 82%;
     position: fixed;
     overflow-y: scroll;
     /* padding-bottom: 20%; */
@@ -34,7 +34,7 @@ body
     scrollbar-width: none;
     width: 20%;
     right: 0px;
-    margin-top: 120px;
+    margin-top: 100px;
     position: fixed;
     height: 80%;
     overflow-y: scroll;

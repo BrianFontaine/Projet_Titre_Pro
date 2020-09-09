@@ -26,9 +26,9 @@ let terms = [{
     divide: 24 * 60 * 60,
     text: "environ un jour"
 }, {
-    time: 45 * 24 * 60 * 60,
-    divide: 24 * 60 * 60 * 30,
-    text: "environ un mois"
+    time: 45 * 24 * 60 * 30,
+    divide: 24 * 60 * 60,
+    text: "%d jours"
 }, {
     time: 365 * 24 * 60 * 60,
     divide: 24 * 60 * 60 * 30,

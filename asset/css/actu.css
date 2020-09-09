@@ -62,7 +62,7 @@
     margin-bottom: -85px;
 }
 .post{
-    margin-top: -50px;
+    margin-top: -95px;
 }
 /* ========= Annimation de transitions quand on active le javascripte qui vas donner a l'élément 
 ============ la classe active_* =============================================================== */
@@ -138,7 +138,7 @@
     scrollbar-width: none;
     width: 20%;
     right: 0px;
-    margin-top: 120px;
+    margin-top: 100px;
     position: fixed;
     height: 80%;
     overflow-y: scroll;
@@ -235,4 +235,11 @@ a:hover
 {
     color: rgb(119, 116, 116);
     text-decoration: none;
+}
+
+
+label:hover{
+    color: red;
+    content: '<i class="fas fa-star"></i>';
+    cursor: pointer;
 }

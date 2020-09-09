@@ -3,6 +3,7 @@ require_once dirname(__FILE__).'/../models/Users.php';
 require_once dirname(__FILE__).'/../models/Post.php';
 require_once dirname(__FILE__).'/../models/Comment.php';
 require_once dirname(__FILE__).'/../models/Note.php';
+require_once dirname(__FILE__).'/../models/Element.php';
     session_start();
     $post = new Post();
     $listPost = $post->readAll();
@@ -27,34 +28,53 @@ require_once dirname(__FILE__).'/../models/Note.php';
         $post_id = (int) $_POST['post_id'];
         // insert Note
         $note = (int) $_POST['note'];
-
+        // insert Elements
+        $elem = $_POST['element'];
+        // $qte = $_POST['quatity_element'];
+        $availib = 1;
     }
 
 if ($isSubmitted && $_POST['add_post'] == "valider")
 {
-    $post = new Post( 0,$post_title,$postContent,$date,$post_signal,$userId);
-    if($post->create())
+    $post = new Post(0,$post_title,$postContent,$date,$post_signal,$userId);
+    $postId = (int)$post->create();
+    if($postId)
     {
-        // $createSuccess = true;
+        foreach ($elem as $element) {
+        $elemment = new Element($element['name'],$element['quantity'],$availib,$postId);
+            if($elemment->create()){
+                $createPostSuccess = true;
+            }
+        }
     }
 } else if($isSubmitted && $_POST['add_comment'] == "valider")
 {
     $comment = new Comment( 0,$content,$date,$signal,$userId,$post_id);
     if($comment->create())
     {
-        $add_note = new Note(0,$note,$post_id);
-        if ($add_note->create()){
-            $createCommentSuccess = true;
-        }
+        $createCommentSuccess = true;
     }
+}else if($isSubmitted && $_POST['add-rarings'])
+{
+    $add_note = new Note(0,$note,$post_id);
+        if ($add_note->create())
+        {
+            $ratingSucces = true;
+        }
 }
 
 $usersInfos = new Users($id);
 $usersViews = $usersInfos->readSingle();
 
+// ======= AFFICHER LES COMMENTAIRES ==================//
 $comment = new Comment();
 $listComment = $comment->readAll();
-
+//====================================================//
+//============ AFFICHER LES ELEMENTS ================//
+$elementInfos = new Element();
+$listElements = $elementInfos->readAll();
+// ====================================================//
+var_dump($listElements);
 $firstName = $usersViews->users_firstname;
 $lastName = $usersViews->users_lastname;
 $photo = $usersViews->users_pictures;

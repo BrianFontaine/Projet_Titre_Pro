@@ -8,6 +8,7 @@
         // stop la lecture du script
         exit();
     }
+    var_dump($_SESSION);
     if (!isset($_GET['id']))
     {
         $profil = false;

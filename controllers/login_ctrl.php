@@ -27,6 +27,7 @@
                 $_SESSION['user']['auth'] = true;
                 $_SESSION['user']['users_id'] = $userInfo->users_id;
                 $_SESSION['user']['mail'] = $userInfo->users_mail;
+                $_SESSION['user']['token'] = $bytes = random_bytes(8);
                 $success =true;
             }
             else{
