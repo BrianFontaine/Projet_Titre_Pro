@@ -42,12 +42,12 @@
                 <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
             </div>
             <div>
-                <h6 class="text-white ml-3">Note général :
-                    <i class="fas fa-star"></i>
+                <h6 class="text-white ml-3">Note général : <?= $post->note_generale ?>
+                    <!-- <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i> -->
                 </h6>
                 <p class="bg-light rounded p-2">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
                     1,5cm d'épaisseur. Je recherche des plaques

@@ -8,7 +8,7 @@
         // stop la lecture du script
         exit();
     }
-    var_dump($_SESSION);
+
     if (!isset($_GET['id']))
     {
         $profil = false;
@@ -18,31 +18,18 @@
     $usersInfos = new Users($id);
     $usersViews = $usersInfos->readSingle();
 
-    // var_dump($id);
-    // $postInfos = new Users();
     $postViews = $usersInfos->readAll();
-    // var_dump($postViews);
-    
-    function age($date) { 
-        $age = date('Y') - $date; 
-        if (date('md') < date('md', strtotime($date))) { 
-            return $age - 1; 
-        } 
-        return $age; 
-    }
-    // var_dump($usersViews);
-    // var_dump($postInfos = new Users($id));
     
     $firstName = $usersViews->users_firstname;
     $lastName = $usersViews->users_lastname;
-    $age = age($usersViews->users_birthdate).' Ans';
+    // $age = age($usersViews->users_birthdate).' Ans';
+    $age = $usersViews->users_age.' Ans';
     $city = $usersViews->city_name;
     $job = $usersViews->users_job;
     $situation = $usersViews->users_situations;
     $school = $usersViews->users_school;
     $title = 'Profil de'.' '.$firstName.' '.$lastName;
     $photo = $usersViews->users_pictures.'.png';
-    // var_dump($usersViews);
 
     include dirname(__FILE__).'/../views/header.php';
     include dirname(__FILE__).'/../views/navbar.php';

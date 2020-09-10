@@ -5,8 +5,6 @@ require_once dirname(__FILE__).'/../models/Comment.php';
 require_once dirname(__FILE__).'/../models/Note.php';
 require_once dirname(__FILE__).'/../models/Element.php';
     session_start();
-    $post = new Post();
-    $listPost = $post->readAll();
     // var_dump($listPost);
     date_default_timezone_set("Europe/Paris");
     $id = (int) $_SESSION['user']['users_id'];
@@ -54,7 +52,7 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
     {
         $createCommentSuccess = true;
     }
-}else if($isSubmitted && $_POST['add-rarings'])
+}else if($isSubmitted && $_POST['add-ratings'])
 {
     $add_note = new Note(0,$note,$post_id);
         if ($add_note->create())
@@ -62,19 +60,24 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
             $ratingSucces = true;
         }
 }
-
-$usersInfos = new Users($id);
-$usersViews = $usersInfos->readSingle();
-
+//=============== afficher les infos users ============//
+    $usersInfos = new Users($id);
+    $usersViews = $usersInfos->readSingle();
+// ===================================================//
+// ================ afficher les poste ===============//
+    $post = new Post();
+    $listPost = $post->readAll();
+// ====================================================//
 // ======= AFFICHER LES COMMENTAIRES ==================//
-$comment = new Comment();
-$listComment = $comment->readAll();
+    $comment = new Comment();
+    $listComment = $comment->readAll();
 //====================================================//
 //============ AFFICHER LES ELEMENTS ================//
-$elementInfos = new Element();
-$listElements = $elementInfos->readAll();
+    $elementInfos = new Element();
+    $listElements = $elementInfos->readAll();
 // ====================================================//
-var_dump($listElements);
+// var_dump($listElements);
+
 $firstName = $usersViews->users_firstname;
 $lastName = $usersViews->users_lastname;
 $photo = $usersViews->users_pictures;

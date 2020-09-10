@@ -57,8 +57,6 @@
             if($users_stmt->execute())
             {
                 $post = $this->db->lastInsertId();
-                // $this->id = $post;
-                // $post = $this;
             }
             return $post;
         }

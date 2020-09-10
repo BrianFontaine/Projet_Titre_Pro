@@ -87,7 +87,7 @@
 		public function readSingle()
 		{
 			// :nomDeVariable pour les données en attentes
-			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
+			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,TIMESTAMPDIFF(year, `users_birthdate`, CURRENT_DATE) AS users_age,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
             $userStatment = $this->db->prepare($sql);
 			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
 			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
@@ -127,5 +127,15 @@
             $tokenStament->bindValue(':id', $this->users_id, PDO::PARAM_STR);
             
             return $tokenStament->execute();
+        }
+        public function updateUser(){
+            $sql = 'UPDATE `users` SET `users_pictures`=:pictures,`users_phone`=:phone,`users_job`=:job,`users_school`=:school,`users_situations`=:situation WHERE `users`.`users_id`;';
+            $updateStatement = $this->db->prepare($sql);
+            $updateStatement->bindValue(':pictures', $this->users_pictures, PDO::PARAM_STR);
+            $updateStatement->bindValue(':phone', $this->users_phone, PDO::PARAM_STR);
+            $updateStatement->bindValue(':job', $this->users_job, PDO::PARAM_STR);
+            $updateStatement->bindValue(':school', $this->users_school, PDO::PARAM_STR);
+            $updateStatement->bindValue(':situation', $this->users_situations, PDO::PARAM_STR);
+            return $updateStatement->execute();
         }
     }

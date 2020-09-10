@@ -37,7 +37,8 @@
         }
         public function readAll()
 		{
-            $sql = "SELECT `element_name`, `element_quantity`, `element_available` FROM `elements`;";
+            $sql = "SELECT `element_name`, `element_quantity`, `element_available`,`elements`.`post_id` 
+            FROM `elements` JOIN posts on `elements`.`post_id` = `posts`.`post_id`;";
             $elementStatement = $this->db->query($sql);
             $listElements = [];
             if ($elementStatement instanceof PDOstatement ) {

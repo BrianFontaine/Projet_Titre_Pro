@@ -96,10 +96,12 @@
             </h6>
             <div class="bg-light rounded p-2">
                 <?php foreach ($listElements as $element) {?>
-                    <div class="row col-md-11">
-                        <p class="col-md-8"><?=$element->element_name?> </p>
-                        <p class="col-md-3"><?=$element->element_quantity?></p>
-                    </div>
+                    <?php if ($element->post_id == $post->post_id) { ?>
+                        <div class="row col-md-11">
+                            <p class="col-md-8"><?=$element->element_name?> </p>
+                            <p class="col-md-3"><?=$element->element_quantity?></p>
+                        </div>
+                    <?php } ?>
                 <?php }?>
                 </div>
         </div>
@@ -150,7 +152,7 @@
                     <!-- ============== input hidden ======================================================== -->
                     <input type="hidden" name="post_id" value="<?=$post->post_id;?>">
                     <!-- ============== input hidden ======================================================== -->
-                    <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-rarings">
+                    <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-ratings">
                 </form>
             </div>
         </div>

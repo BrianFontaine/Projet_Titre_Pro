@@ -1,6 +1,6 @@
 <footer class="row text-center">
     <a class="m-auto p-2" href="../mentions_légales/">Mentions Légales</a>
-    <a class="m-auto p-2" href="../Condition_générales_d'utilisateurs/">Conditions générales d'utilisation</a>
+    <a class="m-auto p-2" href="../CGU/">Conditions générales d'utilisation</a>
     <a class="m-auto p-2" href="../contact/">Contactez-nous</a>
     <?php if (isset($_SESSION['user'])) { ?>
     <a class="m-auto p-2" href="../modifier_mes_informations/">Modifier mes information</a>

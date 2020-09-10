@@ -21,7 +21,7 @@
 </head>
 
 <body style="background-color:#806F6B;">
-    <img class="col-md-12 " src="asset/img/logoSpaceBrico_V2.01.png" alt="" style="margin-top: 42%;">
+    <!-- <img class="col-md-12 " src="asset/img/logoSpaceBrico_V2.01.png" alt="" style="margin-top: 42%;"> -->
     <div class=" text-center">
         <!-- <p class="h3">Introduction a SpaceBrico</p>
             <p class="bg-dark text-white rounded-pill">
@@ -37,9 +37,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
-    var min = 0,
-        sec = 34,
-        dse = 0;
+    var min = 0, sec = 34, dse = 0;
     var tmp = (min * 60 + sec) * 10 + dse;
     var chrono = setInterval(function () {
         min = Math.floor(tmp / 600);

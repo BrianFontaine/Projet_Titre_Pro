@@ -33,7 +33,7 @@ if (empty($_SESSION['user'])) {
     $phone = $infosUsers->users_phone;
     $job = $infosUsers->users_job;
     $company = $infosUsers->users_school;
-    $lastPasword =$_SESSION['password'];
+    $lastPasword = '';
     $photo = $infosUsers->users_pictures.'.png';
 
     require_once dirname(__FILE__).'/../views/header.php';

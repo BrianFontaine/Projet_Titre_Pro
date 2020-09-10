@@ -2,7 +2,7 @@
         <div id="containt" class="row d-flex justify-content-center text-white">
             <div id="setings">
             <h1 class="text-white">Réglages</h1><img class="users-setings-img" src="../asset/img/<?= $photo; ?>" alt="">
-                <form action="reglage.php" method="POST">
+                <form method="POST">
                     <div class="row">
                         <h3 class="mt-2">Profil :</h3>
                     </div>

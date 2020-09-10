@@ -40,11 +40,12 @@
     if (isset($success)) {
         $token = $_SESSION['user']['token'];
         $user = new Users();
+        $user->users_id = $_SESSION['user']['users_id'];
         $user->token = $token;
         if($user->insertToken())
         {
             // var_dump($user->token);
-            header('location:../profile/?id='.$_SESSION['user']['users_id']);
+            // header('location:../profile/?id='.$_SESSION['user']['users_id']);
         }
     }
     require_once dirname(__FILE__).'/../views/login_views.php';
