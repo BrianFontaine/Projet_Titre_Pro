@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connexion'])) {
     if (isset($email) && isset($password)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
-
         if (empty('$email')) {
             $errors['email'] = 'Veuillez renseigner votre adresse email!';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -36,9 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connexion'])) {
         
         if($user->connect()) {
             $userCo = $user->connect();
-
             if(password_verify($password,$userCo->password)){
-
                 if($userCo->user_active == 1){
                 $_SESSION['user']['auth'] = true;
                 $_SESSION['user']['user_id'] = $userCo->user_id;
@@ -49,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connexion'])) {
                 }else{
                     $errors['email'] = 'vous devez activez votre compte!';
                 }
-
             }else{
                 $errors['email'] = 'votre email ou votre mot de passe est incorrecte!';
                 $success = false;
