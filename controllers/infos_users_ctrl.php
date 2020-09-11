@@ -7,6 +7,7 @@ if (empty($_SESSION['user'])) {
     // stop la lecture du script
     exit();
 }
+    $isSubmited = false;
     if (!isset($_GET['id']) && empty($_GET['id'])) {
         header('location:../profile/');
     }
@@ -18,8 +19,6 @@ if (empty($_SESSION['user'])) {
     }else if($infosUsers->users_gender == 2){
         $civility = "Madame";
     }
-    // var_dump($infosUsers);
-    // require_once dirname(__FILE__).'/../models/';
     include '../asset/php/picture.php';
     $title = 'SpaceBrico - Informations personelles';
     $name = $infosUsers->users_firstname;
@@ -35,6 +34,13 @@ if (empty($_SESSION['user'])) {
     $company = $infosUsers->users_school;
     $lastPasword = '';
     $photo = $infosUsers->users_pictures.'.png';
+    // ============ Modification utilisateur ================//
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $isSubmited = true;
+        
+    }
+        $user = new Users();
+
 
     require_once dirname(__FILE__).'/../views/header.php';
     require_once dirname(__FILE__).'/../views/navbar.php';

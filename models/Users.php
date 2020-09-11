@@ -60,7 +60,6 @@
          * Permet de créer un utilisateur dans la table users
          * @return boolean
          */
-
         public function create()
         {
             $sql ='INSERT INTO `users`(`users_firstname`,`users_lastname`,`users_mail`,`users_birthdate`,`users_password`,`users_gender`,`users_pictures`,`users_phone`,`users_job`,`users_school`,`users_situations`,`users_actif`,`token`,`city_id`,`ranks_id`) 
@@ -81,13 +80,18 @@
             $users_stmt->bindValue(':token', $this->token, PDO::PARAM_STR);
             $users_stmt->bindValue(':fk_city_id', $this->city_id, PDO::PARAM_STR);
             $users_stmt->bindValue(':ranks', $this->ranks_id, PDO::PARAM_STR);
-            return $users_stmt->execute();
+            // return $users_stmt->execute();
+            $users = null;
+            if($users_stmt->execute())
+            {
+                $users = $this->db->lastInsertId();
+            }
+            return $users;
         }
-        
 		public function readSingle()
 		{
 			// :nomDeVariable pour les données en attentes
-			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr,TIMESTAMPDIFF(year, `users_birthdate`, CURRENT_DATE) AS users_age,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
+			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr, TIMESTAMPDIFF(year, `users_birthdate`, CURRENT_DATE) AS users_age,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
             $userStatment = $this->db->prepare($sql);
 			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
 			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
@@ -115,7 +119,7 @@
             $userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
             $users = null;
             if ($userStatment->execute()) {
-                $users = $userStatment->fetchAll(PDO::FETCH_OBJ);
+                $users = $userStatment->fetch(PDO::FETCH_OBJ);
             }
             return $users;
         }
@@ -137,5 +141,14 @@
             $updateStatement->bindValue(':school', $this->users_school, PDO::PARAM_STR);
             $updateStatement->bindValue(':situation', $this->users_situations, PDO::PARAM_STR);
             return $updateStatement->execute();
+        }
+        public function confirmUsers()
+        {
+            $sql = 'UPDATE `users` SET `users_actif` = :actif WHERE `users`.`token` = :token' ;
+            $confirmStament = $this->db->prepare($sql);
+            $confirmStament->bindValue(':token', $this->token, PDO::PARAM_STR);
+            $confirmStament->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
+            
+            return $confirmStament->execute();
         }
     }

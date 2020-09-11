@@ -1,15 +1,64 @@
 <?php
-if(isset($_POST['mailform']))
+session_start();
+require_once dirname(__FILE__) . '/../Models/user.php';
 
-$header="MIME-Version: 1.0\r\n";
-$header.='From:"jems-galery.com"<james.dardinier@jems-galery.com>'."\n";
-$header.='Content-Type:text/html; charset="uft-8"'."\n";
-$header.='Content-Transfer-Encoding: 8bit';
+if (isset($_GET['logout'])) {
+    // vide le tableau session
+    $_SESSION['user'] = [];
+    // vide la variable session
+    unset($_SESSION['user']);
+    // détruit la session
+    session_destroy();
+    header('refresh:0; Controllers/login_ctrl.php');
+}
 
-$message="coucou ";
-mail("briandeveloppeurweb@gmail.com", "Salut tout le monde !", $message, $header);
+$title = 'se connecter';
+$email = '';
+$password = '';
+$emailExist = "";
+$isSubmitted = false;
+$success = false;
 
-?>
-<form method="POST" action="">
-    <input type="submit" value="Recevoir un mail !" name="mailform"/>
-</form>
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['connexion'])) {
+    $isSubmitted = true;
+    if (isset($email) && isset($password)) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if (empty('$email')) {
+            $errors['email'] = 'Veuillez renseigner votre adresse email!';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = 'Le champs n\'est pas valide!';
+        }if (empty($password)) {
+            $errors['password'] = 'Merci de mettre ton mot de passe ;)';
+        }
+        $user = new Users('','','','',$email,$password);
+        
+        if($user->connect()) {
+            $userCo = $user->connect();
+
+            if(password_verify($password,$userCo->password)){
+
+                if($userCo->user_active == 1){
+                $_SESSION['user']['auth'] = true;
+                $_SESSION['user']['user_id'] = $userCo->user_id;
+                $_SESSION['user']['email'] = $userCo->email;
+                $_SESSION['user']['admin'] = $userCo->admin; 
+                $success = true;
+                header('location:../profil');
+                }else{
+                    $errors['email'] = 'vous devez activez votre compte!';
+                }
+
+            }else{
+                $errors['email'] = 'votre email ou votre mot de passe est incorrecte!';
+                $success = false;
+            }
+        }
+    }
+}
+
+$email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING));
+
+require_once dirname(__FILE__) . '/../Controllers/header_ctrl.php';
+require_once dirname(__FILE__) . '/../Views/login.php';
