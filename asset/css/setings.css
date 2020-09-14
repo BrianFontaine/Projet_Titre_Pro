@@ -53,3 +53,10 @@
     position: fixed;
     overflow-y: scroll;
 }
+#result ul li
+{
+    width: 100% !important;
+}
+#result ul{
+    margin-top:20px;
+}

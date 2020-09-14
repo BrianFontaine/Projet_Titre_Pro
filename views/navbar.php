@@ -10,7 +10,7 @@
                         <input type="search" id="inputsearch" class="form-control" placeholder="Rechercher..."
                             aria-label="Search User" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <span class="input-group-text" id="search">
+                            <span class="input-group-text" id="searchSB">
                                 <a href="#/" class="text-dark"><i id="i" class="fa fa-search"></i></a></span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <?php if (isset($_SESSION['user'])) { ?>
                 <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     style="background-color: white;width: 81px;border-radius: 50px;">
-                    <img class="user-nav users-conect m-auto" src="../asset/img/<?=$photoNav;?>" alt="">
+                    <img class="user-nav users-conect m-auto" src="<?=$photoNav;?>" alt="">
                     <i class="fas fa-chevron-down mr-3 text-dark"></i>
                 </a>
                 <div class="dropdown-menu m-auto bg-dark" aria-labelledby="dropdownMenu2">

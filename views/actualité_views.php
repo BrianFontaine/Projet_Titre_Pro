@@ -42,7 +42,7 @@
     <?php if (isset($_SESSION['user'])) {?>
     <form action="../accueil/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input" >
         <div class="row">
-            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?=$photo;?>.png"
+            <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="<?=$photo;?>"
                 alt="">
             <h6 class="mt-5 ml-2 text-white"><?=$firstName . ' ' . $lastName;?></h6>
         </div>
@@ -81,7 +81,7 @@
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
-                src="../asset/img/<?= $post->users_pictures; ?>.png" alt="">
+                src="/uploads/pict-<?= $post->users_id.'.'.$post->users_pictures;?>" alt="">
             <a href="../profile/?id=<?=$post->users_id;?>"
                 class="mt-5 ml-2 text-white h6"><?=$post->users_firstname . ' ' . $post->users_lastname;?></a>
         </div>

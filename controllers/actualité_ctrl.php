@@ -1,11 +1,12 @@
 <?php
+session_start();
 require_once dirname(__FILE__).'/../models/Users.php';
 require_once dirname(__FILE__).'/../models/Post.php';
 require_once dirname(__FILE__).'/../models/Comment.php';
 require_once dirname(__FILE__).'/../models/Note.php';
 require_once dirname(__FILE__).'/../models/Element.php';
-    session_start();
-    // var_dump($listPost);
+require_once dirname(__FILE__).'/../controllers/cookie_connect.php';
+
     date_default_timezone_set("Europe/Paris");
     $id = (int) $_SESSION['user']['users_id'];
     $title ='SpaceBrico';
@@ -63,6 +64,7 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
 //=============== afficher les infos users ============//
     $usersInfos = new Users($id);
     $usersViews = $usersInfos->readSingle();
+    // var_dump($usersInfos->users_actif);
 // ===================================================//
 // ================ afficher les poste ===============//
     $post = new Post();
@@ -80,9 +82,9 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
 
 $firstName = $usersViews->users_firstname;
 $lastName = $usersViews->users_lastname;
-$photo = $usersViews->users_pictures;
+$photo = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
 
     require_once dirname(__FILE__).'/../views/header.php';
-    require_once dirname(__FILE__).'/../views/navbar.php';
+    require_once dirname(__FILE__).'/../controllers/nav_bar_ctrl.php';
     require_once dirname(__FILE__).'/../views/actualité_views.php';
 ?>

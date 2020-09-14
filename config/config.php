@@ -19,6 +19,18 @@ define('USER', 'admin');
  * Password
  */
 define('PASSWORD', 'Brian020916@');
+/**
+ * taille max d'un fichier 
+ */
+define('MAXFILESIZE', 2097152);
+/**
+ * extebsion autoriser
+ */
+define('AUTHORIZED_EXTENSIONS', array("jpg", "png", "gif", "jpeg"));
+/**
+ * Dossier de destination 
+ */
+define('PICT_FOLDER','/uploads/');
 
 
 

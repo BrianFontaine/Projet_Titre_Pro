@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['mail'] = 'Cette adresse email a déjà été renseignée.';
         }     
     }
-    var_dump($existingUser);
+    // var_dump($existingUser);
 // ====================================================================================================
     if(empty($_POST['pass'])){
         $errors['pass'] = 'Veuillez entrer un mot de passe';
@@ -132,7 +132,13 @@ if($isSubmitted && count($errors) == 0)
     // var_dump($users);
     if($usersId)
     {
-        // header('location:succes_ctrl.php');
+        $message='
+        <div style="/* background-color:rgba(40,40,40,0.6); */border-radius:12px;padding: 17%;background-image: url(https://cdn.pixabay.com/photo/2014/12/15/14/00/tools-569108_1280.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <h1 style="text-align:center;color: white;font-size: 4em;">Bienvenue sur SpaceBrico</h1>
+            <a style="margin: auto;color:#fff;background-color:#007bff;border-color:#007bff;font-weight:400;text-align:center;white-space:nowrap;vertical-align:middle;border:1px solid transparent;padding:0.375rem 0.75rem;font-size:1rem;line-height:1.5;border-radius:0.25rem;text-decoration:none;display: block;" 
+            href="http://www.spacebrico.fr/controllers/succes_ctrl.php?confirm='.$token.'&id='.$usersId.'">Confirmer Votre compte</a>
+            <p style="color: darkgrey;text-align: center;font-size: 2em;background-color: black;border-radius: inherit;">Ceci est un mail automatique merci de ne pas repondre a ce mail !</p>
+        </div>';
         $createSuccess = true;
         try {
             //Server settings
@@ -149,20 +155,20 @@ if($isSubmitted && count($errors) == 0)
         
             //Recipients
             $mail->setFrom('noreply@spacebrico.fr', 'SpaceBrico');
-            $mail->addAddress('spacebrico@gmail.com', $_POST['firstname'],$_POST['lastname']);     // Add a recipient
+            $mail->addAddress($email, $_POST['firstname'],$_POST['lastname']);     // Add a recipient
             // Content
-            $mail->isHTML(false);                                  // Set email format to HTML
+            $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Confirmez Votre Compte Spacebrico !';
-            $mail->Body    = '<a href="http://www.spacebrico.fr/controllers/succes_ctrl.php?confirm='.$token.'&id='.$usersId.'">Confirmer Votre compte</a>';
+            $mail->Body    = $message;
             $mail->AltBody = utf8_decode('tu as reçus un message de '.$_POST["lastname"]);
         
             if($mail->send()){
-            echo 'votre email a été envoyé avec succès';
+            // echo 'votre email a été envoyé avec succès';
             $mailSend = true;
         
         }
         } catch (Exception $e) {
-            echo "votre message n'a pas été envoyé!!! erreur de mailing: {$mail->ErrorInfo}";
+            // echo "votre message n'a pas été envoyé!!! erreur de mailing: {$mail->ErrorInfo}";
         }
     }
 }

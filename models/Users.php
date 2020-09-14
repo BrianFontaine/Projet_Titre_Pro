@@ -91,10 +91,10 @@
 		public function readSingle()
 		{
 			// :nomDeVariable pour les données en attentes
-			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr, TIMESTAMPDIFF(year, `users_birthdate`, CURRENT_DATE) AS users_age,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
+			$sql = 'SELECT `users_id`, `users_firstname`, `users_lastname`, `users_mail`, DATE_FORMAT(`users_birthdate`,"%d/%m/%Y") AS birthdate_fr, TIMESTAMPDIFF(year, `users_birthdate`, CURRENT_DATE) AS users_age,`users_birthdate`,`users_password`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`,`token`,`city_name`,`users`.`city_id`,`ranks_id` FROM users INNER JOIN cities ON users.`city_id` = cities.`city_id` WHERE `users_mail`= :mail OR `users_id`= :id';
             $userStatment = $this->db->prepare($sql);
 			$userStatment->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
-			$userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
+            $userStatment->bindValue(':id', $this->users_id, PDO::PARAM_INT);
 			$userInfo = null;
 			if ($userStatment->execute()){
 				$userInfo = $userStatment->fetch(PDO::FETCH_OBJ);
@@ -133,22 +133,26 @@
             return $tokenStament->execute();
         }
         public function updateUser(){
-            $sql = 'UPDATE `users` SET `users_pictures`=:pictures,`users_phone`=:phone,`users_job`=:job,`users_school`=:school,`users_situations`=:situation WHERE `users`.`users_id`;';
+            $sql = 'UPDATE `users` SET `users_firstname`=:firstname,`users_lastname`=:lastname,`users_mail`=:mail,`users_gender`=:genre ,`users_pictures`=:pictures,`users_phone`=:phone,`users_job`=:job,`users_school`=:school,`users_situations`=:situation ,`city_id`=:city WHERE `users`.`users_id`= :id;';
             $updateStatement = $this->db->prepare($sql);
+            $updateStatement->bindValue(':id', $this->users_id, PDO::PARAM_INT);
+            $updateStatement->bindValue(':firstname', $this->users_firstname, PDO::PARAM_STR);
+            $updateStatement->bindValue(':lastname', $this->users_lastname, PDO::PARAM_STR);
+            $updateStatement->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
+            $updateStatement->bindValue(':genre', $this->users_gender, PDO::PARAM_STR);
             $updateStatement->bindValue(':pictures', $this->users_pictures, PDO::PARAM_STR);
             $updateStatement->bindValue(':phone', $this->users_phone, PDO::PARAM_STR);
             $updateStatement->bindValue(':job', $this->users_job, PDO::PARAM_STR);
             $updateStatement->bindValue(':school', $this->users_school, PDO::PARAM_STR);
             $updateStatement->bindValue(':situation', $this->users_situations, PDO::PARAM_STR);
+            $updateStatement->bindValue(':city', $this->city_id, PDO::PARAM_INT);
             return $updateStatement->execute();
         }
-        public function confirmUsers()
-        {
+        public function confirmUsers(){
             $sql = 'UPDATE `users` SET `users_actif` = :actif WHERE `users`.`token` = :token' ;
             $confirmStament = $this->db->prepare($sql);
             $confirmStament->bindValue(':token', $this->token, PDO::PARAM_STR);
             $confirmStament->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
-            
             return $confirmStament->execute();
         }
     }

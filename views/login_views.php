@@ -30,8 +30,8 @@
                     <div>
                         <!-- Remember me -->
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="remember" disabled>
-                            <label class="custom-control-label text-dark" for="remember">Se souvenir demoi (En développement)</label>
+                            <input type="checkbox" class="custom-control-input" id="remember" name="remenber">
+                            <label class="custom-control-label text-dark" for="remember">Se souvenir de moi </label>
                         </div>
                     </div>
                     <div>
@@ -46,9 +46,9 @@
                     <!-- <?= var_dump($errors);?> -->
                 </div>
                 <!-- Social login -->
-                <p class="text-dark">Se connecter avec :</p>
+                <!-- <p class="text-dark">Se connecter avec :</p>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-                <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a> -->
                 <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
                 <!-- Register -->

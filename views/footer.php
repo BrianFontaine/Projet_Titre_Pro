@@ -26,6 +26,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous">
     </script>
+    <script src="../asset/js/ajax_cities.js"></script>
     <script src="../asset/js/script.js"></script>
     <script src="../asset/js/actus_script.js"></script>
     <script src="../asset/js/timer_ago.js"></script>

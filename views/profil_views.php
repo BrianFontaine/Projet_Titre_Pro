@@ -133,7 +133,7 @@
     <div id="col-left" class="">
         <div class="user-profil">
             <div class="">
-                <img class="user_img" src="../asset/img/<?= $photo; ?>" alt="">
+                <img class="user_img" src="<?= $photo; ?>" alt="">
                 <a class="user-name text-center h2"
                     href="../profile/?id=<?= $usersViews->users_id; ?>"><?= $firstName.' '.$lastName; ?></a>
                 <p class="h4 user-age w-100"><?= $age; ?></p>

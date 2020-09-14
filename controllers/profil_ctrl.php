@@ -29,9 +29,9 @@
     $situation = $usersViews->users_situations;
     $school = $usersViews->users_school;
     $title = 'Profil de'.' '.$firstName.' '.$lastName;
-    $photo = $usersViews->users_pictures.'.png';
+    $photo = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;;
 
     include dirname(__FILE__).'/../views/header.php';
-    include dirname(__FILE__).'/../views/navbar.php';
+    require_once dirname(__FILE__).'/../controllers/nav_bar_ctrl.php';
     require_once dirname(__FILE__).'/../views/profil_views.php';
 ?>

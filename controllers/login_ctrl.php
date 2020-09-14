@@ -1,6 +1,10 @@
 <?php
     session_start();
     require_once dirname(__FILE__).'/../models/Users.php';
+    // ===== suppression des cookie lors de la deconection =======//
+    setcookie('pseudo','',time()-3600);
+    setcookie('login','',time()-3600);
+    // ===========================================================//
     if (isset($_GET['logout'])) {
 		// vide le tableau session
 		$_SESSION['user'] = [];
@@ -9,7 +13,6 @@
 		// détruit la session
 		session_destroy();
     }
-
     $success = false;
     $isSubmitted = false;
     $token='';
@@ -17,23 +20,24 @@
     $mail = ''; 
     $usersId = '';
     $errors = [];
-
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $isSubmitted = true;
+        
         $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_STRING));
         if (empty($mail)) {
             $errors['mail'] = 'Merci de renseigner votre adresse électronique.';
         } elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $errors['mail'] = 'Le format attendu n\'est pas respecté.';
         }
-        // $password = $_POST['pass'] ?? '';
+
         $password = trim(filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING));
         if(empty($password)){
             $errors['pass'] = 'Renseignez un mot de passe';
         }
     }
-
-	if (isset($isSubmitted) && count($errors) == 0) {
+	if ($isSubmitted == true && count($errors) == 0) {
+        var_dump($isSubmitted);
 		// regex avant envoi	
         $user = new Users('','','',$mail,'',$password);
         // vérifie que la requête est execute et qu'elle renvoie une valeur
@@ -60,6 +64,11 @@
                         $user = new Users();
                         $user->users_id = $usersId;
                         $user->token = $token;
+                        if(isset($_POST['remenber']))
+                        {
+                            setcookie('pseudo',$userInfo->users_id,time()+365*24*3600,'/',null,false,true);
+                            setcookie('login',$token,time()+365*24*3600,'/',null,false,true);
+                        }
                         if($user->insertToken())
                         {
                             header('location:../profile/?id='.$_SESSION['user']['users_id']);
@@ -71,8 +80,9 @@
                 }
             }else{
                 $errors['login'] = 'Login ou password incorrecte';
-
             }
+        }else{
+            $errors['login'] = 'Votre identifiant est incorrect !';
         }
     }
     require_once dirname(__FILE__).'/../views/login_views.php';
