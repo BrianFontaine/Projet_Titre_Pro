@@ -36,7 +36,7 @@
                     </div>
                     <div>
                         <!-- Forgot password -->
-                        <a href="">Mot de passe oubliée?</a>
+                        <a href="">Mot de passe oubliée ?</a>
                     </div>
                 </div>
                 <!-- Sign in button -->
@@ -52,7 +52,7 @@
                 <!-- <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
                 <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
                 <!-- Register -->
-                <p class="text-dark">Vous etes pas encore menbre?
+                <p class="text-dark">Vous n'êtes pas encore membres ?
                     <a href="../inscription/">S'inscrire</a>
                 </p>
             </form>

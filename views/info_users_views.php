@@ -17,7 +17,7 @@
                         <label class="ml-2" for="name">Nom :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="name" name="firstname" value="<?= $name;?>">
                         <div class="text-danger col-md-12 col-md-12"><?= $errors['firstname'] ?? '' ?></div>
-                        <label class="ml-2" for="lastName">Prenom :</label>
+                        <label class="ml-2" for="lastName">Prénom :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="lastName" name="lastname" value="<?= $lastName;?>">
                         <div class="text-danger col-md-12"><?= $errors['lasntame'] ?? '' ?></div>
                         <label class="ml-2" for="lbirthDays">Date de Naissance :</label>
@@ -44,12 +44,12 @@
                         <label class="ml-2" for="job">Métier :</label>
                         <input class="ml-2 form-control users-setings" type="tex" id="job" name="job" value="<?= $job;?>">
                         <div class="text-danger col-md-12"><?= $errors['job'] ?? '' ?></div>
-                        <label class="ml-2" for="company">Entreprise Ou école :</label>
+                        <label class="ml-2" for="company">Entreprise ou école :</label>
                         <input class="ml-2 form-control users-setings" type="text" id="company" name="company" value="<?= $company;?>">
                         <div class="text-danger col-md-12"><?= $errors['school'] ?? '' ?></div>
                     </div>
                     <div class="row">
-                        <h3 class="mt-2">Information de connection :</h3>
+                        <h3 class="mt-2">Information de connexion :</h3>
                     </div>
                     <div class="row mt-3">
                     <label class="ml-2" for="lastPasword">Ancien mot de passe :</label>
@@ -76,10 +76,32 @@
                         <div class="text-danger col-md-12"><?= $errors['picture'] ?? '' ?></div>
                     </div>
                     <div class="row mt-3 d-flex justify-content-center justify-content-around mt-5">
-                        <button type ="submit" class="btn btn-success" name="save_change">Sauvegarder mes changements&nbsp;<i class="fas fa-save"></i></button>
-                        <button class="btn btn-danger" name="delete_account">Désactiver mon compte&nbsp;<i class="fas fa-trash"></i></button>
+                        <button type ="submit" class="btn btn-success" name="save_change" value="valider">Sauvegarder mes changements&nbsp;<i class="fas fa-save"></i></button>
+                        <button type="button" class="btn btn-danger" name="delete_account" value="valider" data-toggle="modal" data-target="#delete">Désactiver mon compte&nbsp;<i class="fas fa-trash"></i></button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header text-center col-md-12">
+                        <form action="#" method="POST">
+                            <h5 class="text-center alert alert-danger m-auto" id="exampleModalScrollableTitle">Attention vous êtes sur le point de désactiver votre compte</h5>
+                        </div>
+                        <div class="modal-body">
+                            <label for="password" class="text-center text-light">Avant de désactiver votre compte veuillez confirmer votre mot de passe !</label>
+                            <input class="ml-2 form-control users-setings" type="password" name="pass_verify" id="password" placeholder="password">
+                            <input type="hidden" name="fullName" value="<?= $usersViews->users_lastname.' '.$usersViews->users_firstname?>">
+                            <input type="hidden" name="id" value="<?= $usersViews->users_id; ?>">
+                            <p class="text-center text-light">Pour plus d'information concernant vos données personnelles <a href="#">Tout se passe sur cette page..</a></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuler</button>
+                            <button class="btn btn-danger" type="submit" name="delete_account" value="valider">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

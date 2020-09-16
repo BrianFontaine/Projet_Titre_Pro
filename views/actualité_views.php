@@ -29,7 +29,7 @@
         <div class="do_not_disturb"><i class="fas fa-moon"></i></div>
     </div>
     <?php } else {?>
-    <h1 class="text-center">Veuillez vous connecter pour voir vos amis en lignes</h1>
+    <h1 class="text-center">Veuillez vous connecter pour voir vos amis en lignes.</h1>
     <?php }?>
 </div>
 <!-- version PC -->
@@ -58,7 +58,7 @@
         <input type="text" class="form-control mb-2" name="post_title" placeholder="Ajouter un titre...">
         <div id="form">
             <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
-                placeholder="Exprimez-vous <?=$firstName;?> !"></textarea>
+                placeholder="Exprimez-vous <?=$lastName;?> !"></textarea>
         </div>
         <div class="row">
             <div class="preview mt-2 ml-2 d-none"></div>
@@ -94,16 +94,18 @@
                 <i class="far fa-star"></i> -->
                 
             </h6>
-            <div class="bg-light rounded p-2">
-                <?php foreach ($listElements as $element) {?>
-                    <?php if ($element->post_id == $post->post_id) { ?>
-                        <div class="row col-md-11">
-                            <p class="col-md-8"><?=$element->element_name?> </p>
-                            <p class="col-md-3"><?=$element->element_quantity?></p>
-                        </div>
-                    <?php } ?>
-                <?php }?>
+            <?php if(count($listElements) > 0){ ?>
+                <div class="bg-light rounded p-2">
+                    <?php foreach ($listElements as $element) {?>
+                        <?php if ($element->post_id == $post->post_id) { ?>
+                            <div class="row col-md-11">
+                                <p class="col-md-8"><?=$element->element_name?> </p>
+                                <p class="col-md-3"><?=$element->element_quantity?></p>
+                            </div>
+                        <?php } ?>
+                    <?php }?>
                 </div>
+            <?php } ?>
         </div>
         <div class="mt-2 bg-light rounded p-2">
             <h5><?=$post->post_title;?></h5>

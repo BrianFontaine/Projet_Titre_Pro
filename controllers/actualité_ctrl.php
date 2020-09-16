@@ -6,12 +6,46 @@ require_once dirname(__FILE__).'/../models/Comment.php';
 require_once dirname(__FILE__).'/../models/Note.php';
 require_once dirname(__FILE__).'/../models/Element.php';
 require_once dirname(__FILE__).'/../controllers/cookie_connect.php';
-
+// ======================= On formate le timestamp a celui de paris  ==================//
     date_default_timezone_set("Europe/Paris");
-    $id = (int) $_SESSION['user']['users_id'];
+//=====================================================================================//
+//========================= Inistialisation des varible ===============================//
+    $id = '';
+    $firstName='';
+    $lastName ='';
     $title ='SpaceBrico';
     $isSubmitted = false;
-
+// =====================================================================================//
+// ======================= On verifie que lutilisateur est connecter ===================//
+    if(isset($_SESSION['user'])){
+        $id = (int) $_SESSION['user']['users_id'];
+        //=============== afficher les infos users ============//
+        $usersInfos = new Users($id);
+        $usersViews = $usersInfos->readSingle();
+        $firstName = $usersViews->users_firstname;
+        $lastName = $usersViews->users_lastname;
+        // var_dump($usersInfos->users_actif);
+        // ===================================================//
+        if ($usersViews->users_pictures != NULL) {
+            $photo = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
+        }else{
+            $photo ='../asset/img/user-boy_default.png';
+        }
+    }
+//=========================================================================================//
+// ================ afficher les poste ===============//
+$post = new Post();
+$listPost = $post->readAll();
+// ====================================================//
+// ======= AFFICHER LES COMMENTAIRES ==================//
+$comment = new Comment();
+$listComment = $comment->readAll();
+//====================================================//
+//============ AFFICHER LES ELEMENTS ================//
+$elementInfos = new Element();
+$listElements = $elementInfos->readAll();
+// ====================================================//
+//========================= Si la methode post est reconnue ===============================//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') 
     {
         // insert POST
@@ -32,7 +66,7 @@ require_once dirname(__FILE__).'/../controllers/cookie_connect.php';
         // $qte = $_POST['quatity_element'];
         $availib = 1;
     }
-
+// ==================== si il y a aucune erreur on cree un post est on ajoute des element a se post ==//
 if ($isSubmitted && $_POST['add_post'] == "valider")
 {
     $post = new Post(0,$post_title,$postContent,$date,$post_signal,$userId);
@@ -61,29 +95,7 @@ if ($isSubmitted && $_POST['add_post'] == "valider")
             $ratingSucces = true;
         }
 }
-//=============== afficher les infos users ============//
-    $usersInfos = new Users($id);
-    $usersViews = $usersInfos->readSingle();
-    // var_dump($usersInfos->users_actif);
-// ===================================================//
-// ================ afficher les poste ===============//
-    $post = new Post();
-    $listPost = $post->readAll();
-// ====================================================//
-// ======= AFFICHER LES COMMENTAIRES ==================//
-    $comment = new Comment();
-    $listComment = $comment->readAll();
-//====================================================//
-//============ AFFICHER LES ELEMENTS ================//
-    $elementInfos = new Element();
-    $listElements = $elementInfos->readAll();
-// ====================================================//
-// var_dump($listElements);
-
-$firstName = $usersViews->users_firstname;
-$lastName = $usersViews->users_lastname;
-$photo = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
-
+//===============================================================================================//
     require_once dirname(__FILE__).'/../views/header.php';
     require_once dirname(__FILE__).'/../controllers/nav_bar_ctrl.php';
     require_once dirname(__FILE__).'/../views/actualité_views.php';

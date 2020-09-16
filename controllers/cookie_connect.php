@@ -6,7 +6,7 @@ if (!isset($_SESSION['users_id']) && isset($_COOKIE['login'],$_COOKIE['pseudo'])
     {
         // récupère les infos fetch
         $userInfo = $user->readSingle();
-        // on verifie que l'id de l'utilisateur et le token corresponde en bas de données 
+        // on verifie que l'id de l'utilisateur et le token corresponde en basse de données 
         if ($_COOKIE['pseudo']== $userInfo->users_id && $_COOKIE['login'] == $userInfo->token) {
             // créé la session utilisateur
             $_SESSION['user']['auth'] = true;

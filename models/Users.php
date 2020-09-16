@@ -1,7 +1,6 @@
 <?php
     require_once dirname(__FILE__) . '/../utils/Databases.php';
     class Users {
-
         private $users_id;
         private $users_firstname;
         private $users_lastname;
@@ -19,7 +18,6 @@
         private $city_id;
         private $ranks_id;
         private $db;
-
         public function __construct($id = 0,$firstname='',$lastname='',$mail='',$birthdate='',$password='',$gender=0,$pictures='',$phone='',$job='',$school='',$situation='',$actif=0,$token='',$cityId=0,$ranksId=0)
         {
             $this->users_id = $id;
@@ -40,22 +38,14 @@
             $this->ranks_id = $ranksId;
             $this->db = Database::getInstance();
         }
-
         public function __get($attr)
         {
             return $this->$attr;
         }
-
         public function __set($attr, $value)
         {
             $this->$attr = $value;
         }
-        // public function setMail($mail)
-        // {
-        //     if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
-        //         $this->mail = $mail;
-        //     }
-        // }
         /**
          * Permet de créer un utilisateur dans la table users
          * @return boolean
@@ -101,9 +91,16 @@
             }
 			return $userInfo;
         }
-        public function readAll()
+        public function readAllPostFromUsers()
 		{
-            $users_sql = 'SELECT * FROM users INNER JOIN posts ON  posts.`users_id` = users.`users_id` WHERE users.`users_id`= :id';
+            $users_sql =
+            'SELECT AVG(notes.note_value) AS note_generale ,users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
+            FROM users
+            INNER JOIN posts ON users.users_id = posts.users_id
+            LEFT JOIN notes ON posts.post_id = notes.post_id
+            WHERE users.users_id = :id
+            GROUP BY posts.post_id
+            ORDER BY `posts`.`post_id` DESC';
             $patientsStatement = $this->db->prepare($users_sql);
             $patientsStatement->bindValue(':id', $this->users_id, PDO::PARAM_INT);
             $users = [];
@@ -133,12 +130,13 @@
             return $tokenStament->execute();
         }
         public function updateUser(){
-            $sql = 'UPDATE `users` SET `users_firstname`=:firstname,`users_lastname`=:lastname,`users_mail`=:mail,`users_gender`=:genre ,`users_pictures`=:pictures,`users_phone`=:phone,`users_job`=:job,`users_school`=:school,`users_situations`=:situation ,`city_id`=:city WHERE `users`.`users_id`= :id;';
+            $sql = 'UPDATE `users` SET `users_firstname`=:firstname,`users_lastname`=:lastname,`users_mail`=:mail,`users_birthdate`=:birthdate,`users_gender`=:genre ,`users_pictures`=:pictures,`users_phone`=:phone,`users_job`=:job,`users_school`=:school,`users_situations`=:situation ,`city_id`=:city WHERE `users`.`users_id`= :id;';
             $updateStatement = $this->db->prepare($sql);
             $updateStatement->bindValue(':id', $this->users_id, PDO::PARAM_INT);
             $updateStatement->bindValue(':firstname', $this->users_firstname, PDO::PARAM_STR);
             $updateStatement->bindValue(':lastname', $this->users_lastname, PDO::PARAM_STR);
             $updateStatement->bindValue(':mail', $this->users_mail, PDO::PARAM_STR);
+            $updateStatement->bindValue(':birthdate', $this->users_birthdate, PDO::PARAM_STR);
             $updateStatement->bindValue(':genre', $this->users_gender, PDO::PARAM_STR);
             $updateStatement->bindValue(':pictures', $this->users_pictures, PDO::PARAM_STR);
             $updateStatement->bindValue(':phone', $this->users_phone, PDO::PARAM_STR);
@@ -152,6 +150,13 @@
             $sql = 'UPDATE `users` SET `users_actif` = :actif WHERE `users`.`token` = :token' ;
             $confirmStament = $this->db->prepare($sql);
             $confirmStament->bindValue(':token', $this->token, PDO::PARAM_STR);
+            $confirmStament->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
+            return $confirmStament->execute();
+        }
+        public function disableUsers(){
+            $sql = 'UPDATE `users` SET `users_actif`=:actif WHERE `users_id`=:id' ;
+            $confirmStament = $this->db->prepare($sql);
+            $confirmStament->bindValue(':id', $this->users_id, PDO::PARAM_INT);
             $confirmStament->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
             return $confirmStament->execute();
         }

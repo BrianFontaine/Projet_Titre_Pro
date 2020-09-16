@@ -20,8 +20,8 @@
         <!-- <P class="h1 text-center mt-5 mb-n5 "><?= $id;?></P> -->
         <?php if(isset($createSuccess)) { ?>
         <p class="text-success alert alert-success">
-                <b>Votre compte a été créé avec succes<b><br>
-                Un emailde confirmation a été envoyer a <span><?= $_POST['mail']; ?></span>
+            Votre compte a été créé avec succès.<br/>
+            Un email de confirmation a été envoyer <?= $_POST['mail']; ?>
         </p>
         <?php } ?>
         <div class="d-flex justify-content-center text-white">
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <label class="text-dark" for="c_password">confirmer votre mot de passe : </label>
+                    <label class="text-dark" for="c_password">Confirmer votre mot de passe : </label>
                     <div class="col-md-12 mt-2">
                         <input type="password" class="form-control" placeholder="Confirm Password" id="c_password"
                             name="confPass" value="<?php if (isset($_POST['confPass'])) { echo $_POST['confPass']; } ?>">
@@ -91,7 +91,7 @@
                         <div class="col-md-12 form-control mt-2 <?=$isSubmitted && ($errors['lastname']) ? 'is-invalid' : '' ?>">
                         <div class="invalid-feedback"><?= $errors['cgu'] ?? '' ?></div>
                             <input type="checkbox" name="cgu" id="cgu" value="1" class="">
-                            <label for="cgu">&nbsp;J'ai lu et j'accepte les conditions génerales d'utilisations </label>
+                            <label for="cgu">&nbsp;J'ai lu et j'accepte les conditions générales d'utilisations.</label>
                             <embed src="../asset/docs/CGU.pdf" class="col-12" type="application/pdf">
                         </div>
                         <!-- <div class="col-md-12 ">
@@ -102,7 +102,7 @@
                             <button class="btn btn-info btn-block my-4" type="submit">S'inscrire</button>
                         </div>
                         <!-- name="submit_post"  -->
-                        <p class="text-dark text-center col-12">Vous etes déja menbre?
+                        <p class="text-dark text-center col-12">Vous êtes déjà membres ?
                             <a href="../connection/">Se connecter</a>
                         </p>
                     </div>

@@ -1,15 +1,12 @@
 <?php
     require_once dirname(__FILE__) . '/../utils/Databases.php';
     class Note {
-
-        // private $country_id;
         private $note_id;
         private $note_value;
         private $post_id;
         private $db;
         public function __construct($note_id= 0,$noteValue =0,$postId=0)
         {
-            // $this->country_id = $country_id;
             $this->note_id = $noteId;
             $this->note_value = $noteValue;
             $this->post_id = $postId;

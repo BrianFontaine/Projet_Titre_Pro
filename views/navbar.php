@@ -10,7 +10,7 @@
                         <input type="search" id="inputsearch" class="form-control" placeholder="Rechercher..."
                             aria-label="Search User" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <span class="input-group-text" id="searchSB">
+                            <span class="input-group-text" id="search">
                                 <a href="#/" class="text-dark"><i id="i" class="fa fa-search"></i></a></span>
                         </div>
                     </div>

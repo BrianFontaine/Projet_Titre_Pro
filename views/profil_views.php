@@ -4,12 +4,17 @@
         <form action="../profile/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
             <div class="row">
                 <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
-                    src="../asset/img/user-boy_default.png" alt="">
+                    src="<?= $photo; ?>" alt="">
                 <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
             </div>
-            <div>
-                <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
-                    cols="95" rows="3" placeholder="Elément réstant" x-webkit-speech></textarea>
+            <div class="SB-elements-require-add">
+                <div class="row ml-1">
+                    <!-- <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
+                        cols="95" rows="3" placeholder="Elément réstant"></textarea> -->
+                    <input type="text" name="element[1][name]" class="form-control col-md-8 rounder disabled_element mb-2" placeholder="Elément réstant">
+                    <input type="number" name="element[1][quantity]" class="form-control col-md-2 rounder disabled_element mb-2 mr-2 ml-4" placeholder="Quantité">
+                    <input type="button" class="form-control col-md-1 rounder disabled_element mb-2 ml-2" onclick="add_block();" Value="Plus">
+                </div>
             </div>
             <input class="form-control mb-2" type="text" name="title_post" id="" placeholder="Ajouter un titre...">
             <div>
@@ -26,7 +31,7 @@
                 <button id="vide" class="btn btn-light remove" type="button" style="font-size: 1.2em;"><i
                         class="fas fa-times-circle"></i></button>
                 <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1.2em;"><i
-                        class="fas fa-camera-retro"></i>&nbsp;|&nbsp;<i class="far fa-camera-movie"></i><input
+                        class="fas fa-camera-retro"></i><input
                         type="file" name="picture_movies" id="gallery-photo-add" data-preview=".preview"
                         multiple="multiple"></label>
                 <button class="btn btn-light" type="submit" style="font-size: 1.2em;">Publier</button>
@@ -37,7 +42,7 @@
         <?php foreach ($postViews as $post) { ?>
         <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
             <div class="row">
-                <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="../asset/img/<?= $photo; ?>"
+                <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="<?= $photo; ?>"
                     alt="">
                 <h6 class="mt-5 ml-2 text-white"><?= $firstName.' '.$lastName; ?></h6>
             </div>
@@ -49,12 +54,19 @@
                     <i class="far fa-star"></i>
                     <i class="far fa-star"></i> -->
                 </h6>
-                <p class="bg-light rounded p-2">Il me reste trois plache de chêne claire en longeur de 3 mètres environ
-                    1,5cm d'épaisseur. Je recherche des plaques
-                    de plexiglas.
-                </p>
+                <div class="bg-light rounded p-2">
+                <?php foreach ($listElements as $element) {?>
+                    <?php if ($element->post_id == $post->post_id) { ?>
+                        <div class="row col-md-11">
+                            <p class="col-md-8"><?=$element->element_name?> </p>
+                            <p class="col-md-3"><?=$element->element_quantity?></p>
+                        </div>
+                    <?php } ?>
+                <?php }?>
+            </div>
             </div>
             <div class="mt-2 bg-light rounded p-2">
+                <h5><?=$post->post_title;?></h5>
                 <p>
                     <?= $post->post_content; ?>
                 </p>

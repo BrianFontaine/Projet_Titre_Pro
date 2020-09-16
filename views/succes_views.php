@@ -19,7 +19,7 @@
     <div class="SB-bg_success">
         <div class="d-flex justify-content-center text-center mt-3">
             <p class="text-success alert alert-success">
-                <b>Votre compte a été Valider avec succes<b><br>
+                <b>Votre compte a été Valider avec succès.<b><br>
             </p>
         </div>
         <?php header('refresh:2;http://www.spacebrico.fr/connection/') ?>

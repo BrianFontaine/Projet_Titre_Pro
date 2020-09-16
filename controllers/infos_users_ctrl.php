@@ -181,9 +181,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 // var_dump($extension);
+// var_dump($_POST);
 // var_dump($users);
-    if($isSubmitted && count($errors) == 0){
+    if($isSubmitted && count($errors) == 0 && isset($_POST['save_change']) == 'valider'){
         $users = new Users();
+        var_dump($users);
         $users->users_id= $id;
         $users->users_firstname = $firstname;
         $users->users_lastname = $lastname;
@@ -200,6 +202,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($users->updateUser()) {
             $updateUsers = true;
             echo'ok';
+        }
+    }
+    // var_dump($infosUsers);
+    if (isset($_POST['delete_account']) == 'valider') {
+        $user = new Users($id);
+        $user->users_actif = 0;
+        $passConfirm = trim(htmlspecialchars($_POST['pass_verify']));
+        if(password_verify($passConfirm, $infosUsers->users_password)){
+            if($user->disableUsers())
+            {
+                // header('location:../connection/?logout=true');
+                echo 'ok';
+            }
+        }else{
+            echo 'no';
+            // $errors['passConf'] = "Votre mot de passe ne correspond pas !";
         }
     }
     require_once dirname(__FILE__).'/../views/header.php';

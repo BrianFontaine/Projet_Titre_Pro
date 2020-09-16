@@ -3,7 +3,7 @@
     <a class="m-auto p-2" href="../CGU/">Conditions générales d'utilisation</a>
     <a class="m-auto p-2" href="../contact/">Contactez-nous</a>
     <?php if (isset($_SESSION['user'])) { ?>
-    <a class="m-auto p-2" href="../modifier_mes_informations/">Modifier mes information</a>
+    <a class="m-auto p-2" href="../modifier_mes_informations/">Modifier mes informations</a>
     <?php } ?>
     <a class="m-auto p-2" href="https://brianfontaine.github.io/CV-Brian-D-veloppeurjunior/" target="_blank">&copy; SpaceBrico -
         2020</a>

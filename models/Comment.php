@@ -40,7 +40,6 @@
             $comment_stmt->bindValue(':signal', $this->comments_signal, PDO::PARAM_STR);
             $comment_stmt->bindValue(':users_id', $this->users_id, PDO::PARAM_STR);
             $comment_stmt->bindValue(':post_id', $this->post_id, PDO::PARAM_STR);
-            // $comment_stmt->bindValue(':notify_id', $this->notify_id, PDO::PARAM_INT);
             return $comment_stmt->execute();
         }
         public function readAll()

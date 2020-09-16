@@ -142,7 +142,6 @@ if($isSubmitted && count($errors) == 0)
         $createSuccess = true;
         try {
             //Server settings
-            // $mail->Host       = "localhost";                //Je suis en localhost.Dois-je donc laisser l'intitulé tel quel ou definir localhost à la place?
             $mail->SMTPDebug  = 2;                          // enables SMTP debug information (for testing)
             $mail->SMTPAuth   = true;                       // enable SMTP authentication
             $mail->SMTPSecure = "ssl";                      // sets the prefix to the servier
@@ -155,7 +154,7 @@ if($isSubmitted && count($errors) == 0)
         
             //Recipients
             $mail->setFrom('noreply@spacebrico.fr', 'SpaceBrico');
-            $mail->addAddress($email, $_POST['firstname'],$_POST['lastname']);     // Add a recipient
+            $mail->addAddress('spacebrico@gmail.com', $_POST['firstname'],$_POST['lastname']);     // Add a recipient
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Confirmez Votre Compte Spacebrico !';
@@ -163,7 +162,7 @@ if($isSubmitted && count($errors) == 0)
             $mail->AltBody = utf8_decode('tu as reçus un message de '.$_POST["lastname"]);
         
             if($mail->send()){
-            // echo 'votre email a été envoyé avec succès';
+            echo 'votre email a été envoyé avec succès';
             $mailSend = true;
         
         }
@@ -174,3 +173,5 @@ if($isSubmitted && count($errors) == 0)
 }
 require_once dirname(__FILE__).'/../views/register_views.php';
 ?>
+
+<img src="cid:pictures" alt="">
