@@ -32,6 +32,7 @@
     <script src="../asset/js/timer_ago.js"></script>
     <script src="../asset/js/rate.js"></script>
     <script src="../asset/js/elements.js"></script>
+    <script src="../asset/js/darkmode.js"></script>
 
 </body>
 

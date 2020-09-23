@@ -66,12 +66,17 @@
         // SELECT `post_title`, `post_content` FROM `posts` WHERE `post_title` LIKE '%%' ORDER BY `posts`.`post_title` ASC LIMIT 0,5
         public function findPost($text)
         {
-            $sql = 'SELECT `post_title`, `post_content` FROM `posts` WHERE `post_title` LIKE :title ORDER BY `posts`.`post_title` ASC LIMIT 0,5' ;
+            $sql = 'SELECT `users`.`users_lastname`,`users`.`users_firstname`,users.`users_id`,users.`users_pictures`,`post_id`,`post_title`, `post_content` FROM `posts` 
+            JOIN users on posts.users_id= users.users_id
+            WHERE `post_title` LIKE :title 
+            OR users.users_firstname like :title 
+            OR users.users_lastname like :title
+            ORDER BY `posts`.`post_title` ASC LIMIT 0,5' ;
             $searchPatients = $this->db->prepare($sql);
             $searchPatients->bindValue(':title','%'.$text.'%',PDO::PARAM_STR);
             $patientsView = [];
             if ($searchPatients->execute()){
-                $patientsView = $searchPatients->fetchAll(PDO::FETCH_ASSOC);
+                $patientsView = $searchPatients->fetchAll(PDO::FETCH_OBJ);
             }
             return $patientsView;
         }

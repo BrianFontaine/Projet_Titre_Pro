@@ -155,6 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $pictureDest = dirname(__FILE__)."/..".PICT_FOLDER.$pictureRenamed;
                 
                 $tmp_name = $_FILES["picture"]["tmp_name"];
+                
                 // Enregistrement de la photo
                 if(move_uploaded_file($tmp_name, $pictureDest)){
                     // Redimensionnement et compression
@@ -180,12 +181,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $extension = $_POST['picture'];
     }
 }
-// var_dump($extension);
-// var_dump($_POST);
-// var_dump($users);
     if($isSubmitted && count($errors) == 0 && isset($_POST['save_change']) == 'valider'){
         $users = new Users();
-        var_dump($users);
         $users->users_id= $id;
         $users->users_firstname = $firstname;
         $users->users_lastname = $lastname;

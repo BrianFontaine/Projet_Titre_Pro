@@ -1,4 +1,5 @@
-$('#post').click(function(){ // on crée une fonction qui permet de deploter des champ suplémentaire au click de l'input avec l'id post
+$('body').on("click","#post",function(){
+    console.log('ok'); // on crée une fonction qui permet de deploter des champ suplémentaire au click de l'input avec l'id post
     $('#post').removeClass('post'); // quand l'évenement click est déclancher on retire la classe post qui lui enleve le margin top
     $('#elements').addClass('active_element'); // on ajoute une class active_element pour faire apparaitre le champ de saisie 
     $('#form_btn').addClass('active_movie'); // on ajoute la class active_movie pour afficher les bouton photo/video/publier
@@ -28,7 +29,7 @@ $('#elements').focus(function (e) { // on crée une fonction qui donne le focus 
                                             // gris fonceé et un background gris claire 
 });
 
-$('#post').keyup(function () {
+$('body').on("keyup","#post",function () {
     var string = $(this).val(); // on déclare une varivle STRING pour savoir si le champ post est bien replie
     if (string.length > 0) { // si le champ saisie depasse 0 caractere alors retire la class remove pour faire apparaitre l'element
         $('#vide').removeClass('remove');
@@ -37,7 +38,7 @@ $('#post').keyup(function () {
     }
 });
 
-$('#vide').click(function() { // on crée une fonction qui permer au click de vider l'input avec l'id post
+$('body').on("click","#vide",function() { // on crée une fonction qui permer au click de vider l'input avec l'id post
     var string = $('#post').val(); // on verifie la valeur de notre input
     if (string.length > 0) {  // si il depasse 0 
         $('#post').val('');  // on lui remplace la valeur par une chaine de caractere vide
@@ -98,4 +99,3 @@ $('#people_close').click(function () {
 });
 // ================== FIN ===== FONCTIONALITER AMIS CONNECTER ===============================================================================================
 // ==========================================================================================================================================================
-// ================== FONCTIONALITER FAVORIS ================================================================================================================

@@ -4,7 +4,7 @@ body
     padding: 0;
     height: 100vh;
     font-family: 'Niramit', sans-serif;
-    background-color: #a3e4d7 ;
+    background-color: #b1b1b1;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(10, 1fr);

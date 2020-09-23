@@ -1,7 +1,7 @@
 <main>
     <div id="contenue" class="row d-flex justify-content-center">
         <?php if (!empty($_GET['id'] )&& $_GET['id'] == $_SESSION['user']['users_id']) {?>
-        <form action="../profile/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
+        <form action="" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input">
             <div class="row">
                 <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
                     src="<?= $photo; ?>" alt="">
@@ -18,7 +18,7 @@
             </div>
             <input class="form-control mb-2" type="text" name="title_post" id="" placeholder="Ajouter un titre...">
             <div>
-                <textarea class="form-group col-md-12 rounded post" name="Aticle" id="post" cols="95" rows="5"
+                <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
                     placeholder="Exprimez-vous <?= $lastName; ?> !"></textarea>
             </div>
             <div class="row">
@@ -98,7 +98,7 @@
             <div class="border mt-2 mb-n2"></div>
             <div class="row justify-content-around">
                 <div class="container p-3">
-                    <form action="../accueil/" method="POST">
+                    <form action="" method="POST">
                         <textarea name="comment" id="comment" cols="30" rows="1" class="form-control col-md-12 mb-1"
                             placeholder="Commentaire..." style="border-radius: 30px;"></textarea>
                         <div class="form-group col-md-12 text-right ">
@@ -142,32 +142,61 @@
         <?php } ?>
     </div>
     <!-- COLONE DE GAUCHE  -->
-    <div id="col-left" class="">
+    <div id="col-left" class="bg-dark">
         <div class="user-profil">
             <div class="">
-                <img class="user_img" src="<?= $photo; ?>" alt="">
+                <figure class="rounded-circle">
+                    <img src="<?= $photo; ?>" alt="profile picture" class="user_img">
+                <figcaption>
+                        <label for="picture" title="Changer ma photo">
+                            <input type="file" name="picture" id="picture" class="d-none" value="<?= $usersView->extension ?>">
+                            <input type="hidden" name="picture" value="<?= $usersView->extension ?>">
+                            <i class="fas fa-camera mt-2"></i>
+                        </label>
+                    </figcaption>
+                </figure>
+                <!-- </div> -->
                 <a class="user-name text-center h2"
                     href="../profile/?id=<?= $usersViews->users_id; ?>"><?= $firstName.' '.$lastName; ?></a>
                 <p class="h4 user-age w-100"><?= $age; ?></p>
+                <?php if($_SESSION['user']['users_id'] != $_GET['id']){ ?>
+                    <form method="POST" class="row justify-content-center">
+                        <button type="submit" class="btn btn-success text-center mr-3" name="add_friends" value="add"><i class="fas fa-user-plus"></i></button>
+                        <button type="button" class="btn btn-success text-center"><i class="fas fa-comments"></i></button>
+                    </form>
+                    <div class="text-danger"><?= $errors['addFriends']  ?? '' ?></div>
+                <?php } ?>
             </div>
-            <div class="user-infos">
+            <div class="text-dark user-infos">
                 <h3 class="text-center text-uppercase title-infos">Infos</h3>
                 <p>Ville : <?= $city; ?></p>
                 <p>Travail : <?= $job; ?></p>
                 <p>Etude : <?= $school; ?></p>
                 <p>Situation : <?= $situation; ?></p>
             </div>
-            <div class="friends">
+            <div class="text-dark friends">
                 <h3 class=" text-center text-uppercase title-infos">Amis</h3>
-                <img src="" alt="">
+                <div class="row">
+                    <!-- <div class="col-md-10"> -->
+                <?php foreach ($friendList as $friend) { ?>
+                    <?php if ($friend->pending == 0) {?>
+                        <a href="../profile/?id=<?=$friend->users_id_etre_amis;?>" class="text-center text-dark  col-md-5">
+                        <?php if ($friend->users_pictures != NULL): ?>
+                                <img class="rounded-circle" src="/uploads/pict-<?=$friend->users_id_etre_amis.'.'.$friend->users_pictures;?>" alt="profile picture" style="width:50px;">
+                                fontaine Brian
+                            <?php else: ?>
+                                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mt-2" style="width:50px;height:50px;"><?= initiales($friend->users_lastname.' '.$friend->users_firstname); ?></div>
+                            <?php endif; ?>
+                        </a>
+                    <?php }?>
+                <?php } ?>
+                </div>
             </div>
-            <div class="friends">
+            <div class="text-dark friends">
                 <h3 class=" text-center text-uppercase title-infos">Photo</h3>
-                <img src="" alt="">
             </div>
-            <div class="friends">
+            <div class="text-dark friends">
                 <h3 class=" text-center text-uppercase title-infos">Centre d'interé</h3>
-                <img src="" alt="">
             </div>
         </div>
     </div>
@@ -196,5 +225,3 @@
 <?php 
     include 'footer.php';
 ?>
-</body>
-</html>

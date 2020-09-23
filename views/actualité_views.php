@@ -57,8 +57,10 @@
         </div>
         <input type="text" class="form-control mb-2" name="post_title" placeholder="Ajouter un titre...">
         <div id="form">
+        <div class="text-danger"><?= $errors['title'] ?? '' ?></div>
             <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
                 placeholder="Exprimez-vous <?=$lastName;?> !"></textarea>
+            <div class="text-danger"><?= $errors['content'] ?? '' ?></div>
         </div>
         <div class="row">
             <div class="preview mt-2 ml-2 d-none"></div>
@@ -80,8 +82,9 @@
     foreach ($listPost as $post) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
+        <?php if ($post->users_pictures != '') { $photo = PICT_FOLDER.'pict-'.$post->users_id.'.'.$post->users_pictures; }else{ $photo ='../asset/img/user-boy_default.png';}?>
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
-                src="/uploads/pict-<?= $post->users_id.'.'.$post->users_pictures;?>" alt="">
+                src="<?= $photo;?>" alt="">
             <a href="../profile/?id=<?=$post->users_id;?>"
                 class="mt-5 ml-2 text-white h6"><?=$post->users_firstname . ' ' . $post->users_lastname;?></a>
         </div>
@@ -92,23 +95,20 @@
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i> -->
-                
             </h6>
             <?php if(count($listElements) > 0){ ?>
-                <div class="bg-light rounded p-2">
-                    <?php foreach ($listElements as $element) {?>
-                        <?php if ($element->post_id == $post->post_id) { ?>
-                            <div class="row col-md-11">
-                                <p class="col-md-8"><?=$element->element_name?> </p>
-                                <p class="col-md-3"><?=$element->element_quantity?></p>
-                            </div>
-                        <?php } ?>
-                    <?php }?>
-                </div>
+                <?php foreach ($listElements as $element) {?>
+                    <?php if ($element->post_id == $post->post_id) { ?>
+                        <div class="row col-md-12 bg-light m-auto rounded">
+                            <div class="col-md-12"><?=$element->element_quantity?> <?=$element->element_name?></div>
+                        </div>
+                    <?php } ?>
+                <?php }?>
             <?php } ?>
         </div>
         <div class="mt-2 bg-light rounded p-2">
             <h5><?=$post->post_title;?></h5>
+            <hr>
             <p><?=$post->post_content;?></p>
             <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -141,20 +141,20 @@
             <div class="score text-white text-left col-md-5 ml-5" >
                 <form action="" method="POST" style="margin-left: 34px;">
                     Note :
-                    <label for="<?='star_1_'.$post->post_id;?>"><i class="far fa-star"></i></label>
+                    <label class="star" for="<?='star_1_'.$post->post_id;?>"><i class="far fa-star"></i></label>
                     <input type="radio" name="note" value="1" id="<?='star_1_'.$post->post_id;?>" class="d-none">
-                    <label for="<?='star_2_'.$post->post_id;?>"><i class="far fa-star"></i></label>
+                    <label class="star" for="<?='star_2_'.$post->post_id;?>"><i class="far fa-star"></i></label>
                     <input type="radio" name="note" value="2" id="<?='star_2_'.$post->post_id;?>" class="d-none">
-                    <label for="<?='star_3_'.$post->post_id;?>"><i class="far fa-star"></i></label>
+                    <label class="star" for="<?='star_3_'.$post->post_id;?>"><i class="far fa-star"></i></label>
                     <input type="radio" name="note" value="3" id="<?='star_3_'.$post->post_id;?>" class="d-none">
-                    <label for="<?='star_4_'.$post->post_id;?>"><i class="far fa-star"></i></label>
+                    <label class="star" for="<?='star_4_'.$post->post_id;?>"><i class="far fa-star"></i></label>
                     <input type="radio" name="note" value="4" id="<?='star_4_'.$post->post_id;?>" class="d-none">
-                    <label for="<?='star_5_'.$post->post_id;?>"><i class="far fa-star"></i></label>
+                    <label class="star" for="<?='star_5_'.$post->post_id;?>"><i class="far fa-star"></i></label>
                     <input type="radio" name="note" value="5" id="<?='star_5_'.$post->post_id;?>" class="d-none">
                     <!-- ============== input hidden ======================================================== -->
                     <input type="hidden" name="post_id" value="<?=$post->post_id;?>">
                     <!-- ============== input hidden ======================================================== -->
-                    <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-ratings">
+                    <!-- <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-ratings"> -->
                 </form>
             </div>
         </div>
@@ -164,8 +164,8 @@
             <div class="container p-3">
             <!-- ================= Ajouter un commentaire ================================================== -->
                 <form action="../accueil/" method="POST">
-                    <?php if(isset($createCommentSuccess)) { ?>
-                        <div class="alert alert-success">Votre Commentaire è bien été enrigistrer </div>
+                    <?php if(isset($createComment) && $createComment == 'true'.$post->post_id) { ?>
+                        <div class="alert alert-success">Votre Commentaire è bien été enregistrer </div>
                     <?php } ?>
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {?>
                     <textarea cols="30" rows="1" class="form-control col-md-10 mb-1" placeholder="Commentaire..." style="border-radius: 30px;" name="comment"></textarea>

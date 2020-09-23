@@ -14,7 +14,7 @@
 </head>
 <body>
     <header class="d-flex justify-content-center">
-        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt="" width="100"></a>
+        <a href="http://127.0.0.1"><img class="ml-50 infinite mb-3 mt-5" src="../asset/img/logoSpaceBrico_V2.2.png" alt="" width="200"></a>
     </header>
     <div class="bg">
         <div class="d-flex justify-content-center">
@@ -36,12 +36,12 @@
                     </div>
                     <div>
                         <!-- Forgot password -->
-                        <a href="">Mot de passe oubliée ?</a>
+                        <a class="warning" href="">Mot de passe oubliée ?</a>
                     </div>
                 </div>
                 <!-- Sign in button -->
                 <div class="<?=$isSubmitted && isset($errors['login']) ? 'is-invalid' : '' ?>" style="height:100px;">
-                    <button class="btn btn-info btn-block my-4" type="submit" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
+                    <button class="btn btn-warning btn-block my-4" type="submit" >Se connecter&nbsp;<i class="fas fa-lock"></i></button >
                     <div class="text-danger"><?= $errors['login'] ?? '' ?></div>
                     <!-- <?= var_dump($errors);?> -->
                 </div>

@@ -7,24 +7,24 @@ function getExtension($filename){ // $filename = "monimage.jpg"
 
 function redim($pictureDest){
     list($src_w, $src_h) = getimagesize($pictureDest);
-    $dst_image = imagecreatetruecolor(500, 500);
+    $dst_image = imagecreatetruecolor(400, 500);
     $extension = getExtension($pictureDest);
-    $dest_w = 500;
-    $dest_h = 500;
+    $dest_w = 700;
+    $dest_h = 700;
     switch ($extension) {
         case 'jpg':
             $src_image = imagecreatefromjpeg($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,0 ,0 , 0, 0 ,$dest_w ,$dest_h, $src_w, $src_h);
+            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
             imagejpeg($dst_image, $pictureDest, 70);
             break;
         case 'jpeg':
             $src_image = imagecreatefromjpeg($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,0 ,0 , 0, 0 ,$dest_w ,$dest_h, $src_w, $src_h);
+            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
             imagejpeg($dst_image, $pictureDest, 70);
             break;
         case 'png':
             $src_image = imagecreatefrompng($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,0 ,0 , 0, 0 ,$dest_w ,$dest_h, $src_w, $src_h);
+            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
             imagepng($dst_image, $pictureDest, 8);
             break;
         case 'gif':
@@ -36,6 +36,5 @@ function redim($pictureDest){
             return false;
             break;
     }
-
     return $result;
 }

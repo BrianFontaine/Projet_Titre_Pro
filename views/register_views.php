@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="d-flex justify-content-center">
-        <a href="login.php"><img class="ml-50 mt-3 mb-3" src="../asset/img/logoSpaceBrico_V2.01.png" alt=""
+        <a href="login.php"><img class="ml-50 mt-3 mb-3" src="../asset/img/logoSpaceBrico_V2.2.png" alt=""
                 width="200"></a>
     </header>
     <div class="bg">

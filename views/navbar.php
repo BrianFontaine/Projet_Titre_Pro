@@ -1,4 +1,4 @@
-<body>
+<body id="darkmode"z>
     <header>
         <a id="title" class="mt-4" href="../accueil/">SpaceBrico&nbsp;<i class="fas fa-tools"></i></a>
         <!-- <a href="http://127.0.0.1"><img  class="ml-50" src="asset/img/Logo-space-brico.png" alt="" width="200px"></a> -->
@@ -46,6 +46,11 @@
                                 class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
                     <!-- le $_GET logout sert à déclencher la deconnexion -->
                     <?php } ?>
+                    <div class="dropdown-divider"></div>
+                    <div class="row text-center justify-content-center">
+                        <button type="button" class="btn btn-light mr-1" onclick="document.getElementById('darkmode').className='bg-light';">Light</button>
+                        <button type="button" class="btn btn-dark" onclick="document.getElementById('darkmode').className='bg-dark';">Dark</button>
+                    </div>
                 </div>
             </ul>
         </nav>

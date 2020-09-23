@@ -5,7 +5,7 @@
         private $note_value;
         private $post_id;
         private $db;
-        public function __construct($note_id= 0,$noteValue =0,$postId=0)
+        public function __construct($noteId= 0,$noteValue =0,$postId=0)
         {
             $this->note_id = $noteId;
             $this->note_value = $noteValue;

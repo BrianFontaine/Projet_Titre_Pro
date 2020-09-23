@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../asset/libs/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../asset/libs/css/bootstrap.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="../asset/libs/css/all.css"> -->
     <!-- <link rel="stylesheet" href="../asset/libs/css/all.min.css"> -->
     <link rel="stylesheet" href="../asset/css/messages.css">

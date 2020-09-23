@@ -1,4 +1,3 @@
-
 let sp = document.getElementById('search');
 let list = document.getElementById('result');
 sp.addEventListener('keyup', function () {

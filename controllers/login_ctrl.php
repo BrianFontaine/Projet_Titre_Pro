@@ -37,7 +37,7 @@
         }
     }
 	if ($isSubmitted == true && count($errors) == 0) {
-        var_dump($isSubmitted);
+        // var_dump($isSubmitted);
 		// regex avant envoi	
         $user = new Users('','','',$mail,'',$password);
         // vérifie que la requête est execute et qu'elle renvoie une valeur

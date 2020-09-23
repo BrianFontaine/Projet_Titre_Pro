@@ -34,7 +34,7 @@
                             <label class="ml-2">Votre ville : </label>
                             <input class="ml-2 form-control users-setings <?=$isSubmitted && ($errors['cities']) ? 'is-invalid' : '' ?>" type="search" name="search_cities" id="search" placeholder="Rechercher votre ville..." value="<?= $city;?>">
                             <!-- ============================= INPUT HIDDEN ================= -->
-                            <input type="hidden" name="cities" id="cities">
+                            <input type="hidden" name="cities" id="cities" value="<?= $cities?>">
                             <!-- ============================================================ -->
                             <div id="result" style="position:absolute;left:0;right:0;"></div>
                             <div class="invalid-feedback"><?= $errors['cities'] ?? '' ?></div>
