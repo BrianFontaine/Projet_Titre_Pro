@@ -13,12 +13,12 @@ define('DB_NAME', 'projet-tp');
  * Nom d'utilisateur
  * User name
  */
-define('USER', 'admin');
+define('USER', 'root');
 /**
  * Mot de Passe 
  * Password
  */
-define('PASSWORD', 'Brian020916@');
+define('PASSWORD', '');
 /**
  * taille max d'un fichier 
  */

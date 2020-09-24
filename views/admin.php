@@ -1,99 +1,205 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="180x180" href="../asset/img/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
-    <link rel="icon" type="image/png" sizes="32x32" href="../asset/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../asset/img/favicon-16x16.png">
-    <link rel="manifest" href="../asset/img/site.webmanifest">
-    <link rel="mask-icon" href="../asset/img/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#9f00a7">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title; ?></title>
-    <link rel="icon" type="image/png" href="../asset/img/logoSpaceBrico_V2.01.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Stencil+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Srisakdi&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/libs/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="../asset/libs/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="../asset/libs/css/all.css"> -->
-    <!-- <link rel="stylesheet" href="../asset/libs/css/all.min.css"> -->
-    <!-- <link rel="stylesheet" href="../asset/css/messages.css">
-    <link rel="stylesheet" href="../asset/css/nav-bar.css">
-    <link rel="stylesheet" href="../asset/css/setings.css">
-    <link rel="stylesheet" href="../asset/css/reset.css">
-    <link rel="stylesheet" media="all and (orientation:portrait)" href="../asset/css/screen.css">
-    <link rel="stylesheet" href="../asset/css/profil.css">
-    <link rel="stylesheet" href="../asset/css/actu.css"> -->
-</head>
 
-<div class="col-sm-6 col-lg-4">
-              <div class="card card-sm">
-                <a href="#" class="d-block"><img src="./static/photos/3d2998219313cd37.jpg" class="card-img-top"></a>
-                <div class="card-body">
-                  <div class="d-flex align-items-center">
-                    <span class="avatar mr-3 rounded" style="background-image: url(./static/avatars/002m.jpg)"></span>
-                    <div class="lh-sm">
-                      <div>Mallory Hulme</div>
-                      <div class="text-muted">yesterday</div>
-                    </div>
-                    <div class="ml-auto">
-                      <a href="#" class="text-muted">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><circle cx="12" cy="12" r="2"></circle><path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2"></path><path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2"></path></svg>
-                        369
-                      </a>
-                      <a href="#" class="ml-3 text-muted">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7"></path></svg>
-                        32
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="180x180" href="../asset/img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+  <link rel="icon" type="image/png" sizes="32x32" href="../asset/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../asset/img/favicon-16x16.png">
+  <link rel="manifest" href="../asset/img/site.webmanifest">
+  <link rel="mask-icon" href="../asset/img/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#9f00a7">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?= $title; ?></title>
+  <link rel="icon" type="image/png" href="../asset/img/logoSpaceBrico_V2.01.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Srisakdi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../asset/libs/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="../asset/libs/css/bootstrap.css">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img class="img-fluid col-md-1" src="../asset/img/logoSpaceBrico_V2.2.png" alt="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="admin_ctrl.php">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="users_ctrl.php">Liste Utilisateurs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Liste des Postes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Messagerie</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Genre</h5>
+          <p class="card-text">Femme Inscrite</p>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar"
+              style="width: <?= Pourcentage( $countWomen->Femme,$countUsers->Utilisateur)?>%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100"><?= $countWomen->Femme ?></div>
+          </div>
+          <p class="card-text">Homme Inscrit</p>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar"
+              style="width: <?= Pourcentage( $countMen->Homme,$countUsers->Utilisateur)?>%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100"><?= $countMen->Homme ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Infos</h5>
+          <p class="card-text">Nombre d'utilisateurs</p>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100"><?= $countUsers->Utilisateur;?></div>
+          </div>
+          <p class="card-text">Nombre de Post</p>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar"
+              style="width: <?= Pourcentage( $postCount->Articles,$countUsers->Utilisateur)?>%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100"><?= $postCount->Articles ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Infos post</h5>
+          <p class="card-text">Nombre de trock réaliser</p>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100">2500</div>
+          </div>
+          <p class="card-text">Nombre de Post signaler</p>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar"
+              style="width: <?= Pourcentage( $postCountSignal->Signalement,$postCount->Articles)?>%" aria-valuenow="100"
+              aria-valuemin="0" aria-valuemax="100"><?= $postCountSignal->Signalement ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="bg-dark text-white w-100 text-center mt-2 mb-2">liste des 10 dernier Utilisateur inscrits</h1>
+    <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
+      <?php foreach ($listUsers as $usersInfos) { ?>
+      <div class="card col-sm-3" style="width: 18rem;">
+        <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id?>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
+            (<?=$usersInfos->ranks_name?>)</h5>
+          <p class="card-text">Email : <?= $usersInfos->users_mail ?></p>
+          <p class="card-text">Date de naissance : <?= $usersInfos->users_birthdate ?></p>
+          <p class="card-text">Télephone : <?= $usersInfos->users_phone ?> </p>
+          <p class="card-text">Genre : <?php if($usersInfos->users_gender == 1){ echo'Homme'; }else{ echo 'Femme';}  ?>
+          </p>
+          <p class="card-text">Travail : <?= $usersInfos->users_job ?> </p>
+          <p class="card-text">Ecole / entreprise : <?= $usersInfos->users_school ?> </p>
+          <p class="card-text">Situation Marital : <?= $usersInfos->users_situations ?> </p>
+          <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
+          </p>
+          <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
+          <form action="" class="row justify-content-around" method="get">
+            <select class="form-control col-sm-7" name="upgrade" id="">
+              <option value="">Action</option>
+              <option value="">Admin</option>
+            </select>
+            <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
+          </form>
+          <form action="" method="get">
+            <div class="row justify-content-around mt-3">
+              <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
+              <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
             </div>
-            <div class="card">
-                <div class="card-body">
-                  <div class="row row-sm align-items-center">
-                    <div class="col-auto">
-                      <span class="avatar avatar-md" style="background-image: url(./static/avatars/000m.jpg)"></span>
-                    </div>
-                    <div class="col">
-                      <h3 class="mb-0"><a href="#">Paweł Kuna</a></h3>
-                      <div class="text-muted text-h5">UI Designer</div>
-                    </div>
-                    <div class="col-auto lh-1 align-self-start">
-                      <span class="badge bg-gray-lt">
-                        offline
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row align-items-center mt-4">
-                    <div class="col">
-                      <div>
-                        <div class="d-flex mb-1 align-items-center lh-1">
-                          <div class="text-h5 font-weight-bolder m-0">Progress</div>
-                          <span class="ml-auto text-h6 strong">84%</span>
-                        </div>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-blue" style="width: 84%" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
-                            <span class="sr-only">84% Complete</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <div class="btn-list">
-                        <a href="#" class="btn btn-white btn-sm">
-                          Chat
-                        </a>
-                        <a href="#" class="btn btn-white btn-sm">
-                          Profile
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </form>
+        </div>
+      </div>
+      <?php } ?>
+    </div>
+  </div>
+</div>
+<footer class="page-footer font-small bg-dark pt-4 mt-2 text-white">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3 ">
+        <h5 class="text-uppercase text-center">SpaceBrico</h5>
+        <iframe class="col-12"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.3286121999686!2d1.82678931608766!3d50.09885587942843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd8cb0500c2b43%3A0xda6b2ab7e9d1764c!2s70%20Route%20de%20Rouen%2C%2080100%20Abbeville!5e0!3m2!1sfr!2sfr!4v1600960805004!5m2!1sfr!2sfr"
+          width="500" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Infos Admin</h5>
+        <ul class="list-unstyled text-white">
+          <li>
+            <p>Fontaine Brian / SpaceBrico</p>
+          </li>
+          <li>
+            <p>70 Route de Rouen Appartement 15 Batiment D</p>
+          </li>
+          <li>
+            <a class="text-white" href="tel:0624441335">Télephone gérand : 06 24 44 13 35</a>
+          </li>
+          <li>
+            <a class="text-white" href="mailto:briandeveloppeurweb@gmail.com">briandeveloppeurweb@gmail.com</a>
+          </li>
+          <li>
+            <p>80100 Abbeville</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Mon Compte</h5>
+        <ul class="list-unstyled text-white">
+          <li>
+            <p>Fontaine Brian / SpaceBrico</p>
+          </li>
+          <li>
+            <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png" alt="">
+          </li>
+          <li>
+            <a class="text-white text-center" href="">Deconnexion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> SpaceBrico</a>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+</footer>
+</body>
+
+</html>
