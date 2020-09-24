@@ -80,4 +80,24 @@
             }
             return $patientsView;
         }
+        public function readCountPost()
+		{
+            $sql ='SELECT COUNT(`post_id`) Articles FROM `posts`';
+            $postStatement = $this->db->query($sql);
+            $listPost = null;
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
+        public function readCountSignal()
+		{
+            $sql ='SELECT COUNT(`post_id`) Signalement FROM `posts` WHERE`post_signal` = 1;';
+            $postStatement = $this->db->query($sql);
+            $listPost = null;
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
     }

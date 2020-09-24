@@ -160,4 +160,63 @@
             $confirmStament->bindValue(':actif', $this->users_actif, PDO::PARAM_STR);
             return $confirmStament->execute();
         }
+        public function readAllLastUsers()
+		{
+            $sql ='SELECT users_id ,`users_firstname`, `users_lastname`, `users_mail`, `users_birthdate`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`, cities.`city_name`,ranks.ranks_name FROM `users`
+            JOIN ranks on users.ranks_id = ranks.ranks_id
+            JOIN cities on users.city_id = cities.city_id
+            ORDER BY users_id DESC LIMIT 0,10;';
+            $postStatement = $this->db->query($sql);
+            $listPost = [];
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
+        public function readCountMen()
+		{
+            $sql ='SELECT COUNT(`users_gender`) Homme FROM `users` WHERE `users_gender` = 1';
+            $postStatement = $this->db->query($sql);
+            $listPost = null;
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
+        public function readCountWomen()
+		{
+            $sql ='SELECT COUNT(`users_gender`) Femme FROM `users` WHERE `users_gender` = 2';
+            $postStatement = $this->db->query($sql);
+            $listPost = null;
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
+        public function readCountUsers()
+		{
+            $sql ='SELECT COUNT(`users_id`) Utilisateur FROM `users`';
+            $postStatement = $this->db->query($sql);
+            $listPost = null;
+            if ($postStatement instanceof PDOstatement ) {
+                $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
+            }
+            return $listPost;
+        }
+        public function readAll($currentPage,$patientPerPage)
+		{
+            $offset = ($currentPage - 1) * $patientPerPage;
+            $sql ='SELECT users_id ,`users_firstname`, `users_lastname`, `users_mail`, `users_birthdate`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`, cities.`city_name`,ranks.ranks_name FROM `users`
+            JOIN ranks on users.ranks_id = ranks.ranks_id
+            JOIN cities on users.city_id = cities.city_id
+            ORDER BY users_id DESC LIMIT :offset , :limit;';
+            $users_stmt = $this->db->prepare($sql);
+            $users_stmt->bindValue(':offset', $offset ,PDO::PARAM_INT);
+            $users_stmt->bindValue(':limit', $patientPerPage , PDO::PARAM_INT);
+            $listUsers = [];
+            if ($users_stmt->execute()) {
+                $listUsers = $users_stmt->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $listUsers;
+        }
     }

@@ -15,12 +15,9 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#" class="nav-menu" type="button" data-toggle="modal" data-target=".modal-sm-friends"><i
-                            class="fas fa-user-friends"></i></a></li>
-                <li><a href="#" class="nav-menu" type="button" data-toggle="modal" data-target=".modal-sm-message"><i
-                            class="fas fa-comments"></i></a></li>
-                <li><a href="#" class="nav-menu" type="button" data-toggle="modal" data-target=".modal-sm-notify"><i
-                            class="fas fa-bell"></i></a></li>
+                <li><a href="../friends/" class="nav-menu"><i class="fas fa-user-friends"></i></a></li>
+                <li><a href="../messages/" class="nav-menu"><i class="fas fa-comments"></i></a></li>
+                <li><a href="../notify/" class="nav-menu"><i class="fas fa-bell"></i></a></li>
                 <li>
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <li class="text-center"> <a class="d-block" href="../connection/"><i class="fas fa-user-circle"></i>Me connecter</a></li>
@@ -45,12 +42,12 @@
                     <li class="text-center m-auto"><a class="d-block" href="../connection/?logout=true"><i
                                 class="fas fa-power-off"></i>&nbsp;Se déconnecter</a></li>
                     <!-- le $_GET logout sert à déclencher la deconnexion -->
-                    <?php } ?>
-                    <div class="dropdown-divider"></div>
+                                        <div class="dropdown-divider"></div>
                     <div class="row text-center justify-content-center">
                         <button type="button" class="btn btn-light mr-1" onclick="document.getElementById('darkmode').className='bg-light';">Light</button>
                         <button type="button" class="btn btn-dark" onclick="document.getElementById('darkmode').className='bg-dark';">Dark</button>
                     </div>
+                    <?php } ?>
                 </div>
             </ul>
         </nav>
