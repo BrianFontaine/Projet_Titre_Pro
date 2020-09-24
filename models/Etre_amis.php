@@ -55,9 +55,7 @@
             $listFriends = [];
             
             if ($friend_stmt->execute()) {
-                
                 $listFriends = $friend_stmt->fetchAll(PDO::FETCH_OBJ);
-                var_dump($listFriends);
             }
             return $listFriends;
         }
