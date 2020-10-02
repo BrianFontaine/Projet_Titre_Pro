@@ -33,10 +33,10 @@
         <a class="nav-link" href="admin_ctrl.php">Acceuil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="users_ctrl.php">Liste Utilisateurs</a>
+        <a class="nav-link" href="users_ctrl.php?page=1">Liste Utilisateurs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Liste des Postes</a>
+        <a class="nav-link" href="listPost_ctrl.php">Liste des Postes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Messagerie</a>
@@ -94,47 +94,53 @@
           </div>
           <p class="card-text">Nombre de Post signaler</p>
           <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar"
+            <div class="progress-bar <?= $class ?>" role="progressbar"
               style="width: <?= Pourcentage( $postCountSignal->Signalement,$postCount->Articles)?>%" aria-valuenow="100"
               aria-valuemin="0" aria-valuemax="100"><?= $postCountSignal->Signalement ?></div>
           </div>
         </div>
       </div>
     </div>
-    <h1 class="bg-dark text-white w-100 text-center mt-2 mb-2">liste des 10 dernier Utilisateur inscrits</h1>
+    <h1 class="bg-dark text-white w-100 text-center mt-2 mb-2">liste des Modérateurs</h1>
     <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
-      <?php foreach ($listUsers as $usersInfos) { ?>
-      <div class="card col-sm-3" style="width: 18rem;">
-        <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id?>" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
-            (<?=$usersInfos->ranks_name?>)</h5>
-          <p class="card-text">Email : <?= $usersInfos->users_mail ?></p>
-          <p class="card-text">Date de naissance : <?= $usersInfos->users_birthdate ?></p>
-          <p class="card-text">Télephone : <?= $usersInfos->users_phone ?> </p>
-          <p class="card-text">Genre : <?php if($usersInfos->users_gender == 1){ echo'Homme'; }else{ echo 'Femme';}  ?>
-          </p>
-          <p class="card-text">Travail : <?= $usersInfos->users_job ?> </p>
-          <p class="card-text">Ecole / entreprise : <?= $usersInfos->users_school ?> </p>
-          <p class="card-text">Situation Marital : <?= $usersInfos->users_situations ?> </p>
-          <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
-          </p>
-          <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
-          <form action="" class="row justify-content-around" method="get">
-            <select class="form-control col-sm-7" name="upgrade" id="">
-              <option value="">Action</option>
-              <option value="">Admin</option>
-            </select>
-            <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
-          </form>
-          <form action="" method="get">
-            <div class="row justify-content-around mt-3">
-              <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
-              <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
-            </div>
-          </form>
+      <?php if(count($listUsers) > 0) { ?>
+        <?php foreach ($listUsers as $usersInfos) { ?>
+        <div class="card col-sm-3" style="width: 18rem;">
+          <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id.'.'.$usersInfos->users_pictures?>" alt="Photo de <?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>">
+          <div class="card-body">
+            <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
+              (<?=$usersInfos->ranks_name?>)</h5>
+            <p class="card-text">Email : <?= $usersInfos->users_mail ?></p>
+            <!-- <p class="card-text">Date de naissance : <?= $usersInfos->users_birthdate ?></p>
+            <p class="card-text">Télephone : <?= $usersInfos->users_phone ?> </p>
+            <p class="card-text">Genre : <?php if($usersInfos->users_gender == 1){ echo'Homme'; }else{ echo 'Femme';}  ?>
+            </p>
+            <p class="card-text">Travail : <?= $usersInfos->users_job ?> </p>
+            <p class="card-text">Ecole / entreprise : <?= $usersInfos->users_school ?> </p>
+            <p class="card-text">Situation Marital : <?= $usersInfos->users_situations ?> </p>
+            <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
+            </p> -->
+            <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
+            <form action="" class="row justify-content-around" method="get">
+              <select class="form-control col-sm-7" name="upgrade" id="">
+                <option value="">Action</option>
+                  <?php foreach ($listRank as $roles) { ?>
+                    <option value="<?= $roles->ranks_id; ?>"><?= $roles->ranks_name; ?></option>
+                  <?php }?>
+              </select>
+              <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
+            </form>
+            <form action="" method="get">
+              <div class="row justify-content-around mt-3">
+                <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
+                <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+        <?php } ?>
+      <?php }else {?>
+        <div class="alert alert-warning col-sm-12 text-center">Aucun Moderateur n'est inscrit sur se site</div>
       <?php } ?>
     </div>
   </div>
@@ -174,13 +180,18 @@
         <h5 class="text-uppercase">Mon Compte</h5>
         <ul class="list-unstyled text-white">
           <li>
-            <p>Fontaine Brian / SpaceBrico</p>
+            <p><?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?> / SpaceBrico</p>
           </li>
           <li>
-            <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png" alt="">
+            <a href="<?=$photo?>">
+              <img class="col-sm-5 m-auto" src="<?=$photo?>" alt="photo de <?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?>">
+            </a>
           </li>
           <li>
-            <a class="text-white text-center" href="">Deconnexion</a>
+            <a class="text-white text-center" href="../connection/?logout=true">Deconnexion</a>
+          </li>
+          <li>
+            <a class="text-white text-center" href="../modifier_mes_informations/?id=<?=$_SESSION['user']['users_id']?>">Modifier mon Profil</a>
           </li>
         </ul>
       </div>

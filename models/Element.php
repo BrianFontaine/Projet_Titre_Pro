@@ -46,4 +46,10 @@
             }
             return $listElements;
         }
+        public function deleteElementsPost(){
+            $sql='DELETE FROM `elements` WHERE `post_id` = :post_id;';
+            $elementStatment = $this->db->prepare($sql);
+            $elementStatment->bindValue(':post_id',$this->post_id,PDO::PARAM_INT);
+            return $elementStatment->execute();
+        }
     }

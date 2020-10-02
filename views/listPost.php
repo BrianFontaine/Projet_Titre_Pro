@@ -48,64 +48,42 @@
 
 </div>
 <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
-    <?php foreach ($listUsers as $usersInfos) { ?>
-    <div class="card col-sm-3 mt-4 " style="width: 18rem;">
-        <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id.'.'.$usersInfos->users_pictures?>" alt="Photo de <?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>">
+    <?php foreach ($listPost as $postInfos) { ?>
+    <div class="card col-sm-12 mt-4" style="width: 100%;">
+        <?php if($postInfos->users_pictures != null){ $photo = '../uploads/pict-'.$postInfos->users_id.'.'.$postInfos->users_pictures; }else{ $photo = '../asset/img/user-boy_default.png'; } ?>
+        <img class="card-img-top col-sm-1 rounded-circle" src="<?= $photo ?>" alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
         <div class="card-body">
-            <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
-                (<?=$usersInfos->ranks_name?>)</h5>
-            <p class="card-text">Email : <?= $usersInfos->users_mail ?></p>
-            <p class="card-text">Date de naissance : <?= $usersInfos->users_birthdate ?></p>
-            <p class="card-text">Télephone : <?= $usersInfos->users_phone ?> </p>
-            <p class="card-text">Genre :
-                <?php if($usersInfos->users_gender == 1){ echo'Homme'; }else{ echo 'Femme';}  ?>
+            <h5 class="card-title h3"><?= $postInfos->users_lastname.' '.$postInfos->users_firstname?></h5>
+            <p class="card-text h4">Titre du post : <?= $postInfos->post_title ?></p>
+            <p class="card-text">Element du post : 
+                <?php foreach ($listElements as $element) { ?>
+                    <?php if($element->post_id == $postInfos->post_id){ ?>
+                        </br> - <?= $element->element_quantity.' '.$element->element_name;if($element->element_available == 1){echo' Disponible';}else{echo' Non Disponible';}?>
+                    <?php } ?>
+                <?php } ?>
             </p>
-            <p class="card-text">Travail : <?= $usersInfos->users_job ?> </p>
-            <p class="card-text">Ecole / entreprise : <?= $usersInfos->users_school ?> </p>
-            <p class="card-text">Situation Marital : <?= $usersInfos->users_situations ?> </p>
-            <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
+            <p class="card-text">Contenue du post :</br> <?= $postInfos->post_content ?></p>
+            <p class="card-text">Note général : <?= $postInfos->note_generale ?> (<?=$postInfos->noteTotal; ?> Notes Total)</p>
+            <p class="card-text">Date du post :          
+            <?php
+                $date = date_create();
+                date_timestamp_set($date, $postInfos->post_date);
+                echo date_format($date, 'd/m/Y H:i:s') . "\n";
+            ?>
             </p>
-            <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
-            <form action="" class="row justify-content-around" method="get">
-                <select class="form-control col-sm-7" name="upgrade" id="">
-                    <option value="">Action</option>
-                    <?php foreach ($listRank as $roles) { ?>
-                        <option value="<?= $roles->ranks_id; ?>"><?= $roles->ranks_name; ?></option>
-                    <?php }?>
-                </select>
-                <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
-            </form>
-            <form action="" method="get">
-                <div class="row justify-content-around mt-3">
-                    <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
-                    <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
-                </div>
-            </form>
+            <?php if($postInfos->post_signal == 1){ ?>
+                <div class="text-center h5 alert alert-warning">Cet article été signalé </div>
+            <?php } ?>
+            <div class="row justify-content-around mt-3">
+                <a href="delete_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-warning col-sm-5" >Supprimer ce post</a>
+                <a href="read_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-info col-sm-5">Voir les detail du post</a>
+            </div>
         </div>
     </div>
     <?php } ?>
 </div>
 </div>
 </div>
-<nav aria-label="Page navigation example" class="row justify-content-center mt-4">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-            </a>
-        </li>
-        <?php for ($i=0; $i < $pageNumber ; $i++) { ?>
-        <li class="page-item"><a class="page-link" href="users_ctrl.php?page=<?= $i+1?>"><?= $i+1?></a></li>
-        <?php } ?>
-        <li class="page-item">
-            <a class="page-link" href="users_ctrl.php?page=<?= $pageNumber+1?> aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
-        </li>
-    </ul>
-</nav>
 <footer class="page-footer font-small bg-dark pt-4 mt-2 text-white">
     <div class="container-fluid text-center text-md-left">
         <div class="row">

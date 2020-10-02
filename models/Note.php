@@ -30,12 +30,18 @@
         }
         public function readAll()
 		{
-            $sql = "SELECT `city_id`, `city_name` FROM `cities` WHERE 1 ORDER BY `cities`.`city_name` ASC";
-            $postStatement = $this->db->query($sql);
-            $listCity = [];
-            if ($postStatement instanceof PDOstatement ) {
-                $listCity = $postStatement->fetchAll(PDO::FETCH_OBJ);
+            $sql = "SELECT COUNT(`note_id`) noteTotal FROM `notes`  WHERE `post_id` = 4 GROUP BY `post_id`;";
+            $noteStatment = $this->db->query($sql);
+            $listNote = [];
+            if ($noteStatment instanceof PDOstatement ) {
+                $listNote = $noteStatment->fetchAll(PDO::FETCH_OBJ);
             }
-            return $listCity;
+            return $listNote;
+        }
+        public function deleteNoteFromPost(){
+            $sql='DELETE FROM `notes` WHERE `post_id` = :post_id;';
+            $postStatment = $this->db->prepare($sql);
+            $postStatment->bindValue(':post_id',$this->post_id,PDO::PARAM_INT);
+            return $postStatment->execute();
         }
     }

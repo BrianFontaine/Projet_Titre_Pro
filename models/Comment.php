@@ -46,11 +46,28 @@
 		{
             $sql ='SELECT comments.*, users.`users_id`,users.users_firstname,users.users_lastname,users.users_pictures FROM `comments` JOIN `users` ON comments.users_id = users.users_id';
             $postStatement = $this->db->query($sql);
-            // $postStatement->bindValue(':id',$this->post_id,PDO::PARAM_INT);
             $listComment = [];
             if ($postStatement instanceof PDOstatement  ) {
                 $listComment = $postStatement->fetchAll(PDO::FETCH_OBJ);
             }
             return $listComment;
-		}
+        }
+        public function readAllFromPost()
+		{
+            $sql ='SELECT `comment_id`, `comment_content`, `comment_date`, `comments_signal`, `post_id`,users.users_id,users.users_firstname, users.users_lastname,users.users_pictures 
+            FROM `comments`
+            JOIN users on comments.users_id = users.users_id';
+            $commentStatment = $this->db->query($sql);
+            $listComment = null;
+            if ($commentStatment instanceof PDOstatement) {
+                $listComment = $commentStatment->fetchAll(PDO::FETCH_OBJ);
+            }
+            return $listComment;
+        }
+        public function deleteCommentFromPost(){
+            $sql='DELETE FROM `comments` WHERE `post_id` = :post_id;';
+            $commentStatment = $this->db->prepare($sql);
+            $commentStatment->bindValue(':post_id',$this->post_id,PDO::PARAM_INT);
+            return $commentStatment->execute();
+        }
     }

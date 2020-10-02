@@ -165,7 +165,7 @@
             $sql ='SELECT users_id ,`users_firstname`, `users_lastname`, `users_mail`, `users_birthdate`, `users_gender`, `users_pictures`, `users_phone`, `users_job`, `users_school`, `users_situations`, `users_actif`, cities.`city_name`,ranks.ranks_name FROM `users`
             JOIN ranks on users.ranks_id = ranks.ranks_id
             JOIN cities on users.city_id = cities.city_id
-            ORDER BY users_id DESC LIMIT 0,10;';
+            WHERE ranks.ranks_id = 20480';
             $postStatement = $this->db->query($sql);
             $listPost = [];
             if ($postStatement instanceof PDOstatement ) {

@@ -50,10 +50,11 @@
         }
         public function readAll()
 		{
-            $sql ='SELECT AVG(notes.note_value) AS note_generale ,users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
+            $sql ='SELECT COUNT(N.`note_id`) noteTotal,post_signal,AVG(notes.note_value) AS note_generale ,users.`users_id`,users.`users_firstname`, users.`users_lastname`,users.`users_pictures`,posts.post_title,posts.post_content,posts.post_date ,posts.post_id
             FROM users
             INNER JOIN posts ON users.users_id = posts.users_id
             LEFT JOIN notes ON posts.post_id = notes.post_id
+            LEFT JOIN notes N on posts.`post_id` = N.`post_id`
             GROUP BY posts.post_id
             ORDER BY `posts`.`post_id` DESC';
             $postStatement = $this->db->query($sql);
@@ -99,5 +100,26 @@
                 $listPost = $postStatement->fetch(PDO::FETCH_OBJ);
             }
             return $listPost;
+        }
+        public function readSingle()
+		{
+			// :nomDeVariable pour les données en attentes
+			$sql = 'SELECT COUNT(N.`note_id`) noteTotal,post_signal,AVG(N.note_value) AS note_generale,posts.`post_id`, `post_title`, `post_content`, `post_date`, `post_signal`, users.users_id, users.users_pictures,users.users_firstname, users.users_lastname FROM `posts`
+            JOIN users on posts.users_id = users.users_id
+            LEFT JOIN notes N on posts.`post_id` = N.`post_id`
+            WHERE posts.post_id = :id;';
+            $postStatment = $this->db->prepare($sql);
+            $postStatment->bindValue(':id', $this->post_id, PDO::PARAM_INT);
+			$postInfos = null;
+			if ($postStatment->execute()){
+				$postInfos = $postStatment->fetch(PDO::FETCH_OBJ);
+            }
+			return $postInfos;
+        }
+        public function deletePost(){
+            $sql='DELETE FROM `posts` WHERE `post_id` = :post_id;';
+            $postStatment = $this->db->prepare($sql);
+            $postStatment->bindValue(':post_id',$this->post_id,PDO::PARAM_INT);
+            return $postStatment->execute();
         }
     }

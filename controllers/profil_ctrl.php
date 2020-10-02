@@ -6,6 +6,10 @@
     require_once dirname(__FILE__).'/../models/Element.php';
     require_once dirname(__FILE__).'/../models/Etre_amis.php';
     session_start();
+    if($_SESSION['user'][ranks] == 10290){
+        header('location:../controllers/admin_ctrl.php');
+    }
+    var_dump($_SESSION);
     $isSubmited = false;
     $errors = [];
     $isSubmitted = false;
