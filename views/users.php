@@ -50,7 +50,8 @@
 <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
     <?php foreach ($listUsers as $usersInfos) { ?>
     <div class="card col-sm-3 mt-4 " style="width: 18rem;">
-        <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id.'.'.$usersInfos->users_pictures?>" alt="Photo de <?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>">
+        <img class="card-img-top" src="../uploads/pict-<?=$usersInfos->users_id.'.'.$usersInfos->users_pictures?>"
+            alt="Photo de <?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>">
         <div class="card-body">
             <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
                 (<?=$usersInfos->ranks_name?>)</h5>
@@ -66,21 +67,23 @@
             <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
             </p>
             <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
+            <?php if($sesionAdmin){ ?>
             <form action="" class="row justify-content-around" method="get">
-                <select class="form-control col-sm-7" name="upgrade" id="">
-                    <option value="">Action</option>
-                    <?php foreach ($listRank as $roles) { ?>
-                        <option value="<?= $roles->ranks_id; ?>"><?= $roles->ranks_name; ?></option>
-                    <?php }?>
-                </select>
-                <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
+              <select class="form-control col-sm-7" name="upgrade" id="">
+                <option value="">Action</option>
+                  <?php foreach ($listRank as $roles) { ?>
+                    <option value="<?= $roles->ranks_id; ?>"><?= $roles->ranks_name; ?></option>
+                  <?php }?>
+              </select>
+              <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
             </form>
-            <form action="" method="get">
-                <div class="row justify-content-around mt-3">
-                    <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
-                    <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
-                </div>
-            </form>
+            <?php } ?>
+            <div class="row justify-content-around mt-3">
+              <?php if($sesionAdmin){ ?>
+                <a href="" type="submit" name="action" class="btn btn-danger col-sm-7">Supprimer</a>
+              <?php } ?>
+              <a href="" type="submit" name="action" class="btn btn-danger <?php if($sesionAdmin){ echo 'col-sm-3'; }else{echo'col-sm-11';} ?>">Bannir</a>
+            </div>
         </div>
     </div>
     <?php } ?>
@@ -99,7 +102,7 @@
         <li class="page-item"><a class="page-link" href="users_ctrl.php?page=<?= $i+1?>"><?= $i+1?></a></li>
         <?php } ?>
         <li class="page-item">
-            <a class="page-link" href="users_ctrl.php?page=<?= $pageNumber+1?> aria-label="Next">
+            <a class="page-link" href="users_ctrl.php?page=<?= $pageNumber+1?> aria-label=" Next">
                 <span aria-hidden="true">&raquo;</span>
                 <span class="sr-only">Next</span>
             </a>
@@ -142,14 +145,22 @@
                 <h5 class="text-uppercase">Mon Compte</h5>
                 <ul class="list-unstyled text-white">
                     <li>
-                        <p>Fontaine Brian / SpaceBrico</p>
+                        <p><?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?> / SpaceBrico
+                        </p>
                     </li>
                     <li>
-                        <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png"
-                            alt="">
+                        <a href="<?=$photo?>">
+                            <img class="col-sm-5 m-auto" src="<?=$photo?>"
+                                alt="photo de <?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?>">
+                        </a>
                     </li>
                     <li>
-                        <a class="text-white text-center" href="">Deconnexion</a>
+                        <a class="text-white text-center" href="../connection/?logout=true">Deconnexion</a>
+                    </li>
+                    <li>
+                        <a class="text-white text-center"
+                            href="../modifier_mes_informations/?id=<?=$_SESSION['user']['users_id']?>">Modifier mon
+                            Profil</a>
                     </li>
                 </ul>
             </div>

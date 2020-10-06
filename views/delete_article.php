@@ -47,11 +47,11 @@
 <div class="container-fluid mt-2">
     <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
         <div class="card col-sm-12 mt-4" style="width: 100%;">
-        <?php if(isset($deleteSucces)) { ?>
+            <?php if(isset($deleteSucces)) { ?>
             <div class="alert alert-success text-center mt-3">Cet article a bien été supprimer </div>
-        <?php } else{ ?> 
+            <?php } else{ ?>
             <div class="alert alert-danger text-center mt-3">Voulez-vous vraiment supprimer cet article ?</div>
-        <?php } ?>
+            <?php } ?>
             <div class="card-body row">
                 <img class="card-img-top col-sm-1 rounded-circle" src="<?=$photo?>"
                     alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
@@ -111,14 +111,22 @@
                 <h5 class="text-uppercase">Mon Compte</h5>
                 <ul class="list-unstyled text-white">
                     <li>
-                        <p>Fontaine Brian / SpaceBrico</p>
+                        <p><?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?> / SpaceBrico
+                        </p>
                     </li>
                     <li>
-                        <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png"
-                            alt="">
+                        <a href="<?=$photo?>">
+                            <img class="col-sm-5 m-auto" src="<?=$photo?>"
+                                alt="photo de <?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?>">
+                        </a>
                     </li>
                     <li>
-                        <a class="text-white text-center" href="">Deconnexion</a>
+                        <a class="text-white text-center" href="../connection/?logout=true">Deconnexion</a>
+                    </li>
+                    <li>
+                        <a class="text-white text-center"
+                            href="../modifier_mes_informations/?id=<?=$_SESSION['user']['users_id']?>">Modifier mon
+                            Profil</a>
                     </li>
                 </ul>
             </div>

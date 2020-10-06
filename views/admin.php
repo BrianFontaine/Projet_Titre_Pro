@@ -111,16 +111,8 @@
             <h5 class="card-title"><?= $usersInfos->users_lastname.' '.$usersInfos->users_firstname?>
               (<?=$usersInfos->ranks_name?>)</h5>
             <p class="card-text">Email : <?= $usersInfos->users_mail ?></p>
-            <!-- <p class="card-text">Date de naissance : <?= $usersInfos->users_birthdate ?></p>
-            <p class="card-text">Télephone : <?= $usersInfos->users_phone ?> </p>
-            <p class="card-text">Genre : <?php if($usersInfos->users_gender == 1){ echo'Homme'; }else{ echo 'Femme';}  ?>
-            </p>
-            <p class="card-text">Travail : <?= $usersInfos->users_job ?> </p>
-            <p class="card-text">Ecole / entreprise : <?= $usersInfos->users_school ?> </p>
-            <p class="card-text">Situation Marital : <?= $usersInfos->users_situations ?> </p>
-            <p class="card-text">Compte Actif : <?php if($usersInfos->users_actif == 1){echo 'Oui';}else{echo'Non';} ?>
-            </p> -->
             <p class="card-text">Ville : <?= $usersInfos->city_name ?> </p>
+            <?php if($sesionAdmin){ ?>
             <form action="" class="row justify-content-around" method="get">
               <select class="form-control col-sm-7" name="upgrade" id="">
                 <option value="">Action</option>
@@ -130,17 +122,18 @@
               </select>
               <input class="btn btn-success col-sm-3" type="submit" value="Upgrade">
             </form>
-            <form action="" method="get">
-              <div class="row justify-content-around mt-3">
-                <input type="submit" name="action" class="btn btn-danger col-sm-7" Value="Supprimer">
-                <input type="submit" name="action" class="btn btn-danger col-sm-3" value="Bannir">
-              </div>
-            </form>
+            <?php } ?>
+            <div class="row justify-content-around mt-3">
+              <?php if($sesionAdmin){ ?>
+                <a href="" type="submit" name="action" class="btn btn-danger col-sm-7">Supprimer</a>
+              <?php } ?>
+              <a href="" type="submit" name="action" class="btn btn-danger <?php if($sesionAdmin){ echo 'col-sm-3'; }else{echo'col-sm-11';} ?>">Bannir</a>
+            </div>
           </div>
         </div>
         <?php } ?>
       <?php }else {?>
-        <div class="alert alert-warning col-sm-12 text-center">Aucun Moderateur n'est inscrit sur se site</div>
+        <div class="alert alert-warning col-sm-12 text-center">Aucun Moderateur n'est inscrit sur ce site</div>
       <?php } ?>
     </div>
   </div>

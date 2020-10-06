@@ -51,32 +51,37 @@
     <?php foreach ($listPost as $postInfos) { ?>
     <div class="card col-sm-12 mt-4" style="width: 100%;">
         <?php if($postInfos->users_pictures != null){ $photo = '../uploads/pict-'.$postInfos->users_id.'.'.$postInfos->users_pictures; }else{ $photo = '../asset/img/user-boy_default.png'; } ?>
-        <img class="card-img-top col-sm-1 rounded-circle" src="<?= $photo ?>" alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
+        <img class="card-img-top col-sm-1 rounded-circle" src="<?= $photo ?>"
+            alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
         <div class="card-body">
             <h5 class="card-title h3"><?= $postInfos->users_lastname.' '.$postInfos->users_firstname?></h5>
             <p class="card-text h4">Titre du post : <?= $postInfos->post_title ?></p>
-            <p class="card-text">Element du post : 
+            <p class="card-text">Element du post :
                 <?php foreach ($listElements as $element) { ?>
-                    <?php if($element->post_id == $postInfos->post_id){ ?>
-                        </br> - <?= $element->element_quantity.' '.$element->element_name;if($element->element_available == 1){echo' Disponible';}else{echo' Non Disponible';}?>
-                    <?php } ?>
+                <?php if($element->post_id == $postInfos->post_id){ ?>
+                </br> -
+                <?= $element->element_quantity.' '.$element->element_name;if($element->element_available == 1){echo' Disponible';}else{echo' Non Disponible';}?>
+                <?php } ?>
                 <?php } ?>
             </p>
             <p class="card-text">Contenue du post :</br> <?= $postInfos->post_content ?></p>
-            <p class="card-text">Note général : <?= $postInfos->note_generale ?> (<?=$postInfos->noteTotal; ?> Notes Total)</p>
-            <p class="card-text">Date du post :          
-            <?php
+            <p class="card-text">Note général : <?= $postInfos->note_generale ?> (<?=$postInfos->noteTotal; ?> Notes
+                Total)</p>
+            <p class="card-text">Date du post :
+                <?php
                 $date = date_create();
                 date_timestamp_set($date, $postInfos->post_date);
                 echo date_format($date, 'd/m/Y H:i:s') . "\n";
             ?>
             </p>
             <?php if($postInfos->post_signal == 1){ ?>
-                <div class="text-center h5 alert alert-warning">Cet article été signalé </div>
+            <div class="text-center h5 alert alert-warning">Cet article été signalé </div>
             <?php } ?>
             <div class="row justify-content-around mt-3">
-                <a href="delete_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-warning col-sm-5" >Supprimer ce post</a>
-                <a href="read_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-info col-sm-5">Voir les detail du post</a>
+                <a href="delete_article_ctrl.php?id=<?= $postInfos->post_id?>"
+                    class="btn btn-warning col-sm-5">Supprimer ce post</a>
+                <a href="read_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-info col-sm-5">Voir les
+                    detail du post</a>
             </div>
         </div>
     </div>
@@ -120,14 +125,22 @@
                 <h5 class="text-uppercase">Mon Compte</h5>
                 <ul class="list-unstyled text-white">
                     <li>
-                        <p>Fontaine Brian / SpaceBrico</p>
+                        <p><?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?> / SpaceBrico
+                        </p>
                     </li>
                     <li>
-                        <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png"
-                            alt="">
+                        <a href="<?=$photo?>">
+                            <img class="col-sm-5 m-auto" src="<?=$photo?>"
+                                alt="photo de <?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?>">
+                        </a>
                     </li>
                     <li>
-                        <a class="text-white text-center" href="">Deconnexion</a>
+                        <a class="text-white text-center" href="../connection/?logout=true">Deconnexion</a>
+                    </li>
+                    <li>
+                        <a class="text-white text-center"
+                            href="../modifier_mes_informations/?id=<?=$_SESSION['user']['users_id']?>">Modifier mon
+                            Profil</a>
                     </li>
                 </ul>
             </div>

@@ -25,5 +25,13 @@ $commentList = $comments->readAllFromPost();
 $elementInfos = new Element();
 $listElements = $elementInfos->readAll();
 // =============================================================
+// ============ recupere la photo en bdd =======================
+$users = new users($_SESSION['user']['users_id']);
+$usersInfosConnect = $users->readSingle();
+if($usersInfosConnect->users_pictures != null){
+    $photo = '../uploads/pict-'.$usersInfosConnect->users_id.'.'.$usersInfosConnect->users_pictures;
+}else{
+    $photo = '../asset/img/user-boy_default.png';
+}
 require_once dirname(__FILE__).'/../views/read_artcle.php';
 ?>

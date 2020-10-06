@@ -8,6 +8,7 @@ $title = 'Panneau Administrateur';
 // declaration de sesion utilisateur lambda ===================
 // Et si se nest pas un admin alors il redirige ===============
 $sesionUsers = $_SESSION['user']['ranks'] == 34560;
+$sesionAdmin = $_SESSION['user']['ranks'] == 10290;
 if($sesionUsers){
 	header("location:../profile/?id=".$_SESSION['user']['users_id']);
 }

@@ -45,64 +45,68 @@
     </div>
 </nav>
 <div class="container-fluid mt-2">
-    </div>
-    <div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
-        <div class="card col-sm-12 mt-4" style="width: 100%;">
-            <img class="card-img-top col-sm-1 rounded-circle" src="<?=$photo?>" alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
-            <div class="card-body">
-                <h5 class="card-title h3"><?= $postInfos->users_lastname.' '.$postInfos->users_firstname?></h5>
-                <p class="card-text h4">Titre du post : <?= $postInfos->post_title ?></p>
-                <p class="card-text">Element du post : 
-                    <?php foreach ($listElements as $element) { ?>
-                        <?php if($element->post_id == $postInfos->post_id){ ?>
-                            </br> - <?= $element->element_quantity.' '.$element->element_name;if($element->element_available == 1){echo' Disponible';}else{echo' Non Disponible';}?>
-                        <?php } ?>
-                    <?php } ?>
-                </p>
-                <p class="card-text">Contenue du post :</br> <?= $postInfos->post_content ?></p>
-                <p class="card-text">Note général : <?= $postInfos->note_generale ?> (<?=$postInfos->noteTotal; ?> Notes Total)</p>
-                <p class="card-text">Date du post :          
+</div>
+<div class="row mt-2 rounded col-sm-12 container-fluid m-auto">
+    <div class="card col-sm-12 mt-4" style="width: 100%;">
+        <img class="card-img-top col-sm-1 rounded-circle" src="<?=$photo?>"
+            alt="Photo de <?= $postInfos->users_lastname.' '.$postInfos->users_firstname?>">
+        <div class="card-body">
+            <h5 class="card-title h3"><?= $postInfos->users_lastname.' '.$postInfos->users_firstname?></h5>
+            <p class="card-text h4">Titre du post : <?= $postInfos->post_title ?></p>
+            <p class="card-text">Element du post :
+                <?php foreach ($listElements as $element) { ?>
+                <?php if($element->post_id == $postInfos->post_id){ ?>
+                </br> -
+                <?= $element->element_quantity.' '.$element->element_name;if($element->element_available == 1){echo' Disponible';}else{echo' Non Disponible';}?>
+                <?php } ?>
+                <?php } ?>
+            </p>
+            <p class="card-text">Contenue du post :</br> <?= $postInfos->post_content ?></p>
+            <p class="card-text">Note général : <?= $postInfos->note_generale ?> (<?=$postInfos->noteTotal; ?> Notes
+                Total)</p>
+            <p class="card-text">Date du post :
                 <?php
                     $date = date_create();
                     date_timestamp_set($date, $postInfos->post_date);
                     echo date_format($date, 'd/m/Y H:i:s') . "\n";
                 ?>
-                </p>
-                <p class="card-text">Numero du post : <?= $postInfos->post_id ?></p>
-                <?php if($postInfos->post_signal == 1){ ?>
-                    <div class="text-center h5 alert alert-warning">Cet article été signalé </div>
-                <?php } ?>
-                <div class="row justify-content-around mt-3">
-                    <a href="delete_article_ctrl.php?id=<?= $postInfos->post_id?>" class="btn btn-warning col-sm-5" >Supprimer ce post</a>
-                </div>
+            </p>
+            <p class="card-text">Numero du post : <?= $postInfos->post_id ?></p>
+            <?php if($postInfos->post_signal == 1){ ?>
+            <div class="text-center h5 alert alert-warning">Cet article été signalé </div>
+            <?php } ?>
+            <div class="row justify-content-around mt-3">
+                <a href="delete_article_ctrl.php?id=<?= $postInfos->post_id?>"
+                    class="btn btn-warning col-sm-5">Supprimer ce post</a>
             </div>
         </div>
     </div>
-    </div>
-    <div class="col-sm-12 bg-dark mt-3 p-2">
-            <h2 class="col-sm-12 text-center text-white">Listes des commentaires</h2>
-    </div>
-    <?php foreach ($commentList as $commentInfos) { ?>
-        <?php if($commentInfos->post_id == $_GET['id']) {?>
-            <?php if($postInfos->users_pictures != null){ $photo = '../uploads/pict-'.$postInfos->users_id.'.'.$postInfos->users_pictures; }else{ $photo = '../asset/img/user-boy_default.png'; } ?>
-            <div class="col-sm-12 mt-3">
-                <div class="card">
-                    <div class="row">
-                        <img src="<?= $photo ?>" class="img-fluid col-sm-1 rounded-circle ml-3" alt="">
-                        <h2 class="my-auto"><?= $commentInfos->users_firstname.' '.$commentInfos->users_lastname; ?></h2>
-                        <h6 class="my-auto ml-4"> Publiée le :            
-                            <?php
+</div>
+</div>
+<div class="col-sm-12 bg-dark mt-3 p-2">
+    <h2 class="col-sm-12 text-center text-white">Listes des commentaires</h2>
+</div>
+<?php foreach ($commentList as $commentInfos) { ?>
+<?php if($commentInfos->post_id == $_GET['id']) {?>
+<?php if($postInfos->users_pictures != null){ $photo = '../uploads/pict-'.$postInfos->users_id.'.'.$postInfos->users_pictures; }else{ $photo = '../asset/img/user-boy_default.png'; } ?>
+<div class="col-sm-12 mt-3">
+    <div class="card">
+        <div class="row">
+            <img src="<?= $photo ?>" class="img-fluid col-sm-1 rounded-circle ml-3" alt="">
+            <h2 class="my-auto"><?= $commentInfos->users_firstname.' '.$commentInfos->users_lastname; ?></h2>
+            <h6 class="my-auto ml-4"> Publiée le :
+                <?php
                                 $date = date_create();
                                 date_timestamp_set($date, $commentInfos->comment_date);
                                 echo date_format($date, 'd/m/Y H:i:s') . "\n";
                             ?>
-                        </h6>
-                    </div>
-                    <p class="ml-4"><?= $commentInfos->comment_content; ?></p>
-                </div>
-            </div>
-        <?php } ?>
-    <?php }?>
+            </h6>
+        </div>
+        <p class="ml-4"><?= $commentInfos->comment_content; ?></p>
+    </div>
+</div>
+<?php } ?>
+<?php }?>
 </div>
 <footer class="page-footer font-small bg-dark pt-4 mt-2 text-white">
     <div class="container-fluid text-center text-md-left">
@@ -140,14 +144,22 @@
                 <h5 class="text-uppercase">Mon Compte</h5>
                 <ul class="list-unstyled text-white">
                     <li>
-                        <p>Fontaine Brian / SpaceBrico</p>
+                        <p><?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?> / SpaceBrico
+                        </p>
                     </li>
                     <li>
-                        <img class="col-sm-5" src="https://chaire-eti.org/wp-content/uploads/2018/01/avatar-homme.png"
-                            alt="">
+                        <a href="<?=$photo?>">
+                            <img class="col-sm-5 m-auto" src="<?=$photo?>"
+                                alt="photo de <?=$usersInfosConnect->users_firstname.' '.$usersInfosConnect->users_lastname?>">
+                        </a>
                     </li>
                     <li>
-                        <a class="text-white text-center" href="">Deconnexion</a>
+                        <a class="text-white text-center" href="../connection/?logout=true">Deconnexion</a>
+                    </li>
+                    <li>
+                        <a class="text-white text-center"
+                            href="../modifier_mes_informations/?id=<?=$_SESSION['user']['users_id']?>">Modifier mon
+                            Profil</a>
                     </li>
                 </ul>
             </div>

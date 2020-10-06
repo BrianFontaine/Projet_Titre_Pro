@@ -17,6 +17,14 @@ if($postInfos->users_pictures != null){
 }else{
     $photo = '../asset/img/user-boy_default.png';
 }
+// ============ recupere la photo en bdd =======================
+$users = new users($_SESSION['user']['users_id']);
+$usersInfosConnect = $users->readSingle();
+if($usersInfosConnect->users_pictures != null){
+    $photo = '../uploads/pict-'.$usersInfosConnect->users_id.'.'.$usersInfosConnect->users_pictures;
+}else{
+    $photo = '../asset/img/user-boy_default.png';
+}
 // ============ recupere le token en bdd =======================
 $users = new users($_SESSION['user']['users_id']);
 $usersInfos = $users->readSingle();

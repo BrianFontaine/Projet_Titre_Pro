@@ -50,15 +50,15 @@
             <div class="row ml-1">
                 <!-- <textarea class="form-group col-md-12 rounded disabled_element" name="requied_element" id="elements"
                     cols="95" rows="3" placeholder="Elément réstant"></textarea> -->
-                <input type="text" name="element[1][name]" class="form-control col-md-8 rounder disabled_element mb-2" placeholder="Elément réstant">
-                <input type="number" name="element[1][quantity]" class="form-control col-md-2 rounder disabled_element mb-2 mr-2 ml-4" placeholder="Quantité">
-                <input type="button" class="form-control col-md-1 rounder disabled_element mb-2 ml-2" onclick="add_block();" Value="Plus">
+                <input type="text" name="element[1][name]" class="form-control col-md-8 rounder disabled_element mb-2 SB-element-phone" placeholder="Elément réstant">
+                <input type="number" name="element[1][quantity]" class="form-control col-md-2 rounder disabled_element mb-2 mr-2 ml-4 SB-quantity-phone" placeholder="Quantité">
+                <input type="button" class="form-control col-md-1 rounder disabled_element mb-2 ml-2 SB-button-phone" onclick="add_block();" Value="Plus">
             </div>
         </div>
         <input type="text" class="form-control mb-2" name="post_title" placeholder="Ajouter un titre...">
         <div id="form">
         <div class="text-danger"><?= $errors['title'] ?? '' ?></div>
-            <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="5"
+            <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="6"
                 placeholder="Exprimez-vous <?=$lastName;?> !"></textarea>
             <div class="text-danger"><?= $errors['content'] ?? '' ?></div>
         </div>
@@ -168,9 +168,9 @@
                         <div class="alert alert-success">Votre Commentaire è bien été enregistrer </div>
                     <?php } ?>
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {?>
-                    <textarea cols="30" rows="1" class="form-control col-md-10 mb-1" placeholder="Commentaire..." style="border-radius: 30px;" name="comment"></textarea>
+                    <textarea cols="30" rows="1" class="form-control col-md-10 mb-1 SB-text-comment-phone" placeholder="Commentaire..." style="border-radius: 30px;" name="comment"></textarea>
                     <div class="form-group col-md-12 text-right ">
-                        <button class="btn btn-light mr-1" type="submit"
+                        <button class="btn btn-light mr-1 SB-button-comment-phone" type="submit"
                             style="font-size: 1em; position: absolute; bottom: 6px; left: 85%;" name="add_comment"
                             value="valider">Commenter</button>
                         <input type="hidden" name="post_id" value="<?=$post->post_id?>">
