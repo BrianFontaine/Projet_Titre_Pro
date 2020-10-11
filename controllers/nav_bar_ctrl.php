@@ -5,7 +5,7 @@
         $id = (int) $_SESSION['user']['users_id'];
         $usersInfos = new Users($id);
         $usersViews = $usersInfos->readSingle();
-        $photoNav = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
+        $photoNav = PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
     }
 
 require_once dirname(__FILE__).'/../views/navbar.php';

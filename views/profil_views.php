@@ -192,11 +192,8 @@
                 <?php } ?>
                 </div>
             </div>
-            <div class="text-dark friends">
+            <div class="text-dark friends mb-5">
                 <h3 class=" text-center text-uppercase title-infos">Photo</h3>
-            </div>
-            <div class="text-dark friends">
-                <h3 class=" text-center text-uppercase title-infos">Centre d'interé</h3>
             </div>
         </div>
     </div>

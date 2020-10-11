@@ -53,7 +53,7 @@ if ($_GET['id'] != $_SESSION['user']['users_id']) {
     $situation = $infosUsers->users_situations;
     $lastPasword = '';
     $cities = $infosUsers->city_id;
-    $photo = $filename = PICT_FOLDER.'pict-'.$infosUsers->users_id.'.'.$infosUsers->users_pictures;
+    $photo = $filename = PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.'pict-'.$infosUsers->users_id.'.'.$infosUsers->users_pictures;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $isSubmitted = true;
@@ -152,14 +152,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if(count($errors) == 0){
                 // Definir le nom de la photo (pict-1.jpg, pict-4.png)
                 $pictureRenamed = "pict-".$id.".".$extension;
-                $pictureDest = dirname(__FILE__)."/..".PICT_FOLDER.$pictureRenamed;
+                $pictureDest = dirname(__FILE__)."/..".PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.$pictureRenamed;
                 
                 $tmp_name = $_FILES["picture"]["tmp_name"];
                 
                 // Enregistrement de la photo
                 if(move_uploaded_file($tmp_name, $pictureDest)){
                     // Redimensionnement et compression
-                    if(redim($pictureDest)){
+                    if(redim($pictureDest,500,600)){
                         $users->users_id = $id;
                         $users->users_pictures = $extension;
                         // var_dump($users);
@@ -198,7 +198,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $users->city_id = $cities;
         if ($users->updateUser()) {
             $updateUsers = true;
-            echo'ok';
         }
     }
     // var_dump($infosUsers);

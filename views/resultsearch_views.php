@@ -39,7 +39,7 @@
     foreach ($listPost as $post) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
-        <?php if ($post->users_pictures != '') { $photo = PICT_FOLDER.'pict-'.$post->users_id.'.'.$post->users_pictures; }else{ $photo ='../asset/img/user-boy_default.png';}?>
+        <?php if ($post->users_pictures != '') { $photo = PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.'pict-'.$post->users_id.'.'.$post->users_pictures; }else{ $photo ='../asset/img/user-boy_default.png';}?>
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
                 src="<?= $photo;?>" alt="">
             <a href="../profile/?id=<?=$post->users_id;?>"

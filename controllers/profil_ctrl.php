@@ -9,7 +9,7 @@
     if($_SESSION['user']['ranks'] == 20480 || $_SESSION['user']['ranks'] == 10290 ){
         header('location:../controllers/admin_ctrl.php');
     }
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     $isSubmited = false;
     $errors = [];
     $isSubmitted = false;
@@ -52,7 +52,7 @@
     $school = $usersViews->users_school;
     $title = 'Profil de'.' '.$firstName.' '.$lastName;
     if ($usersViews->users_pictures != NULL) {
-        $photo = PICT_FOLDER.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
+        $photo = PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.'pict-'.$usersViews->users_id.'.'.$usersViews->users_pictures;
     }else{
         $photo ='../asset/img/user-boy_default.png';
     }

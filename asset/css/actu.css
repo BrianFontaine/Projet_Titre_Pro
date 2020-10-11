@@ -12,7 +12,17 @@
     scrollbar-width: none;
     width: 70%;
     margin-top: 90px;
-    height: 80%;
+    height: 81%;
+    position: fixed;
+    overflow-y: scroll;
+    margin-left: 10%;
+    padding-left: 2%;
+    padding-right: 8%;
+}
+.contenue-actu_no_connect{
+    scrollbar-width: none;
+    margin-top: 90px;
+    height: 81%;
     position: fixed;
     overflow-y: scroll;
     margin-left: 10%;

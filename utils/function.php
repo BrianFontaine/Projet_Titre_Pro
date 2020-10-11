@@ -5,31 +5,29 @@ function getExtension($filename){ // $filename = "monimage.jpg"
     return strtolower($extension);
 }
 
-function redim($pictureDest){
+function redim($pictureDest,$wight,$height){
     list($src_w, $src_h) = getimagesize($pictureDest);
-    $dst_image = imagecreatetruecolor(400, 500);
+    $dst_image = imagecreatetruecolor($wight,$height);
     $extension = getExtension($pictureDest);
-    $dest_w = 700;
-    $dest_h = 700;
     switch ($extension) {
         case 'jpg':
             $src_image = imagecreatefromjpeg($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
-            imagejpeg($dst_image, $pictureDest, 70);
+            $result = imagecopyresampled($dst_image, $src_image,0 ,0 ,0, 0 ,$wight ,$height, $src_w, $src_h);
+            imagejpeg($dst_image, $pictureDest,90);
             break;
         case 'jpeg':
             $src_image = imagecreatefromjpeg($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
-            imagejpeg($dst_image, $pictureDest, 70);
+            $result = imagecopyresampled($dst_image, $src_image,0 ,0 ,0, 0 ,$wight ,$height, $src_w, $src_h);
+            imagejpeg($dst_image, $pictureDest,90);
             break;
         case 'png':
             $src_image = imagecreatefrompng($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,-85 ,0 ,250, 100 ,$dest_w ,$dest_h, $src_w, $src_h);
-            imagepng($dst_image, $pictureDest, 8);
+            $result = imagecopyresampled($dst_image, $src_image,0 ,0 ,0, 0 ,$wight ,$height, $src_w, $src_h);
+            imagepng($dst_image, $pictureDest,9);
             break;
         case 'gif':
             $src_image = imagecreatefromgif($pictureDest);
-            $result = imagecopyresampled($dst_image, $src_image,0 ,0 , 0, 0 ,$dest_w ,$dest_h, $src_w, $src_h);
+            $result = imagecopyresampled($dst_image, $src_image,0 ,0 , 0, 0 ,$wight ,$height, $src_w, $src_h);
             imagegif($dst_image, $pictureDest);
             break;
         default:

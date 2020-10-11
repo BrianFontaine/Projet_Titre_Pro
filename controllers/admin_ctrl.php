@@ -20,7 +20,7 @@ $listUsers = $users->readAllLastUsers();
 $users = new users($_SESSION['user']['users_id']);
 $usersInfosConnect = $users->readSingle();
 if($usersInfosConnect->users_pictures != null){
-    $photo = '../uploads/pict-'.$usersInfosConnect->users_id.'.'.$usersInfosConnect->users_pictures;
+    $photo = '../uploads/Profil_pictures/pict-'.$usersInfosConnect->users_id.'.'.$usersInfosConnect->users_pictures;
 }else{
     $photo = '../asset/img/user-boy_default.png';
 }

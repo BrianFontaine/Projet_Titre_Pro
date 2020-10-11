@@ -35,12 +35,12 @@
 <!-- version PC -->
 
 <!-- =================== Bloc de publication =============================================== -->
-<div class="row d-flex justify-content-center contenue-actu">
+<div class="row d-flex justify-content-center  <?php if(isset($_SESSION['user'])){echo 'contenue-actu';}else{echo'contenue-actu_no_connect';}?>">
 <?php 
     // var_dump($_POST['element']);
 ?>
     <?php if (isset($_SESSION['user'])) {?>
-    <form action="../accueil/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input" >
+    <form action="../accueil/" method="POST" class="col-md-10 mt-4 mb-4 rounded users_post_bg form-input" enctype="multipart/form-data">
         <div class="row">
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid" src="<?=$photo;?>"
                 alt="">
@@ -56,9 +56,10 @@
             </div>
         </div>
         <input type="text" class="form-control mb-2" name="post_title" placeholder="Ajouter un titre...">
+        <input type="text" class="form-control mb-2" name="media_link" placeholder="Ajouter un Lien Youtube...">
         <div id="form">
         <div class="text-danger"><?= $errors['title'] ?? '' ?></div>
-            <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="95" rows="6"
+            <textarea class="form-group col-md-12 rounded post" name="post_contents" id="post" cols="110" rows="6"
                 placeholder="Exprimez-vous <?=$lastName;?> !"></textarea>
             <div class="text-danger"><?= $errors['content'] ?? '' ?></div>
         </div>
@@ -70,7 +71,7 @@
         </div>
         <div class="form-group col-md-12 text-right disabled_movie" id="form_btn">
             <button id="vide" class="btn btn-light remove" type="button" style="font-size: 1.2em;"><i class="fas fa-times-circle"></i></button>
-            <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1.2em;"><i class="fas fa-camera-retro"></i><input type="file" name="picture_movies" id="gallery-photo-add" data-preview=".preview" multiple="multiple"></label>
+            <label class="btn btn-light my-2" for="gallery-photo-add" style="font-size: 1.2em;"><i class="fas fa-camera-retro"></i> Attention Limit Maximum 2 MO<input type="file" name="picture[]" id="gallery-photo-add" data-preview=".preview" multiple="multiple"></label>
             <button class="btn btn-light" type="submit" style="font-size: 1.2em;" name="add_post" value="valider">Publier</button>
             <div class="gallery row justify-content-around"></div>
         </div>
@@ -78,11 +79,16 @@
     <?php }?>
     <!-- ================== fin bloc publication ============================== -->
     <!-- liste des posts -->
+    <?php
+    // Exemple 1
+    $link  = "https://www.youtube.com/watch?v=dVvtvnzROuE";
+    $watch = explode("=", $link);
+    ?> 
     <?php if (count($listPost) > 0):
     foreach ($listPost as $post) { ?>
     <div class="col-md-10 mt-4 mb-4 rounded users_post_bg ">
         <div class="row">
-        <?php if ($post->users_pictures != '') { $photo = PICT_FOLDER.'pict-'.$post->users_id.'.'.$post->users_pictures; }else{ $photo ='../asset/img/user-boy_default.png';}?>
+        <?php if ($post->users_pictures != '') { $photo = PICT_FOLDER.PICT_FOLDER_PROFIL_PICTURE.'pict-'.$post->users_id.'.'.$post->users_pictures; }else{ $photo ='../asset/img/user-boy_default.png';}?>
             <img class="mt-3 ml-4 mb-2 rounded-circle img_user_actu img-fluid"
                 src="<?= $photo;?>" alt="">
             <a href="../profile/?id=<?=$post->users_id;?>"
@@ -113,15 +119,15 @@
             <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/banc-final-val.jpg"
+                        <img class="d-block w-100 img_actu" src="../uploads/post/<?= str_replace(" ", "_", $post->post_title .'_0.png');?>"
                             alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/buffet-en-bois-de-palette.jpg"
+                        <img class="d-block w-100 img_actu" src="../uploads/post/<?= str_replace(" ", "_", $post->post_title .'_1.png');?>"
                             alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 img_actu" src="../asset/img/user_id_1/hqdefault.jpg"
+                        <img class="d-block w-100 img_actu" src="../uploads/post/<?= str_replace(" ", "_", $post->post_title .'_2.png');?>"
                             alt="Third slide">
                     </div>
                 </div>
@@ -134,6 +140,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div> -->
+            <iframe width="100%" height="380" src="https://www.youtube.com/embed/<?= $watch[1]; ?>?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- ================ section date du post et ajouter une note ======================================= -->
         <div class="row mt-2" >
@@ -154,7 +161,7 @@
                     <!-- ============== input hidden ======================================================== -->
                     <input type="hidden" name="post_id" value="<?=$post->post_id;?>">
                     <!-- ============== input hidden ======================================================== -->
-                    <!-- <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-ratings"> -->
+                    <input class="btn btn-light ml-3" type="submit" value="Noter" name="add-ratings">
                 </form>
             </div>
         </div>
@@ -180,12 +187,12 @@
                 <div class="border mt-2 mb-2"></div>
                 <!-- ==================== Affichage des commentaires ===================================== -->
                 <details>
-                    <summary>Details</summary>
+                    <summary>Voire les Commentaires</summary>
                     <?php foreach ($listComment as $comment): ?>
                     <?php if ($comment->post_id == $post->post_id): ?>
                     <div class="bg-light p-1 rounded  comment-list mb-2">
                         <div class="row align-items-center">
-                            <img class="ml-3" src="../asset/img/<?=$comment->users_pictures;?>.png" alt="" style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
+                            <img class="ml-3" src="../uploads/Profil_pictures/<?='pict-'.$comment->users_id.'.'.$comment->users_pictures;?>" alt="" style="width: 50px;border-radius: 50%; margin-bottom: 4px;">
                             <a href="../profile/?id=<?=$comment->users_id; ?>" class=" ml-2 text-dark h6"><?=$comment->users_firstname . ' ' . $comment->users_lastname;?></a>
                             <p class=" ml-2 text-dark" style="margin-bottom: 0px; font-size: xx-small; color: #565656; " data-ago="<?=$comment->comment_date?>"></p>
                         </div>
